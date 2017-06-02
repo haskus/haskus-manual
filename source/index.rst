@@ -14,7 +14,6 @@ programming. Fundamentally it is an experiment into providing an integrated
 interface leveraging Haskell features (type-safety, STM, etc.) for the whole
 system: input, display, sound, network, etc.
 
-
 .. toctree::
    :maxdepth: 2
 
@@ -36,12 +35,7 @@ haskus-binary
 haskus-utils
 -------------
 
+Variant/Flow
+
 .. toctree::
    :maxdepth: 2
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`search`
