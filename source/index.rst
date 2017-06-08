@@ -14,6 +14,9 @@ programming. Fundamentally it is an experiment into providing an integrated
 interface leveraging Haskell features (type-safety, STM, etc.) for the whole
 system: input, display, sound, network, etc.
 
+Volume 1: basic architecture and building
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. toctree::
    :maxdepth: 2
    :numbered:
@@ -22,6 +25,14 @@ system: input, display, sound, network, etc.
    system/approach
    system/build_tool
    system/booting
+
+Volume 2: system programming guide
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. toctree::
+   :maxdepth: 2
+   :numbered:
+
    system/using
    system/modules_overview
    system/x86
