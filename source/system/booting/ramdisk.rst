@@ -14,16 +14,3 @@ execute:
 
 You need to have the ``cpio`` and ``gzip`` programs installed. It builds a
 ramdisk file named ``myimage.img`` in the current directory.
-
-
-**Automated method**
-
-The `Build.hs
-<http://github.com/haskus/haskus-system-examples/tree/master/src/Build.hs>`_
-program in the `haskus-system-examples
-<http://github.com/haskus/haskus-system-examples>`_ repository can do this
-automatically. To build the ramdisk for the ``Demo`` example, call:
-
-.. code:: bash
-
-   ./build.sh _build/ramdisks/Demo.img

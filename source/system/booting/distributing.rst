@@ -120,35 +120,3 @@ To create a bootable CD-ROM, you first need to create a ``.iso`` disk image with
 
 It should create a ``mydisk.iso`` file that you can burn on a CD or distribute
 online.
-
-**Automated method**
-
-The `Build.hs
-<http://github.com/haskus/haskus-system-examples/tree/master/src/Build.hs>`_
-program in the `haskus-system-examples
-<http://github.com/haskus/haskus-system-examples>`_ repository can do some of
-the steps above automatically for the examples.
-
-To create the disk directory for a system (e.g., ``Demo``), use :
-
-.. code:: bash
-
-   ./build.sh disk/Demo
-
-It automatically downloads and configures Syslinux and it copies files as
-described above. The resulting disk directory is located at
-``_build/disks/Demo/``.
-
-To create an ISO image, use:
-
-.. code:: bash
-
-   ./build.sh _build/isos/Demo.iso
-
-You can also directly create an ISO image and test it with QEMU:
-
-.. code:: bash
-
-   ./build.sh iso/Demo
-
-This is a good way to test the Syslinux configuration in a virtual environment.

@@ -142,3 +142,5 @@ Note that you can test the ISO image with QEMU before you ship it:
 .. code:: bash
 
    > haskus-system-build test-iso
+
+This allows you to test the boot-loader configuration.

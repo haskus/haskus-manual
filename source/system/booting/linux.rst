@@ -50,11 +50,3 @@ Copy the resulting kernel binary that you can `use with QEMU
 .. code:: bash
 
    cp arch/x86/boot/bzImage linux-4.9.8.bin
-
-**Automated method**
-
-The `Build.hs
-<http://github.com/haskus/haskus-system-examples/tree/master/src/Build.hs>`_
-program in the `haskus-system-examples
-<http://github.com/haskus/haskus-system-examples>`_ repository automatically
-downloads, configures and builds the Linux kernel.
