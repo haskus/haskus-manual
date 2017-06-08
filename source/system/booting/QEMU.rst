@@ -40,20 +40,3 @@ We recommend the following options for ``QEMU``:
 
    # make the guest Linux output more quiet
    -append "quiet"
-
-
-**Automated method**
-
-The `Build.hs
-<http://github.com/haskus/haskus-system-examples/tree/master/src/Build.hs>`_
-program in the `haskus-system-examples
-<http://github.com/haskus/haskus-system-examples>`_ repository can execute
-``QEMU`` automatically for the examples. E.g., for the ``Demo`` example:
-
-.. code:: bash
-
-   # recommended QEMU config
-   ./build.sh qemu2/Demo.img
-
-   # more basic QEMU config
-   ./build.sh qemu/Demo.img

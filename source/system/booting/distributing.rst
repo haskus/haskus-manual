@@ -1,5 +1,5 @@
-Distributing your system
-------------------------
+Distributing systems
+--------------------
 
 To distribute your systems, we will create a directory ``/my/disk`` containing:
 

@@ -16,9 +16,11 @@ system: input, display, sound, network, etc.
 
 .. toctree::
    :maxdepth: 2
+   :numbered:
 
    system/intro
    system/approach
+   system/build_tool
    system/booting
    system/using
    system/modules_overview
