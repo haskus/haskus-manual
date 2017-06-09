@@ -1,6 +1,9 @@
 Reference: ``system.yaml`` syntax
 =================================
 
+This is the reference for ``system.yaml`` files used by ``haskus-system-build``
+tool.
+
 Linux kernel
 ------------
 
