@@ -21,10 +21,12 @@ Volume 1: basic architecture and building
    :maxdepth: 2
    :numbered:
 
-   system/intro
-   system/approach
-   system/build_tool
-   system/booting
+   system/volume1/intro
+   system/volume1/approach
+   system/volume1/build_tool
+   system/volume1/booting
+   system/volume1/reference/system_yaml
+   system/volume1/reference/haskus_system_build
 
 Volume 2: system programming guide
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

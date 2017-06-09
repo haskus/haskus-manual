@@ -2,7 +2,7 @@ Building systems: the automated way (easy)
 ==========================================
 
 Building and testing your own systems based on ``haskus-system`` requires quite
-a fex steps: configuring and building a Linux kernel, etc.
+a few steps: configuring and building a Linux kernel, etc.
 
 Hopefully we have built a tool called ``haskus-system-build`` that performs all
 these steps automatically. Read the next chapter if you want to understand the
