@@ -7,18 +7,6 @@ Modules Overview
 The code base of ``haskus-system`` is becoming quite large. This page gives an
 overview of the different modules.
 
-Binary modules
-~~~~~~~~~~~~~~
-
-``haskus-system`` handles low-level data structures in memory such as C structs,
-unions, enums, bit fields, etc. Deliberately it doesn't depend on C header files
-(.h) and doesn't use preprocessors (cpp2hs, hsc2hs, etc.).
-
-* `Haskus.Format.Binary
-  <http://github.com/haskus/haskus-system/tree/master/src/lib/Haskus/Format/Binary>`_:
-  modules to manipulate binary data and to easily create C bindings (see the
-  `binary documentation </system/manual/binary>`_)
-
 Interface with the Linux kernel
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
