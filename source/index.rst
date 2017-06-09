@@ -35,9 +35,9 @@ Volume 2: system programming guide
    :maxdepth: 2
    :numbered:
 
-   system/using
-   system/modules_overview
-   system/x86
+   system/volume2/using
+   system/volume2/modules_overview
+   system/volume2/x86
 
 haskus-binary
 -------------
@@ -45,7 +45,7 @@ haskus-binary
 .. toctree::
    :maxdepth: 2
 
-   system/binary
+   binary
 
 haskus-utils
 -------------
