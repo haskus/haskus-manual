@@ -31,12 +31,17 @@ Volume 1: basic architecture and building
 Volume 2: system programming guide
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+In this volume, we describe the current state of the high-level interfaces
+provided by the ``haskus-system`` to control and use the computer.
+
 .. toctree::
    :maxdepth: 2
    :numbered:
 
-   system/volume2/using
    system/volume2/modules_overview
+   system/volume2/using/sys_monad
+   system/volume2/using/devices
+   system/volume2/graphics/overview
    system/volume2/x86
 
 haskus-binary

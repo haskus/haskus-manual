@@ -267,7 +267,7 @@ descriptor table is specific to each process: sharing a file descriptor with
 another process does not allow to share the referred kernel object.
 
 In ``haskus-system`` we use the term "handle" instead of "file descriptor" as we
-find it more descriptive.
+find it less misleading.
 
 
 Device special files and /dev

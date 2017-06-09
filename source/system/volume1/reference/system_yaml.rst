@@ -8,13 +8,16 @@ Linux kernel
 ------------
 
 * ``linux.source``: how to retrieve the Linux kernel
+
    * ``tarball`` (default)
    * ``git`` (not yet implemented)
 
 * ``linux.version``: which Linux version to use
+
    * requires ``linux.version=tarball``
 
 * ``linux.options``:
+
    * ``enable``: list of Linux configuration options to enable
    * ``disable``: list of Linux configuration options to disable
    * ``module``: list of Linux configuration options to build as module
@@ -31,6 +34,7 @@ QEMU
 ----
 
 * ``qemu.profile``: option profile to use
+
    * ``default`` (default): enable some recommended options
    * ``vanilla``: only set required options (-kernel, etc.)
 

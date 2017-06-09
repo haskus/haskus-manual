@@ -1,5 +1,8 @@
+Introduction
+============
+
 Modules Overview
-================
+----------------
 
 The code base of ``haskus-system`` is becoming quite large. This page gives an
 overview of the different modules.
