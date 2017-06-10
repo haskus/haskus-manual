@@ -23,8 +23,8 @@ Volume 1: basic architecture and building
 
    system/volume1/intro
    system/volume1/approach
-   system/volume1/build_tool
-   system/volume1/booting
+   system/volume1/automatic_building
+   system/volume1/manual_building
    system/volume1/reference/system_yaml
    system/volume1/reference/haskus_system_build
 

@@ -15,3 +15,16 @@ Commands:
 
    * ``--init`` (optional): specify an init program (override ``ramdisk.init``
      in ``system.yaml``)
+
+* ``make-disk``: create a directory containing the whole system
+
+   * ``--output`` or ``-o`` (mandatory): output directory
+
+* ``make-iso``: create an ISO image of the system
+
+* ``test-iso``: test the ISO image with QEMU
+
+* ``make-device``: install the system on a device
+
+   * ``--device`` or ``-d`` (mandatory): device path (e.g., /dev/sdd). For now,
+     the first partition is used as a boot partition.

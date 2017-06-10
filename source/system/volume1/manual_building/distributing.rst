@@ -3,16 +3,14 @@ Distributing systems
 
 To distribute your systems, we will create a directory ``/my/disk`` containing:
 
-* your `system </system/manual/booting/building>`_ (in a `ramdisk
-  </system/manual/booting/ramdisk>`_)
-* the `Linux kernel </system/manual/booting/linux>`_
+* your system (in a ramdisk)
+* the Linux kernel
 * the boot-loader files (including its configuration)
 
-A boot-loader is needed as it loads `Linux </system/manual/booting/linux>`_ and
-the `ramdisk containing your system </system/manual/booting/ramdisk>`_. We use
-the `Syslinux <http://syslinux.org>`_ boot-loader but you can use others such as
-GRUB. Note that you don't need a boot-loader when you `test your system with
-QEMU </system/manual/booting/QEMU>`_ because QEMU acts as a boot-loader itself.
+A boot-loader is needed as it loads Linux and the ramdisk containing your
+system. We use Syslinux boot-loader but you can use others such as GRUB. Note
+that you don't need a boot-loader when you test your system with QEMU because
+QEMU acts as a boot-loader itself.
 
 To distribute your systems, you can install the boot-loader on a device (e.g.,
 USB stick) and copy the files in the ``/my/disk`` directory on it. Or you can
@@ -20,7 +18,6 @@ also create a ``.iso`` image to burn on a CD-ROM (or to distribute online).
 
 
 **Downloading Syslinux**
-
 
 You first need to download and unpack the Syslinux boot-loader:
 
@@ -47,13 +44,13 @@ Copy Syslinux:
    find syslinux-6.03/bios *.c32 -exec cp {} /my/disk/boot/syslinux ;
    cp syslinux-6.03/bios/core/isolinux.bin /my/disk/boot/syslinux/
 
-Copy the `Linux kernel </system/manual/booting/linux>`_:
+Copy the Linux kernel:
 
 .. code:: bash
 
    cp linux-4.9.8.bin /my/disk/boot/
 
-Copy the `system ramdisk </system/manual/booting/ramdisk>`_:
+Copy the system ramdisk:
 
 .. code:: bash
 
@@ -82,20 +79,25 @@ ramdisk.
 **Creating a bootable device**
 
 To create a bootable device (e.g., bootable USB stick), you have to know its
-device path. Say ``/dev/XXX``.
+device path (e.g., ``/dev/XXX``) and the partition that will contain the boot
+files (e.g., ``/dev/XXX_N``).
 
-You have to install Syslinux on it once:
+You can use ``fdisk`` and ``mkfs.ext3`` to create an appropriate partition.
 
-.. code:: bash
-
-   sudo syslinux-6.03/bios/linux/syslinux -iam -d /boot/syslinux /dev/XXX 
-
-Then you have to copy the contents of the disk directory on it:
+You have to install Syslinux MBR:
 
 .. code:: bash
 
-   sudo mount /dev/XXX /mnt/SOMEWHERE
-   cp -rf /my/disk/* /mnt/SOMEWHERE
+   sudo dd bs=440 if=syslinux-6.03/bios/mbr/mbr.bin of=/dev/XXX
+
+Then you have to copy the contents of the disk directory on the partition and
+configure it to be bootable:
+
+.. code:: bash
+
+   sudo mount /dev/XXX_N /mnt/SOMEWHERE
+   sudo cp -rf /my/disk/* /mnt/SOMEWHERE
+   sudo syslinux-6.03/bios/extlinux/extlinux --install /mnt/SOMEWHERE/boot/syslinux
    sudo umount /mnt/SOMEWHERE
 
 Now your device should be bootable with your system!

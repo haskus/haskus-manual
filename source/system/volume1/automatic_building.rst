@@ -123,7 +123,7 @@ To install your system on the device whose device file is ``/dev/sde``:
 
 .. code:: bash
 
-   > haskus-system-build install --device /dev/sde
+   > haskus-system-build make-device --device /dev/sde
 
 Note that you have to be in the *sudoers* list.
 
@@ -135,7 +135,7 @@ online or burn on CD-ROMs.
 
    > haskus-system-build make-iso
    ...
-   ISO built into .system-work/iso/my-system.iso
+   ISO image: .system-work/iso/my-system.iso
 
 Note that you can test the ISO image with QEMU before you ship it:
 

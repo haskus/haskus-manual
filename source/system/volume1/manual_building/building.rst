@@ -44,8 +44,8 @@ versions of GHC and of ``haskus-system``. Example of ``stack.yaml`` contents:
 
 .. code:: yaml
 
-   resolver: lts-8.0
-   flags: {}
+   resolver: lts-8.15
+
    packages:
    - '.'
    - location:
@@ -55,6 +55,10 @@ versions of GHC and of ``haskus-system``. Example of ``stack.yaml`` contents:
    
    ghc-options:
       "haskus-system": -freduction-depth=0 -fobject-code
+
+   extra-deps:
+   - haskus-binary-0.6.0.0
+   - haskus-utils-0.6.0.0
 
 Finally use ``stack build`` to compile the program.
 
