@@ -29,8 +29,8 @@ Then you need to configure it. We recommend at least the following:
    ./scripts/config -e CONFIG_DRM_NOUVEAU
    ./scripts/config -e CONFIG_DRM_VIRTIO_GPU
 
-   # fixup incoherent configuration (press enter when asked to select options)
-   make oldconfig
+   # fixup configuration (use default values)
+   make olddefconfig
 
 If you know what you are doing, you can configure it further with:
 
@@ -44,8 +44,7 @@ Finally, build the kernel with:
 
    make -j8
 
-Copy the resulting kernel binary that you can `use with QEMU
-</system/manual/booting/QEMU>`_ for instance:
+Copy the resulting kernel binary that you can use with QEMU for instance:
 
 .. code:: bash
 
