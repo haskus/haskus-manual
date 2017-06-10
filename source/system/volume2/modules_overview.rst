@@ -45,7 +45,7 @@ instruction is also provided.
 
 * `Haskus.Arch.X86_64
   <http://github.com/haskus/haskus-system/tree/master/src/lib/Haskus/Arch/X86_64>`_:
-  Currently only X86-64 is supported (`x86 documentation </system/manual/x86>`_)
+  Currently only X86-64 is supported.
 
   * `Haskus.Arch.X86_64.ISA <http://github.com/haskus/haskus-system/tree/master/src/lib/Haskus/Arch/X86_64/ISA>`_: instruction set architecture
   * `Haskus.Arch.X86_64.Disassembler <http://github.com/haskus/haskus-system/tree/master/src/lib/Haskus/Arch/X86_64/Disassembler.hs>`_

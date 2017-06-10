@@ -28,3 +28,17 @@ Commands:
 
    * ``--device`` or ``-d`` (mandatory): device path (e.g., /dev/sdd). For now,
      the first partition is used as a boot partition.
+
+Note that the tool also builds ``libgmp`` as it is required to statically link
+programs produced by GHC. Some distributions (e.g., Archlinux) only provide
+``libgmp.so`` and not ``libgmp.a``.
+
+The tool requires other programs and commands:
+
+   * git
+   * tar, lzip, gzip, cpio
+   * make, gcc, binutils...
+   * stack
+   * dd, (u)mount, cp
+   * qemu
+   * xorriso
