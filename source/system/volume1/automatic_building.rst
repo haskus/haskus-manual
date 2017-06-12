@@ -5,25 +5,25 @@ Building and testing your own systems based on ``haskus-system`` requires quite
 a few steps: configuring and building a Linux kernel, etc.
 
 Hopefully we have built a tool called ``haskus-system-build`` that performs all
-these steps automatically. Read the next chapter if you want to understand the
-details or do it manually.
+these steps automatically (details are explained in the next chapter if you want
+to understand how it works).
 
-You need to have `Stack <http://www.haskellstack.org>`_ installed.
+Prerequisite: you need to have `Stack <http://www.haskellstack.org>`_ and ``git`` installed.
 
 Installing ``haskus-system-build``
 ----------------------------------
 
-The tool is distributed with the ``haskus-system`` package.
-To install the last version, use:
+The tool is distributed in the ``haskus-system-build`` package.
+To install the latest version, use:
 
 .. code::
 
-   > git clone https://github.com/haskus/haskus-system.git
-   > cd haskus-system
+   > git clone https://github.com/haskus/haskus-system-build.git
+   > cd haskus-system-build
    > stack install
 
-It will install it (and some other tools) into ``~/.local/bin``. Be sure to add
-this path to your ``$PATH`` environment variable.
+It will install the program into ``~/.local/bin``. Be sure to add this path to
+your ``$PATH`` environment variable.
 
 Getting started
 ---------------
@@ -127,9 +127,10 @@ To install your system on the device whose device file is ``/dev/sde``:
 
 Note that you have to be in the *sudoers* list.
 
+**ISO image**
 
 Another distribution method is to create an ISO image that you can distribute
-online or burn on CD-ROMs.
+online or burn on CD/DVD.
 
 .. code:: bash
 
