@@ -14,12 +14,10 @@ programming. Fundamentally it is an experiment into providing an integrated
 interface leveraging Haskell features (type-safety, STM, etc.) for the whole
 system: input, display, sound, network, etc.
 
-Volume 1: basic architecture and building
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 .. toctree::
    :maxdepth: 2
    :numbered:
+   :caption: System - Volume 1: building guide
 
    system/volume1/intro
    system/volume1/approach
@@ -28,15 +26,13 @@ Volume 1: basic architecture and building
    system/volume1/reference/system_yaml
    system/volume1/reference/haskus_system_build
 
-Volume 2: system programming guide
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-In this volume, we describe the current state of the high-level interfaces
+In volume 2, we describe the current state of the high-level interfaces
 provided by the ``haskus-system`` to control and use the computer.
 
 .. toctree::
    :maxdepth: 2
    :numbered:
+   :caption: System - Volume 2: programming guide
 
    system/volume2/modules_overview
    system/volume2/using/sys_monad
@@ -49,6 +45,8 @@ haskus-binary
 
 .. toctree::
    :maxdepth: 2
+   :numbered:
+   :caption: Binary
 
    binary
 
@@ -59,3 +57,5 @@ Variant/Flow
 
 .. toctree::
    :maxdepth: 2
+   :numbered:
+   :caption: Utils

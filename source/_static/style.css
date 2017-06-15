@@ -1,5 +1,5 @@
-@import "scrolls.css";
+@import "agogo.css";
 
-h1.heading {
-   background: #222;
+span.caption-text {
+   font-weight:bold;
 }
