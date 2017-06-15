@@ -85,10 +85,10 @@ todo_include_todos = True
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'scrolls'
+html_theme = 'agogo'
 
-html_logo = None
-html_style = "style.css"
+# html_logo = None
+# html_style = "style.css"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -132,7 +132,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'haskus-manual.tex', 'haskus-manual Documentation',
+    (master_doc, 'haskus-manual.tex', 'haskus-manual',
      'Sylvain HENRY', 'manual'),
 ]
 
@@ -142,7 +142,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'haskus-manual', 'haskus-manual Documentation',
+    (master_doc, 'haskus-manual', 'haskus-manual',
      [author], 1)
 ]
 
@@ -153,7 +153,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'haskus-manual', 'haskus-manual Documentation',
+    (master_doc, 'haskus-manual', 'haskus-manual',
      author, 'haskus-manual', 'One line description of project.',
      'Miscellaneous'),
 ]
