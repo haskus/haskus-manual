@@ -3,3 +3,8 @@
 span.caption-text {
    font-weight:bold;
 }
+
+li.toctree-l1 ul {
+   margin-top: 0.2em;
+   margin-bottom: 0em;
+}
