@@ -34,9 +34,8 @@ Programs are statically compiled to embed those dependencies.
 **haskus-system**
 
 ``haskus-system`` acts at the *system* level: it provides interfaces to the
-Linux kernel (hence to the hardware) in Haskell. It also provides higher-level
-interfaces, for instance to manage devices in user-space (similar to ``udev`` in
-usual Linux distributions).
+Linux kernel (hence to the hardware) in Haskell and builds on them to provide
+higher-level interfaces (described in the Volume 2 of this documentation).
 
 You can use these interfaces to build custom systems. Then it is up to you to
 decide if your system has the concept of "application" or not: you may design

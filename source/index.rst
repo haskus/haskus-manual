@@ -26,8 +26,8 @@ system: input, display, sound, network, etc.
    system/volume1/reference/system_yaml
    system/volume1/reference/haskus_system_build
 
-In volume 2, we describe the current state of the high-level interfaces
-provided by the ``haskus-system`` to control and use the computer.
+In volume 2, we describe the high-level interfaces provided by the
+``haskus-system`` to control and use the computer.
 
 .. toctree::
    :maxdepth: 2
