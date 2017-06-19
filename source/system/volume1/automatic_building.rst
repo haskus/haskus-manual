@@ -20,7 +20,7 @@ To install the latest version, use:
 
    > git clone https://github.com/haskus/haskus-system-build.git
    > cd haskus-system-build
-   > stack install
+   > stack install --isntall-ghc
 
 It will install the program into ``~/.local/bin``. Be sure to add this path to
 your ``$PATH`` environment variable.
