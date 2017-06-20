@@ -1,10 +1,10 @@
 Graphics Overview
------------------
+=================
 
 In this chapter we present Linux's display model.
 
 Generalities
-~~~~~~~~~~~~
+------------
 
 From a programmer's point of view, screens basically display rectangular grids
 of sample points (or "pixels" standing for "picture elements") where each point
@@ -61,7 +61,7 @@ sends commands or programs to be executed by the GPU.
    way to use these drivers.
 
 Display Model
-~~~~~~~~~~~~~
+-------------
 
 Linux's display model is composed of several entities that interact with each
 other. These entities are represented on the following graph:
@@ -350,7 +350,7 @@ map the contents of the ``Surface`` entities into their memory address spaces
 and to modify it to change what is displayed.
 
 Further Reading
-~~~~~~~~~~~~~~~
+---------------
 
 As explained in the `basic device management </system/manual/using/devices>`_
 page, device drivers can support the ``ioctl`` system call to handle device
