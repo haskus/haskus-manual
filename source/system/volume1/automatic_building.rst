@@ -93,6 +93,8 @@ Building and Testing
 You need to have some programs installed before we continue:
 
 * everything required to build Linux: make, gcc, binutils...
+* static libraries for the glibc (e.g., glibc-static package on Fedora and Red
+  Hat)
 * (un)packing tools: lzip, gzip, tar, cpio
 * QEMU
 * stack
