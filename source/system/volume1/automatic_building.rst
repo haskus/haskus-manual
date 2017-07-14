@@ -16,7 +16,7 @@ Installing ``haskus-system-build``
 The tool is distributed in the ``haskus-system-build`` package.
 To install the latest version, use:
 
-.. code::
+.. code:: bash
 
    > git clone https://github.com/haskus/haskus-system-build.git
    > cd haskus-system-build
@@ -30,7 +30,7 @@ Getting started
 
 To start a new project, enter a new directory and uses the ``init`` command:
 
-.. code::
+.. code:: bash
 
    > mkdir my-project
    > cd my-project
@@ -39,7 +39,7 @@ To start a new project, enter a new directory and uses the ``init`` command:
 It downloads the default system template into the current directory. It is
 composed of 4 files:
 
-.. code::
+.. code:: bash
 
    > find . -type f
    ./stack.yaml
@@ -93,8 +93,7 @@ Building and Testing
 You need to have some programs installed before we continue:
 
 * everything required to build Linux: make, gcc, binutils...
-* static libraries for the glibc (e.g., glibc-static package on Fedora and Red
-  Hat)
+* static libraries (e.g., glibc-static and zlib-static packages on Fedora)
 * (un)packing tools: lzip, gzip, tar, cpio
 * QEMU
 * stack
