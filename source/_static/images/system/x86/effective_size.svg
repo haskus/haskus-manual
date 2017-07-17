@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="78.978142mm"
+   width="82.494057mm"
    height="25.657881mm"
-   viewBox="0 0 78.978142 25.657881"
+   viewBox="0 0 82.494057 25.657881"
    version="1.1"
    id="svg15165"
    inkscape:version="0.92.1 r"
@@ -26,8 +26,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="113.36465"
-     inkscape:cy="92.377322"
+     inkscape:cx="18.915388"
+     inkscape:cy="92.178046"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -48,7 +48,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -87,19 +87,19 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:3.30729151px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="129.94604"
-       y="154.06732"
+       x="132.13213"
+       y="153.26552"
        id="text10157"><tspan
          sodipodi:role="line"
          id="tspan10155"
-         x="129.94604"
-         y="154.06732"
-         style="text-align:center;text-anchor:middle;stroke-width:0.26458332px">Effective Operation</tspan><tspan
+         x="132.13213"
+         y="153.26552"
+         style="text-align:center;text-anchor:middle;stroke-width:0.26458332px">Overridden Operation</tspan><tspan
          sodipodi:role="line"
-         x="129.94604"
-         y="158.20143"
+         x="132.13213"
+         y="157.39963"
          style="text-align:center;text-anchor:middle;stroke-width:0.26458332px"
-         id="tspan10159">Size (EOS)</tspan></text>
+         id="tspan10159">Size 64 (OOS64)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:3.30729151px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -136,12 +136,12 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:3.30729151px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="125.03033"
+       x="127.14699"
        y="173.04346"
        id="text10179"><tspan
          sodipodi:role="line"
          id="tspan10177"
-         x="125.03033"
+         x="127.14699"
          y="173.04346"
          style="stroke-width:0.26458332px">64-bit</tspan></text>
     <text
@@ -158,12 +158,12 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:3.30729151px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="126.31255"
+       x="128.42921"
        y="163.95631"
        id="text10187"><tspan
          sodipodi:role="line"
          id="tspan10185"
-         x="126.31255"
+         x="128.42921"
          y="163.95631"
          style="stroke-width:0.26458332px">OOS</tspan></text>
     <text
@@ -191,12 +191,12 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:3.30729151px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="125.03033"
+       x="127.14699"
        y="168.23262"
        id="text10199"><tspan
          sodipodi:role="line"
          id="tspan10197"
-         x="125.03033"
+         x="127.14699"
          y="168.23262"
          style="stroke-width:0.26458332px">64-bit</tspan></text>
     <path
@@ -211,7 +211,7 @@
        inkscape:connector-curvature="0" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 67.856167,159.54637 H 146.83431"
+       d="M 67.856164,159.54636 H 149.77427"
        id="path10218"
        inkscape:connector-curvature="0" />
   </g>

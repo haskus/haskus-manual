@@ -41,18 +41,19 @@ address size (OAS).
 .. image:: /_static/images/system/x86/overridden_size.svg
    :class: img_center
 
-Effective size
-~~~~~~~~~~~~~~
-
 Finally, in 64-bit execution mode (M=4), some instructions defaults to a 64-bit
 operation size and a new ``W`` prefix can be used to enforce 64-bit operation size.
-This gives us the effective operation size (EOS).
+This gives us the overridden operation size 64 (OOS64).
 
 .. image:: /_static/images/system/x86/effective_size.svg
    :class: img_center
 
-The effective address size (EAS) is always equal to overridden address size: EAS
-= OAS.
+Summary
+~~~~~~~
+
+``DOS``, ``DAS``, ``DSS``, ``OOS``, ``OAS`` and ``OOS64`` are sizes that can be
+inferred from the execution context. They don't correspond directly to actual
+operation or operand sizes: it depends on each instruction.
 
 Full poster
 -----------
