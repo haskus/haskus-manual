@@ -38,6 +38,7 @@ In volume 2, we describe the high-level interfaces provided by the
    system/volume2/using/sys_monad
    system/volume2/using/devices
    system/volume2/graphics/overview
+   system/volume2/graphics/compositing
    system/volume2/x86
 
 haskus-binary
