@@ -33,6 +33,7 @@
 # ones.
 extensions = ['sphinx.ext.todo',
     'sphinx.ext.mathjax',
+    'sphinx.ext.extlinks',
     'sphinx.ext.githubpages']
 
 # Add any paths that contain templates here, relative to this directory.
@@ -182,3 +183,48 @@ epub_copyright = copyright
 epub_exclude_files = ['search.html']
 
 
+doc_paths = {
+    'haskus-binary': 'https://hackage.haskell.org/package/haskus-binary/docs',
+    'haskus-utils':  'https://hackage.haskell.org/package/haskus-utils/docs',
+    'haskus-system': 'http://doc.haskus.org/haddock/haskus-system/latest',
+}
+
+from sphinx import addnodes
+from docutils import nodes
+
+def haddock_role(lib):
+    """
+    For instance,
+     * reference to module:      :base-ref:`Control.Applicative.`
+     * reference to identifier:  :base-ref:`Control.Applicative.pure`
+     * reference to type:        :base-ref:`Control.Applicative.Applicative`
+    """
+    path = doc_paths[lib]
+    def role(name, rawtext, text, lineno, inliner, options={}, content=[]):
+        try:
+            parts = text.split('.')
+            module_parts = parts[:-1]
+            thing = parts[-1]
+            if thing != '':
+                # reference to type or identifier
+                tag = 't' if thing[0].isupper() else 'v'
+                anchor = '#%s:%s' % (tag, thing)
+                link_text = text
+            else:
+                # reference to module
+                anchor = ''
+                link_text = '.'.join(module_parts)
+
+            uri = '%s/%s.html%s' % (path, '-'.join(module_parts), anchor)
+            node = nodes.reference(link_text, link_text, refuri=uri)
+            return [node], []
+        except ValueError:
+            msg = inliner.reporter.error('')
+
+    return role
+
+def setup(app):
+    # Haddock references
+    app.add_role('binary-ref', haddock_role('haskus-binary'))
+    app.add_role('utils-ref', haddock_role('haskus-utils'))
+    app.add_role('system-ref', haddock_role('haskus-system'))

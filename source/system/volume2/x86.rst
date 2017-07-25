@@ -7,7 +7,7 @@ Instruction list
 ----------------
 
 ``haskus-system`` aims to support X86 architectures by providing a declarative
-list of instruction specifications (in ``Haskus.Arch.X86_64.ISA.Insns``) that
+list of instruction specifications (in :system-ref:`Haskus.Arch.X86_64.ISA.Insns.`) that
 can be used to write:
 
 * disassemblers
