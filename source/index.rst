@@ -34,13 +34,21 @@ In volume 2, we describe the high-level interfaces provided by the
    :numbered:
    :caption: System - Volume 2: programming guide
 
-   system/volume2/modules_overview
    system/volume2/using/sys_monad
    system/volume2/using/devices
    system/volume2/graphics/overview
    system/volume2/graphics/compositing
-   system/volume2/x86
-   system/volume2/x86/encoding
+
+In volume 3, we describe the internals of ``haskus-system``.
+
+.. toctree::
+   :maxdepth: 2
+   :numbered:
+   :caption: System - Volume 3: internals
+
+   system/volume3/modules_overview
+   system/volume3/x86
+   system/volume3/x86/encoding
 
 haskus-binary
 -------------

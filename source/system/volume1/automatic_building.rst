@@ -1,12 +1,14 @@
-Building systems: the automated way (easy)
-==========================================
+.. _haskus-system-build-tool:
+
+Building systems: the automated way
+===================================
 
 Building and testing your own systems based on ``haskus-system`` requires quite
 a few steps: configuring and building a Linux kernel, etc.
 
 Hopefully we have built a tool called ``haskus-system-build`` that performs all
 these steps automatically (details are explained in the next chapter if you want
-to understand how it works).
+to understand what it does internally).
 
 Prerequisite: you need to have `Stack <http://www.haskellstack.org>`_ and ``git`` installed.
 
