@@ -4,6 +4,17 @@ Modules Overview
 The code base of ``haskus-system`` is becoming quite large. This page gives an
 overview of the different modules.
 
+System interface
+~~~~~~~~~~~~~~~~
+
+``haskus-system`` provides modules to interact with the system: input devices,
+display devices, etc. These modules are used to easily build a custom system
+without dealing directly with the low-level Linux interface. It also provides a
+custom monad with common features for system programming (logging, etc.).
+
+* `Haskus.System <http://github.com/haskus/haskus-system/tree/master/src/lib/Haskus/System>`_
+
+
 Interface with the Linux kernel
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -13,9 +24,9 @@ provides wrappers for some Linux subsystems/features accessible through
 multiplexing syscalls (e.g., ioctl) or through specific file systems (e.g.,
 procfs, sysfs).
 
-* `Haskus.Arch.Linux <http://github.com/haskus/haskus-system/tree/master/src/lib/Haskus/Arch/Linux>`_: system calls and low-level interfaces
-* `Haskus.Arch.Linux.Input <http://github.com/haskus/haskus-system/tree/master/src/lib/Haskus/Arch/Linux/Input.hs>`_: input subsystem
-* `Haskus.Arch.Linux.Graphics <http://github.com/haskus/haskus-system/tree/master/src/lib/Haskus/Arch/Linux/Graphics>`_: kms/drm subsystem
+* `Haskus.System.Linux <http://github.com/haskus/haskus-system/tree/master/src/lib/Haskus/System/Linux>`_: system calls and low-level interfaces
+* `Haskus.System.Linux.Input <http://github.com/haskus/haskus-system/tree/master/src/lib/Haskus/System/Linux/Input.hs>`_: input subsystem
+* `Haskus.System.Linux.Graphics <http://github.com/haskus/haskus-system/tree/master/src/lib/Haskus/System/Linux/Graphics>`_: kms/drm subsystem
 
 Formats
 ~~~~~~~
@@ -48,16 +59,3 @@ instruction is also provided.
   * `Haskus.Arch.X86_64.Disassembler <http://github.com/haskus/haskus-system/tree/master/src/lib/Haskus/Arch/X86_64/Disassembler.hs>`_
   * `Haskus.Arch.X86_64.Linux <http://github.com/haskus/haskus-system/tree/master/src/lib/Haskus/Arch/X86_64/Linux>`_: arch-specific Linux interface (syscalls)
   * `Haskus.Arch.X86_64.Cpuid <http://github.com/haskus/haskus-system/tree/master/src/lib/Haskus/Arch/X86_64/Cpuid.hs>`_: CPUID wrapper
-
-System interface
-~~~~~~~~~~~~~~~~
-
-``haskus-system`` provides modules to interact with the system: input devices,
-display devices, etc. These modules are used to easily build a custom system
-without dealing directly with the low-level Linux interface. It also provides a
-custom monad with common features for system programming (logging, etc.).
-
-* `Haskus.System <http://github.com/haskus/haskus-system/tree/master/src/lib/Haskus/System>`_
-
-
-
