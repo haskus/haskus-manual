@@ -1,3 +1,5 @@
+.. _device-management:
+
 Device management
 -----------------
 
@@ -249,7 +251,7 @@ relationship between devices is not sufficient, relations between devices are
 represented as symbolic links.
    
 File descriptor vs Handle
-~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Linux allows programs in user-space to have handles on kernel objects.
 Suppose the kernel has an object ``A`` and a reference ``R_A`` on ``A``.  Instead of
@@ -271,7 +273,7 @@ find it less misleading.
 
 
 Device special files and /dev
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Ideally there would be a system call to get a handle on a device by providing
 its unique identifier (similarly to the ``getDevieHandleByName`` API provided by
@@ -304,7 +306,7 @@ permissions (user, user groups, etc.). We don't want to do this in
 
 
 Netlink socket
-~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^
 
 Linux dynamically adds and removes files and directories in the ``sysfs``
 file-system, when devices are plugged or unplugged. To signal it to user-space,
@@ -323,8 +325,8 @@ file-system).  In ``haskus-system``, high-level APIs are provided to avoid
 direct references to device special files.
 
 
-Further reading
-~~~~~~~~~~~~~~~
+Miscellaneous
+^^^^^^^^^^^^^
 
 In usual Linux distributions, ``udev`` (``man 7 udev``) is responsible of
 handling devices. It reads ``sysfs`` and listens to kernel events to create and

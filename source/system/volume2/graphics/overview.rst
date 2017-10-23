@@ -352,12 +352,11 @@ and to modify it to change what is displayed.
 Further Reading
 ---------------
 
-As explained in the `basic device management </system/manual/using/devices>`_
-page, device drivers can support the ``ioctl`` system call to handle device
-specific commands from the user-space. The display interface is almost entirely
-based on it. Additionally, ``mmap`` is used to map graphic card memory in
-user-space and ``read`` is used to read events (V-Blank and page-flip
-asynchronous completion).
+As explained in the :ref:`device-management` section, device drivers can support
+the ``ioctl`` system call to handle device specific commands from the
+user-space. The display interface is almost entirely based on it. Additionally,
+``mmap`` is used to map graphic card memory in user-space and ``read`` is used
+to read events (V-Blank and page-flip asynchronous completion).
 
 In usual Linux distributions, the ``libdrm`` library provides an interface
 over these system calls. You can learn about the low-level interface by reading

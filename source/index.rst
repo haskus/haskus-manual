@@ -37,7 +37,6 @@ In volume 2, we describe the high-level interfaces provided by the
    system/volume2/using/sys_monad
    system/volume2/using/devices
    system/volume2/graphics/overview
-   system/volume2/graphics/compositing
 
 In volume 3, we describe the internals of ``haskus-system``.
 
