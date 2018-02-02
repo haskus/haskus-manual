@@ -30,7 +30,7 @@ your ``$PATH`` environment variable.
 Getting started
 ---------------
 
-To start a new project, enter a new directory and uses the ``init`` command:
+To start a new project, enter a new directory and use the ``init`` command:
 
 .. code:: bash
 
