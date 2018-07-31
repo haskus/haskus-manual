@@ -20,5 +20,5 @@ system: input, display, sound, network, etc.
    :maxdepth: 1
    :caption: Other stuff
 
-   binary
    variant
+   binary

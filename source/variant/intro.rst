@@ -96,3 +96,5 @@ You may need to enable some language extensions:
    {-# LANGUAGE FlexibleContexts #-}
    {-# LANGUAGE FlexibleInstances #-}
    {-# LANGUAGE TypeApplications #-}
+   {-# LANGUAGE LambdaCase #-}
+   {-# LANGUAGE TypeFamilies #-}
