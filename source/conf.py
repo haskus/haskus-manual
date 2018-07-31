@@ -50,7 +50,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'haskus-manual'
-copyright = '2017, Sylvain HENRY'
+copyright = '2018, Sylvain HENRY'
 author = 'Sylvain HENRY'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -87,10 +87,29 @@ todo_include_todos = True
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'agogo'
+html_theme = 'sphinx_rtd_theme'
+html_theme_path = ["_themes",]
+
+html_theme_options = {
+    'canonical_url': '',
+    'analytics_id': '',
+    'logo_only': False,
+    'display_version': True,
+    'prev_next_buttons_location': 'bottom',
+    'style_external_links': False,
+    'vcs_pageview_mode': '',
+    # Toc options
+    'collapse_navigation': True,
+    'sticky_navigation': True,
+    'navigation_depth': 4,
+    'includehidden': True,
+    'titles_only': False
+}
 
 # html_logo = None
-html_style = "style.css"
+# html_style = "style.css"
+
+html_title = '%s' % version
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
