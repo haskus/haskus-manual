@@ -18,12 +18,7 @@ system: input, display, sound, network, etc.
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
-   :caption: Haskus Utils
-
-.. toctree::
-   :maxdepth: 1
-   :numbered:
-   :caption: Haskus Binary
+   :caption: Other stuff
 
    binary
+   variant
