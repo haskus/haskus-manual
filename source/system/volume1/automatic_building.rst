@@ -1,7 +1,8 @@
 .. _haskus-system-build-tool:
 
+==============================================================================
 Building systems: the automated way
-===================================
+==============================================================================
 
 Building and testing your own systems based on ``haskus-system`` requires quite
 a few steps: configuring and building a Linux kernel, etc.
@@ -12,10 +13,12 @@ to understand what it does internally).
 
 Prerequisite: you need to have `Stack <http://www.haskellstack.org>`_ and ``git`` installed.
 
+------------------------------------------------------------------------------
 Installing ``haskus-system-build``
-----------------------------------
+------------------------------------------------------------------------------
 
 The tool is distributed in the ``haskus-system-build`` package.
+
 To install the latest version, use:
 
 .. code:: bash
@@ -27,8 +30,15 @@ To install the latest version, use:
 It will install the program into ``~/.local/bin``. Be sure to add this path to
 your ``$PATH`` environment variable.
 
+.. note::
+
+   You can also install it from `Hackage
+   <https://hackage.haskell.org/package/haskus-system-build>`_ using Stack or
+   Cabal-Install.
+
+------------------------------------------------------------------------------
 Getting started
----------------
+------------------------------------------------------------------------------
 
 To start a new project, enter a new directory and use the ``init`` command:
 
@@ -70,9 +80,6 @@ composed of 4 files:
             - CONFIG_DRM_BOCHS
             - CONFIG_DRM_RADEON
             - CONFIG_DRM_NOUVEAU
-            - CONFIG_DRM_VIRTIO
-         disable:
-            - VIRTIO_BALLOON
       make-args: "-j8"
    
    ramdisk:
@@ -89,8 +96,9 @@ composed of 4 files:
 As you can see, it contains a Linux kernel configuration, a reference to our
 system as being the ramdisk "init" program and some QEMU configuration.
 
+------------------------------------------------------------------------------
 Building and Testing
---------------------
+------------------------------------------------------------------------------
 
 You need to have some programs installed before we continue:
 
@@ -113,8 +121,9 @@ with our system running in it.
 On following executions building is much faster because the tool reuses
 previously built artefacts if the configuration hasn't changed.
 
+------------------------------------------------------------------------------
 Distributing and testing on real computers
-------------------------------------------
+------------------------------------------------------------------------------
 
 If you want to distribute your system, the easiest way is to install it on an
 **empty** storage device (e.g., usb stick).
