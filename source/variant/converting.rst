@@ -58,13 +58,19 @@ types with ``appendVariant`` and ``prependVariant``:
 
 .. code::
 
-   v :: V '[Int,String,Double]
+   x :: V '[String,Int]
+   x = V "test"
 
-   v2 :: V '[A,B,Int,String,Double]
-   v2 = prependVariant @'[A,B] v
+   data A = A
+   data B = B
 
-   v3 :: V '[Int,String,Double,A,B]
-   v3 = appendVariant @'[A,B] v
+   px = prependVariant @'[A,B] x
+   ax = appendVariant @'[A,B] x
+
+   -- > :t ax
+   -- ax :: V '[String, Int, A, B]
+   -- > :t px
+   -- px :: V '[A, B, String, Int]
 
 You can use the ``Concat`` type family to specify the type of a concatened
 variant:
@@ -168,6 +174,9 @@ with ``flattenVariant``:
    > :t flattenVariant nest
    flattenVariant nest :: V '[String, Int, Float, Double]
 
+You can use the ``Flattenable`` type-class and the ``FlattenVariant`` type
+family to write generic code.
+
 ------------------------------------------------------------------------------
 Joining
 ------------------------------------------------------------------------------
@@ -229,3 +238,26 @@ type family.
    type-class. However some other functor types aren't supported (e.g.,
    ``Maybe``) and using ``joinVariantUnsafe`` with them makes the program crash
    at runtime.
+
+------------------------------------------------------------------------------
+Combining two variants (product)
+------------------------------------------------------------------------------
+
+We can combine two variants into a single variant containing a tuple with
+``productVariant``:
+
+.. code::
+
+   fl :: V '[Float,Double]
+   fl = V @Float 5.0
+
+   d :: V '[Int,Word]
+   d = V @Word 10
+
+   dfl = productVariant d fl
+
+   -- > dfl
+   -- V @(Word,Float) (10,5.0)
+   -- > :t dfl
+   -- dfl :: V '[(Int, Float), (Int, Double), (Word, Float), (Word, Double)]
+
