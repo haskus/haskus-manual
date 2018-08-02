@@ -15,10 +15,15 @@ programming. Fundamentally it is an experiment into providing an integrated
 interface leveraging Haskell features (type-safety, STM, etc.) for the whole
 system: input, display, sound, network, etc.
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Haskus utils
+
+   variant
 
 .. toctree::
    :maxdepth: 1
    :caption: Other stuff
 
-   variant
    binary
+   drafts

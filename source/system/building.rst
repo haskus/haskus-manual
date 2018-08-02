@@ -1,5 +1,5 @@
 ==============================================================================
-VOLUME 1: BUILDING GUIDE
+System building guide
 ==============================================================================
 
 In volume 1, we describe how to build and test systems based on Linux by using

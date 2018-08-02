@@ -1,5 +1,5 @@
 ==============================================================================
-VOLUME 2: PROGRAMMING GUIDE
+System programming guide
 ==============================================================================
 
 In volume 2, we describe the high-level interfaces provided by the

@@ -38,7 +38,7 @@ Solution 2: recursive ADT
 
 Instead of adding new sum types we can use a nest of ``Either``:
 
-.. code::
+.. code:: haskell
 
    type SumOf3 a b c   = Either a (Either b c)
    type SumOf4 a b c d = Either a (Either b (Either c d))
@@ -46,7 +46,7 @@ Instead of adding new sum types we can use a nest of ``Either``:
 
 Or more generically:
 
-.. code::
+.. code:: haskell
 
    data Union (as :: [*]) where
      Union :: Either (Union as) a -> Union (a ': as)
@@ -75,7 +75,7 @@ The efficient representation is ensured by the definition of the ``Variant``
 datatype: an unpacked ``Word`` for the tag and a "pointer" to the value.
 
 The phantom type list ``types`` contains the list of possible types for the value.
-The tag value is used as an index in this list to know the effective type of the
+The tag value is used as an index into this list to know the effective type of the
 value.
 
 ------------------------------------------------------------------------------

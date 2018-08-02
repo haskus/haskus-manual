@@ -7,6 +7,8 @@ types. For instance in the following code ``x`` is a variant whose value can be
 an ``Int`` or a ``Float``:
 
 .. code::
+
+   import Haskus.Utils.Variant
    
    x :: V '[Int,Float]
 

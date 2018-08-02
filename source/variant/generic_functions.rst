@@ -6,7 +6,7 @@ In this chapter we show how to write generic functions that can work on
 different ``Variant`` as long as they fulfill some constraints.
 
 ------------------------------------------------------------------------------
-The ``:<`` constraint
+The ``:<`` constraint constructor
 ------------------------------------------------------------------------------
 
 The ``c :< cs`` constraint statically ensures that the type ``c`` is in the
@@ -53,7 +53,7 @@ well:
 
 
 ------------------------------------------------------------------------------
-The ``:<?`` constraint and the ``VMaybe`` pattern
+The ``:<?`` constraint constructor and the ``VMaybe`` pattern
 ------------------------------------------------------------------------------
 
 The ``c :< cs`` constraint statically ensures that the type ``c`` is in the
@@ -115,7 +115,7 @@ family. For example:
    filterError :: Error :<? cs => V cs -> V (Filter Error cs)
    filterError v = case popVariantMaybe v of
       Right (Error s) -> error ("Found error: " ++ s)
-      Left  v'        -> v'
+      Left  v'        -> v' -- left-over variant!
 
 
    -- > filterError e0
@@ -141,3 +141,7 @@ family. For example:
 Notice how an ``Error`` value can't be present anymore in the variant type
 returned by ``filterError`` and how this function is generic as it supports any
 variant as an input.
+
+Similarly we could have used the ``Error <: cs`` constraint and the
+``popVariant`` function to ensure that only variants that can contain an
+``Error`` value can be passed to the ``filterError`` function.
