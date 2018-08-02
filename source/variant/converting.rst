@@ -261,3 +261,9 @@ We can combine two variants into a single variant containing a tuple with
    -- > :t dfl
    -- dfl :: V '[(Int, Float), (Int, Double), (Word, Float), (Word, Double)]
 
+------------------------------------------------------------------------------
+Converting to tuple/HList
+------------------------------------------------------------------------------
+
+variantToTuple
+variantToHList

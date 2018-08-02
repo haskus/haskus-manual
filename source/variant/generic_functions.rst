@@ -1,5 +1,5 @@
 ==============================================================================
-Writing generic functions
+Writing generic functions using variants
 ==============================================================================
 
 In this chapter we show how to write generic functions that can work on

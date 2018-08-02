@@ -6,6 +6,8 @@ Writing a new operating system from scratch is obviously a huge task that we
 won't undertake. Instead, pragmatically, we build on the Linux kernel to develop
 the ``haskus-system``.
 
+.. note::
+
    The fact that it is based on the Linux kernel shouldn't confuse you: we don't
    have to let applications directly access it through a UNIX-like interface! This
    is similar to the approach followed by Google with Android: the Linux kernel is
@@ -73,6 +75,8 @@ from Haskell through the Foreign Function Interface (FFI) or by adding a Primary
 Operation (primop). ``haskus-system`` uses these mechanisms to interact with
 the Linux kernel.
 
+.. note::
+
    It seems to us that this approach is a good trade-off. As comparison points,
    most UNIX-like systems rely on unsafe interpreted shell scripts (init systems,
    etc.); Google's Android (with Dalvik) used to perform runtime bytecode
@@ -132,6 +136,8 @@ evolve at a fast pace without having to maintain interface compatibility between
 its internal components. Moreover, refactoring is usually safe and relatively
 easy in Haskell, so we could later split it into several parts if needed.
 
+.. note::
+
    As a comparison point, usual Linux distributions use several system services and
    core libraries, most of them in their own repository and independently
    developed: ``libc``, ``dbus``, ``udev``, ``libdrm``, ``libinput``,
@@ -169,6 +175,8 @@ interfaces are well-described with types. In addition, we are not limited to
 plain text format and the compiler ensures that we are composing functions in
 appropriate ways.
 
+.. note::
+
    As an example, compare this with ``UNIX`` standard commands such as ``ls`` which
    include many result sorting flags while the ``sort`` command could be used
    instead: the weakly structured output of the ``ls`` command makes it very
@@ -182,6 +190,8 @@ appropriate ways.
 Even if the ``haskus-system`` is in a single code base, its functions can be
 used in other Haskell programs just by importing its modules. The compiler
 statically checks that functions are appropriately called with valid parameters.
+
+.. note::
 
    Compare this with the usual interface between two ``UNIX`` programs: parameters
    from the first program have to be serialized and passed on the command-line
@@ -199,6 +209,8 @@ Building And Testing
 Our approach allows us to quickly have a working prototype that can be tested in
 an emulated environment (e.g., with ``QEMU``).
 
+.. note::
+
    As a comparison point, building a minimal usual Linux distribution from scratch
    is very cumbersome as we can read in the "`Linux From Scratch
    <http://www.linuxfromscratch.org/lfs>`_" book. A lot of different packages have
@@ -212,4 +224,4 @@ Proprietary Drivers
 Some vendors do not provide open-source drivers nor documentation for their
 hardware. Instead they provide pre-compiled libraries and/or kernel modules.  As
 they presuppose the use of some system libraries and services (``OpenGL``,
-``X11``, etc.), ``haskus-system`` doesn't support them.
+``X11``, etc.), ``haskus-system`` **doesn't support them**.
