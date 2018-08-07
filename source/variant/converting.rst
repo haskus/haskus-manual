@@ -139,6 +139,7 @@ ensure that the type list ``is`` is a subset of ``os``:
    -- liftX (V "test" :: V '[String]) :: V '[Double, Float, String]
 
 
+.. _nubVariant:
 
 ------------------------------------------------------------------------------
 Nubing
