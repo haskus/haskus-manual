@@ -19,11 +19,11 @@ then ``f`` is applied to it to get the new value. Example:
    x = V "test"
    y = V @Int 10
    
-   -- > mapVariant ((+5) :: Int -> Int) x
-   -- V @String "test"
+   > mapVariant ((+5) :: Int -> Int) x
+   V @String "test"
 
-   -- > mapVariant ((+5) :: Int -> Int) y
-   -- V @Int 15
+   > mapVariant ((+5) :: Int -> Int) y
+   V @Int 15
 
 Note that the resulting variant may contain the same type more than once. To
 avoid this, we can either use :ref:`nubVariant <nubVariant>` or directly use
@@ -31,14 +31,14 @@ avoid this, we can either use :ref:`nubVariant <nubVariant>` or directly use
 
 .. code::
 
-   -- > :t mapVariant (length :: String -> Int) x
-   -- mapVariant (length :: String -> Int) x :: V '[Int, Int]
+   > :t mapVariant (length :: String -> Int) x
+   mapVariant (length :: String -> Int) x :: V '[Int, Int]
 
-   -- > :t mapNubVariant (length :: String -> Int) x
-   -- mapNubVariant (length :: String -> Int) x :: V '[Int]
+   > :t mapNubVariant (length :: String -> Int) x
+   mapNubVariant (length :: String -> Int) x :: V '[Int]
 
-   -- > mapNubVariant (length :: String -> Int) x
-   -- V @Int 4
+   > mapNubVariant (length :: String -> Int) x
+   V @Int 4
 
 Generic code can be written with the ``MapVariant a b cs`` constraint and the
 ``ReplaceAll`` type family so that: ``mapVariant :: MapVariant a b cs => (a ->
@@ -59,17 +59,17 @@ If we know the index of the value type we want to map, we can use
    x = V "test"
    y = V @Int 10
 
-   -- > mapVariantAt @0 length x
-   -- V @Int 4
+   > mapVariantAt @0 length x
+   V @Int 4
 
-   -- > mapVariantAt @0 length y
-   -- V @Int 10
+   > mapVariantAt @0 length y
+   V @Int 10
 
-   -- > mapVariantAt @1 (+5) y
-   -- V @Int 15
+   > mapVariantAt @1 (+5) y
+   V @Int 15
 
-   -- > mapVariantAt @1 (+5) x
-   -- V @[Char] "test"
+   > mapVariantAt @1 (+5) x
+   V @[Char] "test"
 
 Note that the compiler uses the type of the element whose index is given as
 first argument to infer the type of the functions ``length`` and ``+5``, hence
@@ -85,12 +85,12 @@ example:
       putStrLn "Converting the result into Integer!"
       return (fromIntegral a + fromIntegral b)
 
-   -- > mapVariantAtM @1 (add 5) x
-   -- V @[Char] "test"
+   > mapVariantAtM @1 (add 5) x
+   V @[Char] "test"
 
-   -- > mapVariantAtM @1 (add 5) y
-   -- Converting the result into Integer!
-   -- V @Integer 15
+   > mapVariantAtM @1 (add 5) y
+   Converting the result into Integer!
+   V @Integer 15
 
 ------------------------------------------------------------------------------
 Mapping only the first matching type: ``mapVariantFirst``
@@ -108,18 +108,20 @@ type:
    vv :: V '[Int,Int,Int]
    vv = toVariantAt @1 5
 
-   -- > r0 = mapVariant (show :: Int -> String) vv
-   -- > r1 = mapVariantFirst (show :: Int -> String) vv
+   > r0 = mapVariant (show :: Int -> String) vv
+   > r1 = mapVariantFirst (show :: Int -> String) vv
 
-   -- > :t r0
-   -- r0 :: V '[String,String,String]
-   -- > :t r1
-   -- r1 :: V '[String, Int, Int]
-   -- 
-   -- > r0
-   -- V @[Char] "5"
-   -- > r1
-   -- V @Int 5
+   > :t r0
+   r0 :: V '[String,String,String]
+
+   > :t r1
+   r1 :: V '[String, Int, Int]
+   
+   > r0
+   V @[Char] "5"
+
+   > r1
+   V @Int 5
 
 We can also apply an applicative (or monadic) function with
 ``mapVariantFirstM``:
@@ -131,12 +133,12 @@ We can also apply an applicative (or monadic) function with
       print a
       return (show a)
 
-   -- > r2 = mapVariantFirstM (printRetShow @Int) vv
-   -- > r2
-   -- V @Int 5
+   > r2 = mapVariantFirstM (printRetShow @Int) vv
+   > r2
+   V @Int 5
 
-   -- > :t r2
-   -- r2 :: IO (V '[String, Int, Int])
+   > :t r2
+   r2 :: IO (V '[String, Int, Int])
 
 
 ------------------------------------------------------------------------------

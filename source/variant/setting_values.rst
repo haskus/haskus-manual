@@ -16,10 +16,10 @@ The easiest way to set a variant value is to use the ``V`` pattern synonym:
 
 .. note::
    
-   For now the compiler **cannot use the type list to infer the type of the
-   value**!  In the previous example we have to specify the ``Int`` type. Even if
-   it's clear (for us) that it's the obvious unique possibility, it is ambiguous
-   for the compiler.
+   For now the compiler **cannot use the variant value type list to infer the
+   type of the variant value**!  In the previous example we have to specify the
+   ``Int`` type. Even if it's clear (for us) that it's the obvious unique
+   possibility, it is ambiguous for the compiler.
 
 .. code::
 
@@ -51,8 +51,8 @@ Matching a value in a variant can be done with the same pattern synonym ``V``:
 
 .. note::
    
-   For now the compiler **cannot use the type list to infer that the
-   pattern-match is complete**. Hence we need the wildcard match to avoid a
+   For now the compiler **cannot use the variant value type list to infer that
+   the pattern-match is complete**. Hence we need the wildcard match to avoid a
    warning.
 
 ------------------------------------------------------------------------------

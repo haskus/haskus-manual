@@ -30,10 +30,11 @@ We check that ``showError`` works:
    e0 = V (Error "invalid")
    e1 = V @Int 10
 
-   -- > showError e0
-   -- "Found error: invalid"
-   -- > showError e1
-   -- "Not an Error!"
+   > showError e0
+   "Found error: invalid"
+
+   > showError e1
+   "Not an Error!"
 
 The same generic ``showError`` function works with variants of other types as
 well:
@@ -46,10 +47,11 @@ well:
    e3 :: V '[Error]
    e3 = V (Error "Outch!")
 
-   -- > showError e2
-   -- "Found error: Oups!"
-   -- > showError e3
-   -- "Found error: Outch!"
+   > showError e2
+   "Found error: Oups!"
+
+   > showError e3
+   "Found error: Outch!"
 
 
 ------------------------------------------------------------------------------
@@ -69,10 +71,10 @@ following expected compile-time error:
    e4 :: V '[String,Int]
    e4 = V "valid"
 
-   -- > showError e4
-   -- 
-   -- <interactive>:45:1: error:
-   --     • `Error' is not a member of '[String, Int]
+   > showError e4
+   
+   <interactive>:45:1: error:
+       • `Error' is not a member of '[String, Int]
 
 
 Nevertheless we can write a ``showErrorMaybe`` that works on any variant even if
@@ -86,16 +88,20 @@ and by matching with ``VMaybe`` as follows:
       VMaybe (Error s) -> "Found error: " ++ s
       _                -> "Not an Error!"
 
-   -- > showErrorMaybe e0
-   -- "Found error: invalid"
-   -- > showErrorMaybe e1
-   -- "Not an Error!"
-   -- > showErrorMaybe e2
-   -- "Found error: Oups!"
-   -- > showErrorMaybe e3
-   -- "Found error: Outch!"
-   -- > showErrorMaybe e4
-   -- "Not an Error!"
+   > showErrorMaybe e0
+   "Found error: invalid"
+
+   > showErrorMaybe e1
+   "Not an Error!"
+
+   > showErrorMaybe e2
+   "Found error: Oups!"
+
+   > showErrorMaybe e3
+   "Found error: Outch!"
+
+   > showErrorMaybe e4
+   "Not an Error!"
 
 Obviously this example is a bit contrived because we can easily see that ``e4``
 can't contain an ``Error``. However the same ``:<?`` constraint is also used to
@@ -118,25 +124,25 @@ family. For example:
       Left  v'        -> v' -- left-over variant!
 
 
-   -- > filterError e0
-   -- *** Exception: Found error: invalid
-   -- CallStack (from HasCallStack):
-   --   error, called at Test.hs:61:23 in main:Main
+   > filterError e0
+   *** Exception: Found error: invalid
+   CallStack (from HasCallStack):
+     error, called at Test.hs:61:23 in main:Main
 
-   -- > filterError e1
-   -- 10
+   > filterError e1
+   10
 
-   -- > :t e1
-   -- e1 :: V '[String, Int, Error]
+   > :t e1
+   e1 :: V '[String, Int, Error]
 
-   -- > :t filterError e1
-   -- filterError e1 :: V '[String, Int]
+   > :t filterError e1
+   filterError e1 :: V '[String, Int]
 
-   -- > :t e2
-   -- e2 :: V '[Float, String, Maybe Char, Error]
+   > :t e2
+   e2 :: V '[Float, String, Maybe Char, Error]
 
-   -- > :t filterError e2
-   -- filterError e2 :: V '[Float, [Char], Maybe Char]
+   > :t filterError e2
+   filterError e2 :: V '[Float, [Char], Maybe Char]
 
 Notice how an ``Error`` value can't be present anymore in the variant type
 returned by ``filterError`` and how this function is generic as it supports any

@@ -14,13 +14,14 @@ type with ``variantToValue`` and ``variantFromValue``:
    intV :: V '[Int]
    intV = V @Int 10
 
-   -- > variantToValue intV
-   -- 10
-   -- > :t variantToValue intV
-   -- variantToValue intV :: Int
+   > variantToValue intV
+   10
 
-   -- > :t variantFromValue "Test"
-   -- variantFromValue "Test" :: V '[String]
+   > :t variantToValue intV
+   variantToValue intV :: Int
+
+   > :t variantFromValue "Test"
+   variantFromValue "Test" :: V '[String]
 
 ``variantFromValue`` is especially useful to avoid having to define the value
 types of the variant explicitly.
@@ -37,17 +38,18 @@ variant of arity 2 and the ``Either`` data type:
    eith :: Either Int String
    eith = Left 10
 
-   -- > :t variantFromEither eith
-   -- variantFromEither eith :: V '[String, Int]
+   > :t variantFromEither eith
+   variantFromEither eith :: V '[String, Int]
 
    x,y :: V '[String,Int]
    x = V "test"
    y = V @Int 10
 
-   -- > variantToEither x
-   -- Right "test"
-   -- > variantToEither y
-   -- Left 10
+   > variantToEither x
+   Right "test"
+
+   > variantToEither y
+   Left 10
 
 ------------------------------------------------------------------------------
 Extending
@@ -67,10 +69,11 @@ types with ``appendVariant`` and ``prependVariant``:
    px = prependVariant @'[A,B] x
    ax = appendVariant @'[A,B] x
 
-   -- > :t ax
-   -- ax :: V '[String, Int, A, B]
-   -- > :t px
-   -- px :: V '[A, B, String, Int]
+   > :t ax
+   ax :: V '[String, Int, A, B]
+
+   > :t px
+   px :: V '[A, B, String, Int]
 
 You can use the ``Concat`` type family to specify the type of a concatened
 variant:
@@ -91,17 +94,21 @@ variant:
       V (1 :: Int) -> V Error1
       v            -> appendVariant @'[Error0,Error1] v
 
-   -- > checkErr (V @Int 0 :: V '[Float,Int])
-   -- Error0
-   -- > checkErr (V @Int 1 :: V '[Float,Int])
-   -- Error1
-   -- > checkErr (V @Int 2 :: V '[Float,Int])
-   -- 2
-   -- > checkErr (V @Float 5.0 :: V '[Float,Int])
-   -- 5.0
-   -- > z = checkErr (V @Float 5.0 :: V '[Float,Int,String,Double])
-   -- > :t z
-   -- z :: V '[Float, Int, [Char], Double, Error0, Error1]
+   > checkErr (V @Int 0 :: V '[Float,Int])
+   Error0
+
+   > checkErr (V @Int 1 :: V '[Float,Int])
+   Error1
+
+   > checkErr (V @Int 2 :: V '[Float,Int])
+   2
+
+   > checkErr (V @Float 5.0 :: V '[Float,Int])
+   5.0
+
+   > z = checkErr (V @Float 5.0 :: V '[Float,Int,String,Double])
+   > :t z
+   z :: V '[Float, Int, [Char], Double, Error0, Error1]
 
 Appending and prepending are very cheap operations: appending just messes with
 types and performs nothing at runtime; prepending only increases the tag value
@@ -132,11 +139,11 @@ ensure that the type list ``is`` is a subset of ``os``:
          => V is -> V (Double ': Float ': is)
    liftX = liftVariant
 
-   -- > :t liftX x
-   -- liftX x :: V '[Double, Float, String, Int]
+   > :t liftX x
+   liftX x :: V '[Double, Float, String, Int]
    
-   -- > :t liftX (V "test" :: V '[String])
-   -- liftX (V "test" :: V '[String]) :: V '[Double, Float, String]
+   > :t liftX (V "test" :: V '[String])
+   liftX (V "test" :: V '[String]) :: V '[Double, Float, String]
 
 
 .. _nubVariant:
@@ -192,12 +199,14 @@ a single functor value (e.g., ``m (V '[a,b,c])``) with ``joinVariant``:
    fs1 = V (Just "Test")
    fs2 = V @(Maybe Double) Nothing
 
-   -- > joinVariant @Maybe fs0
-   -- Just (V @Int 10)
-   -- > joinVariant @Maybe fs1
-   -- Just (V @[Char] "Test")
-   -- > joinVariant @Maybe fs2
-   -- Nothing
+   > joinVariant @Maybe fs0
+   Just (V @Int 10)
+
+   > joinVariant @Maybe fs1
+   Just (V @[Char] "Test")
+
+   > joinVariant @Maybe fs2
+   Nothing
 
 
 It also works with ``IO`` for example:
@@ -213,14 +222,16 @@ It also works with ``IO`` for example:
    ms0 = V @(IO Int) (printRet 10)
    ms1 = V (printRet "Test")
 
-   -- > joinVariant @IO ms0
-   -- 10
-   -- V @Int 10
-   -- > joinVariant @IO ms1
-   -- "Test"
-   -- V @[Char] "Test"
-   -- > :t joinVariant @IO ms0
-   -- joinVariant @IO ms0 :: IO (V '[Int, String, Double])
+   > joinVariant @IO ms0
+   10
+   V @Int 10
+
+   > joinVariant @IO ms1
+   "Test"
+   V @[Char] "Test"
+
+   > :t joinVariant @IO ms0
+   joinVariant @IO ms0 :: IO (V '[Int, String, Double])
 
 Writing generic code requires the use of the ``JoinVariant m xs`` constraint and
 the resulting list of value types can be obtained with the ``ExtractM m xs``
@@ -228,8 +239,8 @@ type family.
 
 .. code::
 
-   -- > :t joinVariant
-   -- joinVariant :: JoinVariant m xs => V xs -> m (V (ExtractM m xs))
+   > :t joinVariant
+   joinVariant :: JoinVariant m xs => V xs -> m (V (ExtractM m xs))
 
 
 .. note::
@@ -257,10 +268,11 @@ We can combine two variants into a single variant containing a tuple with
 
    dfl = productVariant d fl
 
-   -- > dfl
-   -- V @(Word,Float) (10,5.0)
-   -- > :t dfl
-   -- dfl :: V '[(Int, Float), (Int, Double), (Word, Float), (Word, Double)]
+   > dfl
+   V @(Word,Float) (10,5.0)
+
+   > :t dfl
+   dfl :: V '[(Int, Float), (Int, Double), (Word, Float), (Word, Double)]
 
 ------------------------------------------------------------------------------
 Converting to tuple/HList
