@@ -65,11 +65,12 @@ If we know the index of the value type we want to map, we can use
    > mapVariantAt @0 length y
    V @Int 10
 
+   > mapVariantAt @1 (+5) x
+   V @[Char] "test"
+
    > mapVariantAt @1 (+5) y
    V @Int 15
 
-   > mapVariantAt @1 (+5) x
-   V @[Char] "test"
 
 Note that the compiler uses the type of the element whose index is given as
 first argument to infer the type of the functions ``length`` and ``+5``, hence

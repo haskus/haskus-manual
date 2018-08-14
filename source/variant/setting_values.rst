@@ -86,3 +86,22 @@ If you try to set or match a value type that isn't valid, you get a compile-time
    --     • In the pattern: V (i :: Float)
    --       In a case alternative: V (i :: Float) -> "Found float: " ++ show i
 
+------------------------------------------------------------------------------
+Setting values by index: ``toVariantAt``
+------------------------------------------------------------------------------
+
+We can explicitly create a variant by specifying the index (starting from 0) of
+the value type with ``toVariantAt``:
+
+.. code::
+
+   x :: V '[Int,String,Float]
+   x = toVariantAt @2 5.0
+
+It is espacially useful if for some reason we want to have the same type more
+than once in the variant value type list:
+
+.. code::
+
+   y :: V '[Int,Int,String,Int,Float]
+   y = toVariantAt @1 5

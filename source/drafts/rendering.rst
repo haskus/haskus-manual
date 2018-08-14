@@ -72,7 +72,7 @@ modify its content during the scan-out period, some artifacts may appear on the
 screen. For instance if we repeatedly clear the screen, then draw a filled
 rectangle and finally draw a circle on top of it, the display may either show
 the cleared screen, the rectangle alone or the rectangle with the circle. The
-rectangle and the circle seem to flash: this is called a \emph{flicker} effect.
+rectangle and the circle seem to flash: this is called a **flicker** effect.
 
 * time to render a frame vs refresh period vs v-blank period
 
