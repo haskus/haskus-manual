@@ -14,7 +14,7 @@
    viewBox="0 0 616.38956 25.987627"
    id="svg2"
    version="1.1"
-   inkscape:version="0.92.1 r"
+   inkscape:version="0.92.2 2405546, 2018-03-11"
    sodipodi:docname="graphics_entities.svg">
   <defs
      id="defs4">
@@ -131,13 +131,13 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="264.87502"
-     inkscape:cy="-90.044992"
+     inkscape:zoom="1.979899"
+     inkscape:cx="105.48168"
+     inkscape:cy="96.462546"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="958"
+     inkscape:window-width="1303"
      inkscape:window-height="1064"
      inkscape:window-x="0"
      inkscape:window-y="14"
@@ -154,7 +154,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -230,41 +230,41 @@
          style="fill:none;stroke:#000000;stroke-width:1.19855571;stroke-opacity:1" />
     </g>
     <g
-       id="g4235"
-       transform="matrix(0.83616263,0,0,0.83251641,87.699586,-142.38256)">
+       id="g4629">
       <text
+         transform="scale(1.0021875,0.99781728)"
          id="text4136-38"
-         y="268.41177"
-         x="155.41862"
-         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         y="81.164009"
+         x="215.41737"
+         style="font-style:normal;font-weight:normal;font-size:10.01205063px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.83433753px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           y="268.41177"
-           x="155.41862"
+           y="81.164009"
+           x="215.41737"
            id="tspan4138-8"
            sodipodi:role="line"
-           style="font-size:12px;line-height:1.25;font-family:sans-serif">FrameBuffer</tspan></text>
+           style="font-size:10.01205063px;line-height:1.25;font-family:sans-serif;stroke-width:0.83433753px">FrameSource</tspan></text>
       <rect
-         y="249.54347"
-         x="150.26019"
-         height="28.789347"
-         width="85.357887"
+         y="65.366478"
+         x="213.34154"
+         height="23.967604"
+         width="71.373077"
          id="rect4140-26"
-         style="fill:none;stroke:#000000;stroke-width:1.19855571;stroke-opacity:1" />
+         style="fill:none;stroke:#000000;stroke-width:1;stroke-opacity:1" />
     </g>
     <g
-       id="g4329">
+       id="g4637">
       <text
          transform="scale(1.0021875,0.99781728)"
          id="text4136-38-9"
          y="80.656036"
-         x="120.77671"
+         x="110.89665"
          style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
            y="80.656036"
-           x="120.77671"
+           x="110.89665"
            id="tspan4138-8-4"
            sodipodi:role="line"
-           style="font-size:10.01205063px;line-height:1.25;font-family:sans-serif">Surface</tspan></text>
+           style="font-size:10.01205063px;line-height:1.25;font-family:sans-serif">PixelSource</tspan></text>
       <rect
          y="64.771812"
          x="104.54528"

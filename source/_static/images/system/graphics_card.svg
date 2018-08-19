@@ -14,7 +14,7 @@
    viewBox="0 0 717.08272 319.81401"
    id="svg2"
    version="1.1"
-   inkscape:version="0.92.1 r"
+   inkscape:version="0.92.2 2405546, 2018-03-11"
    sodipodi:docname="graphics_card.svg">
   <defs
      id="defs4">
@@ -515,12 +515,12 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="-38.252326"
-     inkscape:cy="135.61368"
+     inkscape:cx="89.790621"
+     inkscape:cy="75.031168"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="958"
+     inkscape:window-width="1303"
      inkscape:window-height="1064"
      inkscape:window-x="0"
      inkscape:window-y="14"
@@ -528,7 +528,9 @@
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
-     fit-margin-bottom="0" />
+     fit-margin-bottom="0"
+     inkscape:snap-others="false"
+     inkscape:object-nodes="false" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -537,7 +539,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -749,47 +751,47 @@
          id="rect3340-3-6-2-1-3" />
     </g>
     <g
-       id="g4399"
-       transform="matrix(0.81501591,0,0,0.81491024,91.07931,23.352286)">
+       id="g1219">
       <text
+         transform="scale(1.0000648,0.9999352)"
          id="text3336-4-6-87-2-9"
-         y="479.44333"
-         x="223.89"
-         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         y="413.99643"
+         x="273.79095"
+         style="font-style:normal;font-weight:normal;font-size:9.77955723px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.8149631px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-size:12px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle"
+           style="font-size:9.77955723px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;stroke-width:0.8149631px"
            id="tspan4358"
-           y="479.44333"
-           x="223.89"
-           sodipodi:role="line">FrameBuffer</tspan></text>
+           y="413.99643"
+           x="273.79095"
+           sodipodi:role="line">FrameSource</tspan></text>
       <rect
-         style="fill:none;stroke:#000000;stroke-width:1.10972214;stroke-opacity:1"
-         y="459.92188"
-         x="184.06805"
-         height="30.095619"
-         width="80.809898"
+         style="fill:none;stroke:#000000;stroke-width:0.90438259;stroke-opacity:1"
+         y="398.14734"
+         x="241.0977"
+         height="24.525229"
+         width="65.861351"
          id="rect3340-3-6-2-1-9" />
     </g>
     <g
-       transform="matrix(0.81501591,0,0,0.81491024,85.36503,-115.69824)"
-       id="g4399-3">
+       id="g1211">
       <text
+         transform="scale(1.0000648,0.9999352)"
          id="text3336-4-6-87-2-9-5"
-         y="479.44333"
-         x="223.89"
-         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         y="274.93689"
+         x="268.07706"
+         style="font-style:normal;font-weight:normal;font-size:9.77955723px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.8149631px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-size:12px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle"
+           style="font-size:9.77955723px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;stroke-width:0.8149631px"
            id="tspan4358-9"
-           y="479.44333"
-           x="223.89"
-           sodipodi:role="line">FrameBuffer</tspan></text>
+           y="274.93689"
+           x="268.07706"
+           sodipodi:role="line">FrameSource</tspan></text>
       <rect
-         style="fill:none;stroke:#000000;stroke-width:1.10972214;stroke-opacity:1"
-         y="459.92188"
-         x="184.06805"
-         height="30.095619"
-         width="80.809898"
+         style="fill:none;stroke:#000000;stroke-width:0.90438259;stroke-opacity:1"
+         y="259.0968"
+         x="235.38342"
+         height="24.525229"
+         width="65.861351"
          id="rect3340-3-6-2-1-9-2" />
     </g>
     <path
@@ -905,46 +907,34 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="696.70209"
-       y="412.65665"
+       x="693.15796"
+       y="410.2077"
        id="text5640"
        transform="scale(1.0000648,0.9999352)"><tspan
          sodipodi:role="line"
          id="tspan5642"
-         x="696.70209"
-         y="412.65665"
+         x="693.15796"
+         y="410.2077"
          style="font-size:9.77955723px;line-height:1.25;font-family:sans-serif">Cloned</tspan><tspan
          sodipodi:role="line"
-         x="696.70209"
-         y="424.8811"
+         x="693.15796"
+         y="422.43216"
          id="tspan5644"
          style="font-size:9.77955723px;line-height:1.25;font-family:sans-serif">output</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="1789.5684"
-       y="177.04004"
-       id="text5646"
-       transform="scale(0.38029825,2.6295151)"><tspan
-         sodipodi:role="line"
-         id="tspan5648"
-         x="1789.5684"
-         y="177.04004"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:62.24694443px;line-height:1.25;font-family:Dingbats;-inkscape-font-specification:Dingbats">}</tspan></text>
     <g
-       id="g5622">
+       id="g1235">
       <text
          transform="scale(1.0000648,0.9999352)"
          id="text3336-4-6-87-2-9-5-9-9"
          y="260.02182"
-         x="187.42577"
+         x="187.26819"
          style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
            style="font-size:9.77955723px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle"
            id="tspan4358-9-3-6"
            y="260.02182"
-           x="187.42577"
-           sodipodi:role="line">Surface</tspan></text>
+           x="187.26819"
+           sodipodi:role="line">PixelSource</tspan></text>
       <rect
          style="fill:none;stroke:#000000;stroke-width:1.23328888;stroke-opacity:1"
          y="233.4623"
@@ -979,25 +969,25 @@
        id="path4913-5-7"
        inkscape:connector-curvature="0" />
     <g
-       id="g4399-2"
-       transform="matrix(0.81501591,0,0,0.81491024,90.62236,81.733117)">
+       id="g1227">
       <text
+         transform="scale(1.0000648,0.9999352)"
          id="text3336-4-6-87-2-9-2"
-         y="479.44333"
-         x="223.89"
-         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         y="472.38104"
+         x="273.33405"
+         style="font-style:normal;font-weight:normal;font-size:9.77955723px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.8149631px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-size:12px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle"
+           style="font-size:9.77955723px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;stroke-width:0.8149631px"
            id="tspan4358-1"
-           y="479.44333"
-           x="223.89"
-           sodipodi:role="line">FrameBuffer</tspan></text>
+           y="472.38104"
+           x="273.33405"
+           sodipodi:role="line">FrameSource</tspan></text>
       <rect
-         style="fill:none;stroke:#000000;stroke-width:1.10972214;stroke-opacity:1"
-         y="459.92188"
-         x="184.06805"
-         height="30.095619"
-         width="80.809898"
+         style="fill:none;stroke:#000000;stroke-width:0.90438259;stroke-opacity:1"
+         y="456.52817"
+         x="240.64075"
+         height="24.525229"
+         width="65.861351"
          id="rect3340-3-6-2-1-9-7" />
     </g>
     <path
@@ -1184,7 +1174,7 @@
            id="tspan4358-9-3-6-6"
            y="316.74265"
            x="188.14001"
-           sodipodi:role="line">Surface</tspan></text>
+           sodipodi:role="line">PixelSource</tspan></text>
     </g>
     <g
        id="g5586">
@@ -1206,7 +1196,7 @@
            id="tspan4358-9-3-6-5"
            y="412.77203"
            x="186.06984"
-           sodipodi:role="line">Surface</tspan></text>
+           sodipodi:role="line">PixelSource</tspan></text>
     </g>
     <g
        id="g5581">
@@ -1228,35 +1218,32 @@
            id="tspan4358-9-3-6-62"
            y="470.32401"
            x="186.78407"
-           sodipodi:role="line">Surface</tspan></text>
+           sodipodi:role="line">PixelSource</tspan></text>
     </g>
-    <g
-       id="g5676">
-      <rect
-         style="fill:none;stroke:#000000;stroke-width:1.23328888;stroke-opacity:1"
-         y="233.4623"
-         x="26.701099"
-         height="45.794113"
-         width="65.593292"
-         id="rect3340-3-6-2-1-9-2-6" />
-      <text
-         transform="scale(1.0000648,0.9999352)"
-         id="text3336-4-6-87-2-9-5-9-9-9"
-         y="253.90959"
+    <rect
+       id="rect3340-3-6-2-1-9-2-6"
+       width="65.593292"
+       height="45.794113"
+       x="26.701099"
+       y="233.4623"
+       style="fill:none;stroke:#000000;stroke-width:1.23328888;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="59.458076"
+       y="253.90959"
+       id="text3336-4-6-87-2-9-5-9-9-9"
+       transform="scale(1.0000648,0.9999352)"><tspan
+         sodipodi:role="line"
          x="59.458076"
-         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-size:9.77955723px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle"
-           id="tspan4358-9-3-6-1"
-           y="253.90959"
-           x="59.458076"
-           sodipodi:role="line">Mapped</tspan><tspan
-           id="tspan5627"
-           style="font-size:9.77955723px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle"
-           y="266.13403"
-           x="59.458076"
-           sodipodi:role="line">Surface</tspan></text>
-    </g>
+         y="253.90959"
+         style="font-size:9.77955723px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle"
+         id="tspan5627">Host</tspan><tspan
+         sodipodi:role="line"
+         x="59.458076"
+         y="266.13403"
+         style="font-size:9.77955723px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle"
+         id="tspan1243">Buffer</tspan></text>
     <g
        id="g5670">
       <rect
@@ -1273,16 +1260,16 @@
          x="60.172314"
          style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
+           id="tspan5627-0"
            style="font-size:9.77955723px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle"
-           id="tspan4358-9-3-6-1-7"
            y="310.6304"
            x="60.172314"
-           sodipodi:role="line">Mapped</tspan><tspan
-           id="tspan5627-0"
+           sodipodi:role="line">Host</tspan><tspan
            style="font-size:9.77955723px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle"
            y="322.85486"
            x="60.172314"
-           sodipodi:role="line">Surface</tspan></text>
+           sodipodi:role="line"
+           id="tspan1247">Buffer</tspan></text>
     </g>
     <g
        id="g5682">
@@ -1300,16 +1287,16 @@
          x="58.102146"
          style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
+           id="tspan5627-6"
            style="font-size:9.77955723px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle"
-           id="tspan4358-9-3-6-1-3"
            y="406.65979"
            x="58.102146"
-           sodipodi:role="line">Mapped</tspan><tspan
-           id="tspan5627-6"
+           sodipodi:role="line">Host</tspan><tspan
            style="font-size:9.77955723px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle"
            y="418.88425"
            x="58.102146"
-           sodipodi:role="line">Surface</tspan></text>
+           sodipodi:role="line"
+           id="tspan1251">Buffer</tspan></text>
     </g>
     <g
        id="g5688">
@@ -1327,16 +1314,36 @@
          x="58.816387"
          style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
+           id="tspan5627-2"
            style="font-size:9.77955723px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle"
-           id="tspan4358-9-3-6-1-6"
            y="464.21176"
            x="58.816387"
-           sodipodi:role="line">Mapped</tspan><tspan
-           id="tspan5627-2"
+           sodipodi:role="line">Host</tspan><tspan
            style="font-size:9.77955723px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle"
            y="476.43622"
            x="58.816387"
-           sodipodi:role="line">Surface</tspan></text>
+           sodipodi:role="line"
+           id="tspan1255">Buffer</tspan></text>
     </g>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.9375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.87500002, 1.87500002;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 680.42837,358.15004 11.27407,55.0788"
+       id="path1259"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 689.74843,413.06108 Z"
+       id="path1261"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.9375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.87499998, 0.93749999;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 679.20156,414.9026 h 11.88616"
+       id="path1263"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.93749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:1.87499997,0.93749999;stroke-dashoffset:0"
+       d="m 682.38235,478.01643 8.70538,-60.26785"
+       id="path1265"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>

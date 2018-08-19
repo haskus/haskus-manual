@@ -1,11 +1,8 @@
 ==============================================================================
-Graphics Overview
+Mode setting
 ==============================================================================
 
-.. toctree::
-   :maxdepth: 1
+::
 
-   generalities
-   display_model
-   mode_setting
-
+   TODO:
+      * Atomic mode-setting (test, commit)
