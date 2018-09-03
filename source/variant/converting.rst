@@ -95,16 +95,16 @@ variant:
       v            -> appendVariant @'[Error0,Error1] v
 
    > checkErr (V @Int 0 :: V '[Float,Int])
-   Error0
+   V @Error0 Error0
 
    > checkErr (V @Int 1 :: V '[Float,Int])
-   Error1
+   V @Error1 Error1
 
    > checkErr (V @Int 2 :: V '[Float,Int])
-   2
+   V @Int 2
 
    > checkErr (V @Float 5.0 :: V '[Float,Int])
-   5.0
+   V @Float 5.0
 
    > z = checkErr (V @Float 5.0 :: V '[Float,Int,String,Double])
    > :t z
