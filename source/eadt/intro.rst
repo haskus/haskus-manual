@@ -23,10 +23,7 @@ supports recursive datatypes. Indeed if we try to define a recursive datatype
 
 We could introduce ad-hoc datatypes (e.g., ``newtype L a = L (V '[Cons a (L
 a),Nil])``) but this would defeats our purpose because the datatype wouldn't be
-generic anymore.
-
-EADTs are similar to Variants (and in fact are based on ``Variant``) and support
-recursive ADTs. For instance, we just have to write the following code to
+generic anymore.  Instead with EADTs we just have to write the following code to
 declare a ``List`` EADT:
 
 .. code::
