@@ -1,5 +1,7 @@
+.. _variant:
+
 ==============================================================================
-Variant and extensible ADT (EADT)
+Variant
 ==============================================================================
 
 ``Variant`` is a sum type, i.e. a wrapper for a value which can be of different
@@ -15,7 +17,7 @@ an ``Int`` or a ``Float``:
 The particularity is that we use a type-level list of types to control the possible value type. Compared to usual sum types (e.g. ``Either Int Float``) it allows us to manipulate (extend/filter/etc.) the list in a type-safe way and without requiring new data types.
 
 Recursive sum types (e.g. ``data List a = Nil | Cons a (List a)``) based on
-``Variant`` are also supported and are called **EADT** (for "extensible ADT").
+``Variant`` are also supported and are called :ref:`EADT <eadt>` (for "extensible ADT").
 
 .. toctree::
    :maxdepth: 1

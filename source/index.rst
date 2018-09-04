@@ -20,6 +20,7 @@ system: input, display, sound, network, etc.
    :caption: Haskus utils
 
    variant
+   eadt
 
 .. toctree::
    :maxdepth: 1
