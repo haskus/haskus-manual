@@ -38,4 +38,5 @@ support for recursive ADTs as in the examples above.
    :numbered:
 
    eadt/intro
-   eadt/constructor
+   eadt/basics
+   eadt/operation

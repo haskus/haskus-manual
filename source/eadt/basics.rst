@@ -1,5 +1,7 @@
+.. _eadt_basics:
+
 ==============================================================================
-Defining an EADT
+Basics
 ==============================================================================
 
 ------------------------------------------------------------------------------
@@ -88,3 +90,33 @@ the inference algorithm:
    intList :: List Int
    intList = ConsList 10 $ ConsList 20 $ ConsList 30 Nil
 
+
+------------------------------------------------------------------------------
+Matching values
+------------------------------------------------------------------------------
+
+It is easy and tempting to use the same pattern synonyms to match EADT values.
+And indeed this works pretty well (with a little help for the type checker):
+
+.. code::
+
+   showEADTList :: Show a => List a -> String
+   showEADTList = \case
+      ConsList a l -> show a ++ " : " ++ showEADTList l
+      Nil          -> "Nil"
+      _            -> undefined
+
+   > showEADTList intList
+   "10 : 20 : 30 : Nil"
+
+.. note::
+
+   For now the compiler **cannot use the EADT constructor type list to infer
+   that the pattern-match is complete**. Hence we need the wildcard match to
+   avoid a warning.
+
+However this approach is a bit unsatisfactory. For instance, we would like to
+write a ``showEADTList`` that also works on the heterogeneous ``mixedList``
+above or on any future EADT provided its constructors implement the operation.
+To do that we can use type-classes as shown in :ref:`a following chapter
+<eadt_generic>`.
