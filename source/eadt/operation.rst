@@ -4,8 +4,12 @@
 Generic operations
 ==============================================================================
 
-To define generic EADT operations, we use type-classes. For instance, let's
-implement ``Show`` for any EADT value:
+------------------------------------------------------------------------------
+Simple recursive traversal
+------------------------------------------------------------------------------
+
+To define a generic EADT recursive traversal, we use a type-class.  For
+instance, let's implement ``MyShow`` for any EADT value:
 
 .. code::
 
@@ -61,11 +65,70 @@ Now we can test it:
    mixedList :: EADT '[ConsF Int, ConsF Float, NilF]
    mixedList = Cons (10 :: Int) $ Cons (5.0 :: Float) $ Cons (30 :: Int) Nil
 
-   > myShow strList 
-   "\"How\" : \"are\" : \"you?\" : Nil"
+   > putStrLn (myShow strList)
+   "How" : "are" : "you?" : Nil
 
-   > myShow intList
-   "10 : 20 : 30 : Nil"
+   > putStrLn (myShow intList)
+   10 : 20 : 30 : Nil
 
-   > myShow mixedList 
-   "10 : 5.0 : 30 : Nil"
+   > putStrLn (myShow mixedList)
+   10 : 5.0 : 30 : Nil
+
+
+We can add a new constructor, such as ``NodeF`` to build binary trees:
+
+.. code::
+
+   data NodeF a l = NodeF a l l deriving (Functor)
+
+   pattern Node :: NodeF a :<: xs => a -> EADT xs -> EADT xs -> EADT xs
+   pattern Node a l1 l2 = VF (NodeF a l1 l2)
+
+We can also extend ``MyShow`` so that it supports ``NodeF``:
+
+.. code::
+
+   instance (MyShow e, Show a) => MyShow (NodeF a e) where
+      myShow (NodeF a l1 l2) = show a ++ "\n|- " ++ indent (myShow l1)
+                                      ++ "|- " ++ indent (myShow l2)
+         where
+            indent' []     = []
+            indent' (x:xs) = x : fmap ("   "++) xs
+            indent = unlines . indent' . lines
+
+Now we can show trees as well as lists:
+
+.. code::
+
+   tree :: EADT '[NodeF Int, NilF]
+   tree = Node (10 :: Int)
+            (Node (5 :: Int) Nil Nil)
+            (Node (30 :: Int) Nil Nil)
+            
+
+   > putStr (myShow tree)
+   10
+   |- 5
+      |- Nil
+      |- Nil
+   |- 30
+      |- Nil
+      |- Nil
+
+We can also mix up trees and lists by using ``ConsF`` and ``NodeF`` in the same
+EADT:
+
+.. code::
+
+   mixedTree :: EADT '[NodeF Int, ConsF Int, NilF]
+   mixedTree = Node (10 :: Int)
+            (Cons (5 :: Int) $ Cons (6 :: Int) $ Cons (7 :: Int) Nil)
+            (Node (30 :: Int) Nil Nil)
+
+   > putStr (myShow mixedTree)
+   10
+   |- 5 : 6 : 7 : Nil
+   |- 30
+      |- Nil
+      |- Nil
+
