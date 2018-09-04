@@ -8,8 +8,9 @@ Generic operations
 Simple recursive traversal
 ------------------------------------------------------------------------------
 
-To define a generic EADT recursive traversal, we use a type-class.  For
-instance, let's implement ``MyShow`` for any EADT value:
+To define a generic EADT recursive traversal, we use a type-class. For instance,
+let's define a class ``MyShow`` that is very much like ``Show`` and that we will
+use to print any EADT value:
 
 .. code::
 
@@ -74,8 +75,10 @@ Now we can test it:
    > putStrLn (myShow mixedList)
    10 : 5.0 : 30 : Nil
 
+Extensibility
+~~~~~~~~~~~~~
 
-We can add a new constructor, such as ``NodeF`` to build binary trees:
+If we add a new constructor, such as ``NodeF`` to build binary trees:
 
 .. code::
 

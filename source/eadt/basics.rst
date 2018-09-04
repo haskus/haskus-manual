@@ -57,7 +57,8 @@ with a normal ADT:
 
 .. code::
 
-   let xs = Cons "How" (Cons "are" (Cons "you?" Nil)) :: List String
+   strList :: List String
+   strList = Cons "How" (Cons "are" (Cons "you?" Nil))
 
 In some cases we have to help the type-checker to determine some types. For
 instance, in the following example it can't infer the ``a`` type in ``ConsF a``,
@@ -96,7 +97,7 @@ Matching values
 ------------------------------------------------------------------------------
 
 It is easy and tempting to use the same pattern synonyms to match EADT values.
-And indeed this works pretty well (with a little help for the type checker):
+And indeed this works pretty well:
 
 .. code::
 
@@ -106,8 +107,11 @@ And indeed this works pretty well (with a little help for the type checker):
       Nil          -> "Nil"
       _            -> undefined
 
-   > showEADTList intList
-   "10 : 20 : 30 : Nil"
+   > putStrLn (showEADTList strList)
+   "How" : "are" : "you?" : Nil
+
+   > putStrLn (showEADTList intList)
+   10 : 20 : 30 : Nil
 
 .. note::
 
