@@ -84,7 +84,7 @@ If we add a new constructor, such as ``NodeF`` to build binary trees:
    pattern Node :: NodeF a :<: xs => a -> EADT xs -> EADT xs -> EADT xs
    pattern Node a l1 l2 = VF (NodeF a l1 l2)
 
-We can also extend ``MyShow`` so that it supports ``NodeF``:
+We can also add a ``MyShow`` instance for ``NodeF``:
 
 .. code::
 
