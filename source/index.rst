@@ -4,7 +4,7 @@ Haskus manuals
 
 .. toctree::
    :maxdepth: 1
-   :caption: Haskus System 
+   :caption: System 
 
    system/building
    system/programming
@@ -17,7 +17,7 @@ system: input, display, sound, network, etc.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Haskus utils
+   :caption: Miscellaneous
 
    variant
    eadt
@@ -28,3 +28,10 @@ system: input, display, sound, network, etc.
 
    binary
    drafts
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Resources
+
+   resources/graphics
+

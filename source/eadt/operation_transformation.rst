@@ -64,7 +64,8 @@ addition as follows:
    distr _                 = Nothing
 
 Note that this function works on any EADT as long as it has ``AddF`` and
-``MulF`` constructors.
+``MulF`` constructors. We indicate such constraints with the ``:<:`` type
+operator.
 
 Then we need a helper function that performs the traversal of the EADT:
 
