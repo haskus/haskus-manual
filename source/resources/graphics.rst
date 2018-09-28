@@ -20,3 +20,10 @@ http://blog.johnnovak.net/2016/09/21/what-every-coder-should-know-about-gamma/
   Explanation of gamma. Takeover: most operations (gradient, blending, etc.)
   must be done in linear space and in floating-point to be correct. Using sRGB
   space as if it is linear is wrong.
+
+http://poynton.ca/PDFs/YUV_and_luminance_harmful.pdf
+
+   "YUV and Luminance considered harmful". Takeover: "luminance" (Y') in
+   computer graphics is not the same as "lumninance" (Y) in color science (i.e.
+   CIE luminance). We should avoid the terms YUV and "luminance" and use the
+   correct "Y'C_BC_R" and "luma" terms instead.
