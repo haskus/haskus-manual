@@ -1,7 +1,7 @@
 .. _eadt_op_recursive_traversal:
 
 ==============================================================================
-Recursive traversal
+Explicit recursive traversal
 ==============================================================================
 
 To define a generic EADT recursive traversal, we use a type-class. For instance,

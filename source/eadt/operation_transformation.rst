@@ -82,6 +82,11 @@ Then we need a helper function that performs the traversal of the EADT:
             Nothing -> u
             Just v  -> bottomUpFixed f v
 
+.. note::
+
+   ``bottomUpFixed`` is a generic recursion scheme over an EADT. You can read more on this approach in the :ref:`dedicated chapter <eadt_recusion_schemes>`.
+
+
 Finally we can test the transformation on an example:
 
 .. code::

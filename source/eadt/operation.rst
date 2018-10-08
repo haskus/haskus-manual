@@ -9,3 +9,4 @@ Generic operations
 
    operation_simple
    operation_transformation
+   recursion_schemes
