@@ -1,11 +1,41 @@
-.. _eadt_op_recursive_traversal:
+.. _eadt_explicit_recursive:
 
 ==============================================================================
 Explicit recursive traversal
 ==============================================================================
 
-To define a generic EADT recursive traversal, we use a type-class. For instance,
-let's define a class ``MyShow`` that is very much like ``Show`` and that we will
+When we need to traverse a data structure, we can either use predefined
+traversal functions (e.g., ``map``, ``fold``, etc.) or write the recursive
+function explicitly. EADTs are no different in this regard.
+
+In this chapter we explain how to write explicitly recursive functions for
+EADTs: similarly to usual ADTs, it's better to use them only when generic
+traversal functions (presented in following chapters) don't fit the bill.
+
+------------------------------------------------------------------------------
+Traversal example
+------------------------------------------------------------------------------
+
+If we were to write a ``show`` function for a list ADT, we could do it like
+this:
+
+.. code::
+
+   data List a = Cons a (List a) | Nil
+
+   showList :: Show a => List a -> String
+   showList = \case
+      Nil      -> "Nil"
+      Cons a l -> show a ++ " : " ++ showList l
+
+In ``showList`` we can pattern match on the constructors of ``List a`` because
+the constructor list is closed.  With EADTs the list of constructors isn't
+closed and we want to be able to use the same code even with EADTs extended with
+more constructors. To support this, we use type-classes to build the equivalent
+of the ``case`` in ``showList`` above.
+
+
+Let's define a class ``MyShow`` that is very much like ``Show`` and that we will
 use to print any EADT value:
 
 .. code::
@@ -17,17 +47,20 @@ We can define instances for the ``List`` constructors defined in a
 :ref:`previous chapter <eadt_basics>`:
 
 .. code::
-
+  
    instance MyShow (NilF e) where
       myShow _ = "Nil"
 
    instance (MyShow e, Show a) => MyShow (ConsF a e) where
       myShow (ConsF a l) = show a ++ " : " ++ myShow l
 
-It also requires some additional boilerplate code (always quite the same for
-each class) to work on any EADT:
+Note how each instance corresponds to an alternative in ``showList``.
 
-.. code::
+
+It also requires some additional instances to traverse the ``VariantF``
+combinator datatype and the ``Fix`` recursivity handling datatype:
+
+.. code:: haskell
 
    {-# LANGUAGE UndecidableInstances #-}
 
@@ -48,6 +81,17 @@ each class) to work on any EADT:
          myShow v = case popVariantFHead v of
             Right u -> myShow u
             Left  w -> myShow w
+
+.. note ::
+
+   This boilerplate code (hopefully always very similar and straightforward) is the
+   main reason you should strive to use predefined recursion schemes instead of the
+   explicit approach presented here.
+
+.. note::
+
+   The INLINE pragmas are used to ensure that in the generated code we get the
+   equivalent of the ``case`` expression in ``showList``.
 
 Now we can test it:
 
@@ -72,7 +116,7 @@ Now we can test it:
    10 : 5.0 : 30 : Nil
 
 ------------------------------------------------------------------------------
-Extensibility
+Extension example
 ------------------------------------------------------------------------------
 
 If we add a new constructor, such as ``NodeF`` to build binary trees:

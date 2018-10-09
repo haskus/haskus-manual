@@ -1,6 +1,22 @@
 ==============================================================================
-Transformation (using ``:<:``)
+Constraining constructors with ``:<:``
 ==============================================================================
+
+The ``:<:`` type operator is used to ensure that a constructor is present in an
+EADT. For example if we consider the following type signature (that will be
+developed in the example below):
+
+.. code:: haskell
+
+   distr :: (AddF :<: f, MulF :<: f) => EADT f -> Maybe (EADT f)
+
+The constructors of ``EADT f`` are not specified but the constraints ``(AddF :<:
+f, MulF :<: f)`` ensure that at least ``AddF`` and ``MulF`` constructors are present.
+
+
+Transformation example
+----------------------
+
 
 Suppose we have the following EADT for arithmetic expressions:
 
@@ -35,7 +51,7 @@ We can define some value:
 
 
 We can define instances of the ``MyShow`` class (defined :ref:`here
-<eadt_op_recursive_traversal>`):
+<eadt_explicit_recursive>`):
 
 .. code::
 
@@ -84,7 +100,7 @@ Then we need a helper function that performs the traversal of the EADT:
 
 .. note::
 
-   ``bottomUpFixed`` is a generic recursion scheme over an EADT. You can read more on this approach in the :ref:`dedicated chapter <eadt_recusion_schemes>`.
+   ``bottomUpFixed`` is a generic recursion scheme over an EADT. You can read more on this approach in the :ref:`dedicated chapter <eadt_recursion_schemes>`.
 
 
 Finally we can test the transformation on an example:
