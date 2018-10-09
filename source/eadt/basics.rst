@@ -122,5 +122,6 @@ And indeed this works pretty well:
 However this approach is a bit unsatisfactory. For instance, we would like to
 write a ``showEADTList`` that also works on the heterogeneous ``mixedList``
 above or on any future EADT provided its constructors implement the operation.
-To do that we can use type-classes as shown in :ref:`a following chapter
-<eadt_generic>`.
+To do that we can use type-classes as shown in following chapters. We can also
+perform :ref:`safe pattern-matching <eadt_safe_pattern_matching>` by using
+continuations.

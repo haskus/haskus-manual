@@ -39,4 +39,7 @@ support for recursive ADTs as in the examples above.
 
    eadt/intro
    eadt/basics
-   eadt/operation
+   eadt/operation_simple
+   eadt/operation_transformation
+   eadt/recursion_schemes
+   eadt/safe_pattern_matching
