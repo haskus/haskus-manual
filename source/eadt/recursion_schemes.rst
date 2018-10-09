@@ -33,7 +33,7 @@ We also need an instance to handle the generic ``VariantF`` type:
 .. code:: haskell
 
    instance (AlgVariantF MyShow' String xs) => MyShow' (VariantF xs) where
-      myShow' = algVariantF @MyShow' @String @xs myShow'
+      myShow' = algVariantF @MyShow' myShow'
 
 Finally we can define a generic ``eadtShow`` function that uses the catamorphism
 recursion scheme with the ``myShow'`` class method.
