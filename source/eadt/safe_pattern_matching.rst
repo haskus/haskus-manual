@@ -157,7 +157,7 @@ constructors. The other ones are considered as left-overs:
    alg x = case splitVariantF @'[EvenF Int, OddF Int] x of
       Left v          -> variantFToCont v >::>
                            ( \(EvenF a l) -> "Even : " ++ l
-                           , \(OddF a l)  -> "Odd : " ++l
+                           , \(OddF a l)  -> "Odd : " ++ l
                            )
       Right leftovers -> "something else"
 

@@ -43,3 +43,4 @@ support for recursive ADTs as in the examples above.
    eadt/operation_transformation
    eadt/recursion_schemes
    eadt/safe_pattern_matching
+   eadt/constructor_removal
