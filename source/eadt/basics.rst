@@ -78,7 +78,7 @@ An EADT is just a type alias as in the following ``List`` EADT example:
    type List a = EADT '[ConsF a, NilF]
 
 ------------------------------------------------------------------------------
-Defining values
+Creating values
 ------------------------------------------------------------------------------
 
 Thanks to the pattern synonyms defined above, we can define values as we would

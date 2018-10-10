@@ -109,7 +109,7 @@ And a additional instance to traverse the ``VariantF`` combinator datatype:
    instance (AlgEADT (MapList a a' r) r) => MapList a a' r (VariantF r) where
      fmapList' f = algVariantF @(MapList a a' r) (fmapList' f)
 
-Now we can define the ``fmapList`` function by using a recursion scheme named "catamorphism" (``cata`` for short):
+Now we can define the ``fmapList`` function by using the catamorphism combinator:
 
 .. code:: haskell
 
