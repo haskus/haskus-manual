@@ -25,7 +25,7 @@ Note that **both** data types are parameterised (by ``e``) even if the type
 parameter ``e`` isn't used in ``NilF`` definition.
 
 To make the use of EADTs more pleasant, it is highly recommended to define a
-pattern synonym for each constructor as follows:
+pattern synonym for each constructor:
 
 .. code::
 
@@ -37,6 +37,20 @@ pattern synonym for each constructor as follows:
 
 These patterns hide the use of the ``VF`` pattern and make the code much easier
 to work with.
+
+As this code is very straightforward to write, we provide Template-Haskell
+helpers to generate them automatically. The previous patterns can be generated
+with:
+
+.. code::
+
+   {-# LANGUAGE TemplateHaskell #-}
+
+   import Haskus.Utils.EADT.TH
+
+   eadtPat 'ConsF "Cons"
+   eadtPat 'NilF  "Nil"
+
 
 ------------------------------------------------------------------------------
 Defining the EADT
@@ -79,14 +93,19 @@ be used to build an heterogeneous list. For instance containing both ``Int`` and
    mixedList = Cons (10 :: Int) $ Cons (5.0 :: Float) $ Cons (30 :: Int) Nil
 
 
-We could easily define another pattern synonym when we work on ``List`` to help
-the inference algorithm:
+We could also easily define another pattern synonym when we work on ``List`` to
+help the inference algorithm:
 
 .. code::
 
    -- pattern for a specific EADT: List a
    pattern ConsList :: a -> List a -> List a
    pattern ConsList a l = Cons a l
+
+We can see that when we use it we don't need type ascriptions because the
+``Int`` type is propagated:
+
+.. code ::
 
    intList :: List Int
    intList = ConsList 10 $ ConsList 20 $ ConsList 30 Nil

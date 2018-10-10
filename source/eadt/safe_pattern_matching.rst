@@ -11,11 +11,8 @@ Suppose we have the following ``List`` EADT:
    data ConsF a l = ConsF a l deriving (Functor)
    data NilF    l = NilF      deriving (Functor)
 
-   pattern Cons :: ConsF a :<: xs => a -> EADT xs -> EADT xs
-   pattern Cons a l = VF (ConsF a l)
-
-   pattern Nil :: NilF :<: xs => EADT xs
-   pattern Nil = VF NilF
+   eadtPat 'ConsF "Cons"
+   eadtPat 'NilF  "Nil"
 
    type List a = EADT '[ConsF a, NilF]
 
@@ -115,11 +112,8 @@ We can also transform an EADT into another EADT:
    data EvenF a l = EvenF a l deriving (Functor)
    data OddF a l  = OddF a l deriving (Functor)
 
-   pattern Even :: EvenF a :<: xs => a -> EADT xs -> EADT xs
-   pattern Even a l = VF (EvenF a l)
-
-   pattern Odd :: OddF a :<: xs => a -> EADT xs -> EADT xs
-   pattern Odd a l = VF (OddF a l)
+   eadtPat 'EvenF "Even"
+   eadtPat 'OddF  "Odd"
 
    instance (Show a) => MyShow' (EvenF a) where
       myShow' (EvenF a l) = show a ++ " {even} : " ++ l

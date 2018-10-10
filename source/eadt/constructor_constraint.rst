@@ -28,14 +28,9 @@ Suppose we have the following EADT for arithmetic expressions:
    data AddF e = AddF e e deriving (Functor)
    data MulF e = MulF e e deriving (Functor)
 
-   pattern Val :: ValF :<: xs => Int -> EADT xs
-   pattern Val a = VF (ValF a)
-
-   pattern Add :: AddF :<: xs => EADT xs -> EADT xs -> EADT xs
-   pattern Add a b = VF (AddF a b)
-
-   pattern Mul :: MulF :<: xs => EADT xs -> EADT xs -> EADT xs
-   pattern Mul a b = VF (MulF a b)
+   eadtPat 'ValF "Val"
+   eadtPat 'AddF "Add"
+   eadtPat 'MulF "Mul"
 
    type Expr = EADT '[ValF, AddF, MulF]
 
@@ -123,8 +118,7 @@ Suppose we add a ``Pow`` (power) constructor:
 
    data PowF e = PowF e e deriving (Functor)
 
-   pattern Pow :: PowF :<: xs => EADT xs -> EADT xs -> EADT xs
-   pattern Pow a b = VF (PowF a b)
+   eadtPat 'PowF "Pow"
 
    instance MyShow e => MyShow (PowF e) where
       myShow (PowF x y) = "(" ++ myShow x ++ " ^ " ++ myShow y ++ ")"

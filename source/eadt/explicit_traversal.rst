@@ -125,8 +125,7 @@ If we add a new constructor, such as ``NodeF`` to build binary trees:
 
    data NodeF a l = NodeF a l l deriving (Functor)
 
-   pattern Node :: NodeF a :<: xs => a -> EADT xs -> EADT xs -> EADT xs
-   pattern Node a l1 l2 = VF (NodeF a l1 l2)
+   eadtPat 'NodeF "Node"
 
 We can also add a ``MyShow`` instance for ``NodeF``:
 
