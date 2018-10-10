@@ -98,7 +98,7 @@ We can use this approach to transform EADT. For instance list mapping:
 
    mapList f l = variantFToCont l >::>
       ( \(ConsF a r) -> Cons (f a) r
-      , \NilF -> Nil
+      , \NilF        -> Nil
       )
 
    > eadtShow (cata (mapList (+5)) intList :: List Int)
@@ -174,16 +174,16 @@ We can test this code with:
 Note that the traversal ends when it encounters an unhandled constructor.
 
 ------------------------------------------------------------------------------
-Reordered continuations (``>:%:>``)
+Unordered continuations (``>:%:>``)
 ------------------------------------------------------------------------------
 
 By using the ``>:%:>`` operator instead of ``>::>``, we can provide
 continuations in any order as long as an alternative for each constructor is
 provided.
 
-However to do it the types must be unambiguous as the type of EADT can't be used
-to infer the continuation type (as is done with ``>::>``). Hence the type
-ascriptions in the following example:
+The types must be unambiguous as the EADT type can't be used to infer the
+continuation types (as is done with ``>::>``). Hence the type ascriptions in the
+following example:
 
 .. code:: haskell
 

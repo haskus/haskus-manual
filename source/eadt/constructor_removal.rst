@@ -4,7 +4,7 @@
 Constructor removal
 ==============================================================================
 
-Removing constructors from an EADT is equivalent to transforming any instances
+Removing constructors from an EADT is equivalent to transforming every instance
 of these constructors into other constructors of another EADT.
 
 If we fully know the source and target EADTs, we can use
@@ -37,9 +37,8 @@ If we want to be able to remove constructors from a generic EADT, we can use
 type-classes with an overlappable instance handling the generic case (i.e. that
 only transfers constructors from one EADT to another without modifying them).
 
-For instance, we may want to remove all the ``OddF a`` and ``EvenF a``
-constructors by replacing them with a single ``ConsF a`` constructor. We can do
-it as follow:
+Example of removing all the ``OddF a`` and ``EvenF a`` constructors by replacing
+them with a single ``ConsF a`` constructor:
 
 .. code:: haskell
 
@@ -71,7 +70,7 @@ We can test it:
    eo :: EADT '[EvenF Int, OddF Int, NilF]
    eo = Even (10 :: Int) $ Odd (5 :: Int) $ Odd (7 :: Int) Nil
 
-   > eadtShow (cata removeOE eo :: List Int)
+   > eadtShow (cata removeOddEven eo :: List Int)
    "3 : 4 : 5 : Nil"
 
    -- EADT with an additional `ConsF Int` constructor
