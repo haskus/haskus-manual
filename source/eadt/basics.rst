@@ -4,6 +4,17 @@
 Basics
 ==============================================================================
 
+EADTs can be found in the `haskus-utils-variant
+<https://github.com/haskus/haskus-utils>`_ package.
+
+You need the following imports in your source:
+
+.. code::
+
+   import Haskus.Utils.EADT
+   import Haskus.Utils.EADT.TH -- template-haskell helpers
+
+
 ------------------------------------------------------------------------------
 Defining constructors
 ------------------------------------------------------------------------------
@@ -23,6 +34,10 @@ For instance, let's define the constructors for a list:
 
 Note that **both** data types are parameterised (by ``e``) even if the type
 parameter ``e`` isn't used in ``NilF`` definition.
+
+------------------------------------------------------------------------------
+Defining pattern synonyms
+------------------------------------------------------------------------------
 
 To make the use of EADTs more pleasant, it is highly recommended to define a
 pattern synonym for each constructor:
@@ -134,13 +149,17 @@ And indeed this works pretty well:
 
 .. note::
 
-   For now the compiler **cannot use the EADT constructor type list to infer
-   that the pattern-match is complete**. Hence we need the wildcard match to
-   avoid a warning.
+However this approach is a unsatisfactory for two reasons:
 
-However this approach is a bit unsatisfactory. For instance, we would like to
-write a ``showEADTList`` that also works on the heterogeneous ``mixedList``
-above or on any future EADT provided its constructors implement the operation.
-To do that we can use type-classes as shown in following chapters. We can also
-perform :ref:`safe pattern-matching <eadt_safe_pattern_matching>` by using
-continuations.
+   1.  The pattern matching isn't safe: for now the compiler cannot use the
+       EADT constructor type list to infer that the pattern-match is
+       complete. Hence we need the wildcard match to avoid a warning and to
+       use ``ConsList`` to help the type inference. A better alternative is
+       presented in the :ref:`safe pattern-matching
+       <eadt_safe_pattern_matching>` chapter.
+
+   2. The function isn't generic: if we would like to write a ``showEADTList``
+      function that also works on the heterogeneous ``mixedList`` above or on
+      any future EADT provided its constructors can be handled, we need to
+      use another approach based on type-classes. This is presented in the
+      following chapters. 

@@ -37,10 +37,10 @@ support for recursive ADTs as in the examples above.
    :maxdepth: 1
    :numbered:
 
-   eadt/intro
    eadt/basics
    eadt/explicit_traversal
    eadt/constructor_constraint
    eadt/recursion_schemes
    eadt/safe_pattern_matching
    eadt/constructor_removal
+   eadt/background
