@@ -1,7 +1,10 @@
 ==============================================================================
-Graphics
+Resources
 ==============================================================================
 
+------------------------------------------------------------------------------
+Graphics
+------------------------------------------------------------------------------
 
 http://www.scratchapixel.com/
 
@@ -27,3 +30,12 @@ http://poynton.ca/PDFs/YUV_and_luminance_harmful.pdf
    computer graphics is not the same as "lumninance" (Y) in color science (i.e.
    CIE luminance). We should avoid the terms YUV and "luminance" and use the
    correct "Y'C_BC_R" and "luma" terms instead.
+
+------------------------------------------------------------------------------
+Input
+------------------------------------------------------------------------------
+
+http://who-t.blogspot.com/2018/07/why-its-not-good-idea-to-handle-evdev.html
+
+   Describe how difficult it is to handle input events with the experience of
+   libinput.

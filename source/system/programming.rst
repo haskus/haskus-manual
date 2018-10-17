@@ -8,7 +8,8 @@ In this guide we describe the high-level interfaces provided by the
 .. toctree::
    :maxdepth: 1
 
-   volume2/using/sys_monad
-   volume2/using/devices
-   volume2/graphics/overview
+   programming/approach
+   programming/using/sys_monad
+   programming/using/devices
+   programming/graphics/overview
 

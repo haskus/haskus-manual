@@ -16,10 +16,4 @@ Haskus manuals
 
    binary
    drafts
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Resources
-
-   resources/graphics
-
+   resources

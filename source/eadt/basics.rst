@@ -147,7 +147,6 @@ And indeed this works pretty well:
    > putStrLn (showEADTList intList)
    10 : 20 : 30 : Nil
 
-.. note::
 
 However this approach is a unsatisfactory for two reasons:
 
