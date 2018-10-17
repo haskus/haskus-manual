@@ -7,7 +7,6 @@ In volume 1, we describe how to build and test systems based on Linux by using
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
 
    volume1/intro
    volume1/approach

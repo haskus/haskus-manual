@@ -1,12 +1,11 @@
 ==============================================================================
-``haskus-system`` hacking guide
+Hacking guide
 ==============================================================================
 
 In volume 3, we describe the internals of ``haskus-system``.
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
 
    volume3/modules_overview
    volume3/x86

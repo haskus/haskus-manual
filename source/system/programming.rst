@@ -7,7 +7,6 @@ In volume 2, we describe the high-level interfaces provided by the
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
 
    volume2/using/sys_monad
    volume2/using/devices
