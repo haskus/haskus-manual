@@ -8,7 +8,6 @@ In this guide we describe how to build and test systems based on Linux by using
 .. toctree::
    :maxdepth: 1
 
-   building/intro
    building/automatic_building
    building/manual_building
    building/reference/system_yaml

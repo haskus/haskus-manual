@@ -8,7 +8,6 @@ In this guide we describe the high-level interfaces provided by the
 .. toctree::
    :maxdepth: 1
 
-   programming/approach
    programming/using/sys_monad
    programming/using/devices
    programming/graphics/overview

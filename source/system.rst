@@ -13,6 +13,7 @@ system: input, display, sound, network, etc.
    :maxdepth: 1
    :numbered:
 
+   system/intro
    system/building
    system/programming
    system/internals

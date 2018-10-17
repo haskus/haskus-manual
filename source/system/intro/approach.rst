@@ -1,10 +1,11 @@
+==============================================================================
 Discussing the approach
-=======================
+==============================================================================
 
-The ``haskus-system`` framework aims to help writing systems in Haskell.
+``haskus-system`` framework aims to help writing systems in Haskell.
 Writing a new operating system from scratch is obviously a huge task that we
 won't undertake. Instead, pragmatically, we build on the Linux kernel to develop
-the ``haskus-system``.
+``haskus-system``.
 
 .. note::
 
@@ -14,7 +15,7 @@ the ``haskus-system``.
    used internally but applications have to be written in Java and they have to use
    the Android interfaces. The difference is that we are using Haskell.
 
-The ``haskus-system`` framework and the systems using it are written with the
+``haskus-system`` framework and the systems using it are written with the
 Haskell language. We use GHC to compile Haskell codes, hence we rely on GHC's
 runtime system. This runtime system works on a bare-bones Linux kernel and
 manages memory (garbage collection), user-space threading,  asynchronous I/O,
@@ -111,7 +112,7 @@ Durability and Evolution
 
 Our approach should be both durable and evolutive. Durable because we only use
 mature technology: Linux and GHC developments both started in early 1990s and
-are still very active. The only new layer in the stack is the ``haskus-system``
+are still very active. The only new layer in the stack is ``haskus-system``
 framework.  All of these are open-source free software, ensuring long-term
 access to the sources.
 
@@ -120,9 +121,9 @@ GHC's extensions (and a potential future Haskell standard revision); GHC as a
 compiler and a runtime system is constantly improving and support for new
 architectures could be added; Linux support for new hardware and new
 architectures is constantly enhanced and specific developments could be done to
-add features useful for the ``haskus-system`` (or your own system on top of it).
+add features useful for ``haskus-system`` (or your own system on top of it).
 
-The ``haskus-system`` framework itself is highly evolutive. First it is new and
+``haskus-system`` framework itself is highly evolutive. First it is new and
 not tied to any standard. Moreover code refactoring in Haskell is much easier
 than in low-level languages such as C (thanks to the strong typing), hence we
 can easily enhance the framework interfaces as user code can easily be adapted.
@@ -153,7 +154,7 @@ between the different components) and to make contributions.
 Standards
 ---------
 
-The ``haskus-system`` can only be used on top of the Linux kernel. It doesn't
+``haskus-system`` can only be used on top of the Linux kernel. It doesn't
 try to follow some standards (``UNIX``, ``POSIX``, ``System V``, etc.) to be
 portable on other kernels. In our opinion, these standards have been roadblocks
 to progress in system programming because system services and applications are
@@ -187,7 +188,7 @@ appropriate ways.
    they should only do the first (according to the ``UNIX`` philosophy). We don't
    have this issue because we use type-checked data types instead of plain text.
 
-Even if the ``haskus-system`` is in a single code base, its functions can be
+Even if ``haskus-system`` is in a single code base, its functions can be
 used in other Haskell programs just by importing its modules. The compiler
 statically checks that functions are appropriately called with valid parameters.
 
