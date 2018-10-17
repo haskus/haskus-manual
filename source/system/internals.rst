@@ -2,7 +2,7 @@
 Hacking guide
 ==============================================================================
 
-In volume 3, we describe the internals of ``haskus-system``.
+In this guide we describe some internals of ``haskus-system``.
 
 .. toctree::
    :maxdepth: 1

@@ -2,8 +2,8 @@
 System programming guide
 ==============================================================================
 
-In volume 2, we describe the high-level interfaces provided by the
-``haskus-system`` to control and use the computer.
+In this guide we describe the high-level interfaces provided by the
+``haskus-system`` to control and use the computer through the Linux kernel.
 
 .. toctree::
    :maxdepth: 1

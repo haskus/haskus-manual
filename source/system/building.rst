@@ -2,7 +2,7 @@
 System building guide
 ==============================================================================
 
-In volume 1, we describe how to build and test systems based on Linux by using
+In this guide we describe how to build and test systems based on Linux by using
 ``haskus-system``.
 
 .. toctree::
