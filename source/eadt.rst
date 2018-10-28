@@ -44,3 +44,4 @@ support for recursive ADTs as in the examples above.
    eadt/safe_pattern_matching
    eadt/constructor_removal
    eadt/background
+   eadt/examples

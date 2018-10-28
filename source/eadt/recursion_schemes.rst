@@ -28,18 +28,18 @@ Suppose we rewrite our ``Show`` class like this:
 
 .. code:: haskell
 
-   class MyShow' (f :: * -> *) where
-      myShow' :: f String -> String
+   class FunctorShow (f :: * -> *) where
+      functorShow :: f String -> String
 
 We can define instances for ``NilF`` and ``ConsF``:
 
 .. code:: haskell
 
-   instance MyShow' NilF where
-      myShow' _ = "Nil"
+   instance FunctorShow NilF where
+      functorShow _ = "Nil"
 
-   instance (Show a) => MyShow' (ConsF a) where
-      myShow' (ConsF a l) = show a ++ " : " ++ l
+   instance (Show a) => FunctorShow (ConsF a) where
+      functorShow (ConsF a l) = show a ++ " : " ++ l
 
 Note that there is no recursive call in the definition of ``ConsF``'s instance:
 it is because we are going to use a recursion scheme that will handle the
@@ -49,19 +49,19 @@ We also need an instance to handle the generic ``VariantF`` type:
 
 .. code:: haskell
 
-   instance (AlgVariantF MyShow' String xs) => MyShow' (VariantF xs) where
-      myShow' = algVariantF @MyShow' myShow'
+   instance (AlgVariantF FunctorShow String xs) => FunctorShow (VariantF xs) where
+      functorShow = algVariantF @FunctorShow functorShow
 
 Finally we can define a generic ``eadtShow`` function that uses the catamorphism
-recursion scheme with the ``myShow'`` class method.
+recursion scheme with the ``functorShow`` class method.
 
 .. code:: haskell
 
    eadtShow :: 
       ( Functor (VariantF xs)
-      , AlgVariantF MyShow' String xs
+      , FunctorShow (VariantF xs)
       ) => EADT xs -> String
-   eadtShow = cata myShow'
+   eadtShow = cata functorShow
 
 We can test it:
 
@@ -81,41 +81,44 @@ We can test it:
 
 
 
-Catamorphism: List mapping example
-----------------------------------
+Catamorphism: List (a -> a) mapping example
+-------------------------------------------
 
 Similarily to the example above, suppose that we want to implement mapping over
 an EADT list. We can use the following type-class:
 
 .. code:: haskell
 
-   class MapList a a' r (f :: * -> *) where
-     fmapList' :: (a -> a') -> f (EADT r) -> EADT r
+   class MapEADT a xs (f :: * -> *) where
+     -- map the outer constructor of an EADT
+     mapEADT1 :: (a -> a) -> f (EADT xs) -> EADT xs
 
 We need some instances to handle our EADT constructors:
 
 .. code:: haskell
 
-   instance (NilF :<: r) => MapList a a' r NilF where
-     fmapList' _ NilF = Nil
+   instance (NilF :<: xs) => MapEADT a xs NilF where
+     mapEADT1 _ NilF = Nil
 
-   instance (ConsF a' :<: r) => MapList a a' r (ConsF a) where
-     fmapList' f (ConsF a x) = Cons (f a) x
+   instance (ConsF a :<: xs) => MapEADT a xs (ConsF a) where
+     mapEADT1 f (ConsF a x) = Cons (f a) x
 
 And a additional instance to traverse the ``VariantF`` combinator datatype:
 
 .. code:: haskell
 
-   instance (AlgEADT (MapList a a' r) r) => MapList a a' r (VariantF r) where
-     fmapList' f = algVariantF @(MapList a a' r) (fmapList' f)
+   instance (AlgEADT (MapEADT a xs) xs) => MapEADT a xs (VariantF xs) where
+     mapEADT1 f = algVariantF @(MapEADT a xs) (mapEADT1 f)
 
-Now we can define the ``fmapList`` function by using the catamorphism combinator:
+Now we can define the ``mapEADT`` function by using the catamorphism combinator:
 
 .. code:: haskell
 
-   fmapList :: (Functor (VariantF r) , MapList a a' r (VariantF r))
-               => (a -> a') -> EADT r -> EADT r
-   fmapList f = cata (fmapList' f)
+   -- recursively map an EADT
+   mapEADT :: ( Functor (VariantF xs)
+              , MapEADT a xs (VariantF xs)
+              ) => (a -> a) -> EADT xs -> EADT xs
+   mapEADT f = cata (mapEADT1 f)
 
 
 We can test it:
@@ -125,5 +128,49 @@ We can test it:
    intList :: List Int
    intList = Cons (10 :: Int) $ Cons (20 :: Int) $ Cons (30 :: Int) Nil
 
-   > putStrLn $ myShow $ fmapList ((+5) :: Int -> Int) intList
+   > putStrLn $ eadtShow $ mapEADT ((+5) :: Int -> Int) intList
    15 : 25 : 35 : Nil
+
+
+Catamorphism: List (a -> b) mapping example
+-------------------------------------------
+
+Similarily, we can also support mapping with a function that changes the EADT
+type as follow:
+
+.. code:: haskell
+
+   class TransEADT a b xs xs' (f :: * -> *) where
+     transEADT1 :: (a -> b) -> f (EADT xs) -> EADT xs'
+
+   instance (NilF :<: xs') => TransEADT a b xs xs' NilF where
+     transEADT1 _ NilF = Nil
+
+   instance (ConsF b :<: xs', xs ~ xs') => TransEADT a b xs xs' (ConsF a) where
+     transEADT1 f (ConsF a x) = Cons (f a) x
+
+   instance TransEADT a b xs xs' (VariantF '[]) where
+     transEADT1 _ _ = undefined
+
+   instance
+      ( TransEADT a b xs xs' f
+      , TransEADT a b xs xs' (VariantF fs)
+      ) => TransEADT a b xs xs' (VariantF (f ': fs)) where
+     transEADT1 f v =  case popVariantFHead v of
+            Right u -> transEADT1 f u
+            Left  w -> transEADT1 f w
+
+   transEADT :: ( Functor (VariantF xs)
+                , TransEADT a b xs' xs' (VariantF xs)
+                ) => (a -> b) -> EADT xs -> EADT xs'
+   transEADT f = cata (transEADT1 f)
+
+
+Note that we need to specify the resulting type as it can be anything fulfilling
+the constraints:
+
+.. code:: haskell
+
+   > putStrLn $ eadtShow $ (transEADT (fromIntegral :: Int -> Float) intList :: List Float)
+   10.0 : 20.0 : 30.0 : Nil
+
