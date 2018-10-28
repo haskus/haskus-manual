@@ -11,8 +11,8 @@ Suppose we have the following ``List`` EADT:
    data ConsF a l = ConsF a l deriving (Functor)
    data NilF    l = NilF      deriving (Functor)
 
-   eadtPat 'ConsF "Cons"
-   eadtPat 'NilF  "Nil"
+   eadtPattern 'ConsF "Cons"
+   eadtPattern 'NilF  "Nil"
 
    type List a = EADT '[ConsF a, NilF]
 
@@ -112,8 +112,8 @@ We can also transform an EADT into another EADT:
    data EvenF a l = EvenF a l deriving (Functor)
    data OddF a l  = OddF a l deriving (Functor)
 
-   eadtPat 'EvenF "Even"
-   eadtPat 'OddF  "Odd"
+   eadtPattern 'EvenF "Even"
+   eadtPattern 'OddF  "Odd"
 
    instance (Show a) => MyShow' (EvenF a) where
       myShow' (EvenF a l) = show a ++ " {even} : " ++ l

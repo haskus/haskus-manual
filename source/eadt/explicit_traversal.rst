@@ -125,7 +125,7 @@ If we add a new constructor, such as ``NodeF`` to build binary trees:
 
    data NodeF a l = NodeF a l l deriving (Functor)
 
-   eadtPat 'NodeF "Node"
+   eadtPattern 'NodeF "Node"
 
 We can also add a ``MyShow`` instance for ``NodeF``:
 

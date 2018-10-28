@@ -63,8 +63,8 @@ with:
 
    import Haskus.Utils.EADT.TH
 
-   eadtPat 'ConsF "Cons"
-   eadtPat 'NilF  "Nil"
+   eadtPattern 'ConsF "Cons"
+   eadtPattern 'NilF  "Nil"
 
 
 ------------------------------------------------------------------------------
