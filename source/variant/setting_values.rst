@@ -1,5 +1,5 @@
 ==============================================================================
-Setting and matching variant values
+Basics
 ==============================================================================
 
 ------------------------------------------------------------------------------
@@ -55,6 +55,11 @@ Matching a value in a variant can be done with the same pattern synonym ``V``:
    the pattern-match is complete**. Hence we need the wildcard match to avoid a
    warning.
 
+
+Chapter :ref:`safe-pattern matching <variant_safe_pattern_matching>` presents
+another way to perform pattern matching that doesn't require a wildcard match
+and that provides better type inference.
+
 ------------------------------------------------------------------------------
 Basic errors
 ------------------------------------------------------------------------------
@@ -87,7 +92,7 @@ If you try to set or match a value type that isn't valid, you get a compile-time
    --       In a case alternative: V (i :: Float) -> "Found float: " ++ show i
 
 ------------------------------------------------------------------------------
-Setting values by index: ``toVariantAt``
+Getting and setting values by index
 ------------------------------------------------------------------------------
 
 We can explicitly create a variant by specifying the index (starting from 0) of
@@ -105,3 +110,14 @@ than once in the variant value type list:
 
    y :: V '[Int,Int,String,Int,Float]
    y = toVariantAt @1 5
+
+We can retrieve values by index too with ``fromVariantAt``:
+
+.. code:: haskell
+
+   > fromVariantAt @0 x
+   Nothing
+   > fromVariantAt @1 x
+   Nothing
+   > fromVariantAt @2 x
+   Just 5.0
