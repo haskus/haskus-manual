@@ -278,5 +278,36 @@ We can combine two variants into a single variant containing a tuple with
 Converting to tuple/HList
 ------------------------------------------------------------------------------
 
-variantToTuple
-variantToHList
+We can convert a Variant into a tuple of Maybes with ``variantToTuple``:
+
+.. code:: haskell
+
+   w,k,u :: V '[String,Int,Double,Maybe Int]
+   w = V @Double 1.0
+   k = V (Just @Int 10)
+   u = V @Int 17
+
+   > :t variantToTuple w
+   variantToTuple w :: (Maybe String, Maybe Int, Maybe Double, Maybe (Maybe Int))
+
+   > variantToTuple w
+   (Nothing,Nothing,Just 1.0,Nothing)
+
+   > variantToTuple k
+   (Nothing,Nothing,Nothing,Just (Just 10))
+
+   > variantToTuple u
+   (Nothing,Just 17,Nothing,Nothing)
+
+And similarly into an HList (heterogeneous list) with ``variantToHList``:
+
+.. code:: haskell
+
+   > variantToHList w
+   H[Nothing,Nothing,Just 1.0,Nothing]
+
+   > variantToHList k
+   H[Nothing,Nothing,Nothing,Just (Just 10)]
+
+   > variantToHList u
+   H[Nothing,Just 17,Nothing,Nothing]
