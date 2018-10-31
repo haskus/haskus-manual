@@ -13,6 +13,8 @@ developed in the example below):
 The constructors of ``EADT f`` are not specified but the constraints ``(AddF :<:
 f, MulF :<: f)`` ensure that at least ``AddF`` and ``MulF`` constructors are present.
 
+Note that to shorten a list of constraints such as ``(AddF :<: f, MulF :<: f)``
+you can use the ``:<<:`` operator: ``'[AddF,MulF] :<<: f``.
 
 Transformation example
 ----------------------

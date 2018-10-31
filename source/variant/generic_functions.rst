@@ -53,6 +53,8 @@ well:
    > showError e3
    "Found error: Outch!"
 
+Note that to shorten a list of constraints such as ``(A :< xs, B :< xs, C :< xs)``
+you can use the ``:<<`` operator: ``'[A,B,C] :<< xs``.
 
 ------------------------------------------------------------------------------
 The ``:<?`` constraint constructor and the ``VMaybe`` pattern
