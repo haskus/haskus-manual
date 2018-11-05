@@ -29,8 +29,8 @@ For instance, let's define the constructors for a list:
 
    {-# LANGUAGE DeriveFunctor #-}
 
-   data    ConsF a e = ConsF a e deriving (Functor)
-   newtype NilF    e = NilF      deriving (Functor)
+   data ConsF a e = ConsF a e deriving (Functor)
+   data NilF    e = NilF      deriving (Functor)
 
 Note that **both** data types are parameterised (by ``e``) even if the type
 parameter ``e`` isn't used in ``NilF`` definition.

@@ -29,3 +29,4 @@ Recursive sum types (e.g. ``data List a = Nil | Cons a (List a)``) based on
    variant/generic_functions
    variant/converting
    variant/updating
+   variant/do_notation
