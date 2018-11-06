@@ -130,12 +130,12 @@ function:
    y :: V '[Double,Int,Float,String]
    y = liftVariant x
 
-You can use the ``Liftable is os`` constraint to write generic code and to
+You can use the ``LiftVariant is os`` constraint to write generic code and to
 ensure that the type list ``is`` is a subset of ``os``:
 
 .. code::
 
-   liftX :: (Liftable is (Double ': Float ': is))
+   liftX :: (LiftVariant is (Double ': Float ': is))
          => V is -> V (Double ': Float ': is)
    liftX = liftVariant
 
