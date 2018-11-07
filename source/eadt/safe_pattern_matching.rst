@@ -149,11 +149,11 @@ constructors. The other ones are considered as left-overs:
 .. code::
 
    alg x = case splitVariantF @'[EvenF Int, OddF Int] x of
-      Left v          -> variantFToCont v >::>
+      Right v        -> variantFToCont v >::>
                            ( \(EvenF a l) -> "Even : " ++ l
                            , \(OddF a l)  -> "Odd : " ++ l
                            )
-      Right leftovers -> "something else"
+      Left leftovers -> "something else"
 
 We can test this code with:
 

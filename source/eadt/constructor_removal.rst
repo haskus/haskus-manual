@@ -56,12 +56,12 @@ left-over constructors with ``liftVariantF`` as follows:
 
    removeOddEven x = case splitVariantF @'[EvenF Int, OddF Int] x of
       -- replace Even and Odd constructors with a Cons constructor
-      Left v          -> variantFToCont v >::>
+      Right v        -> variantFToCont v >::>
                            ( \(EvenF a l) -> Cons a l
                            , \(OddF a l)  -> Cons a l
                            )
       -- do nothing to the other constructors
-      Right leftovers -> Fix (liftVariantF leftovers)
+      Left leftovers -> Fix (liftVariantF leftovers)
 
    eo1 :: EADT '[EvenF Int, OddF Int, NilF]
    eo1 = Even (10 :: Int) $ Odd (5 :: Int) $ Odd (7 :: Int) Nil

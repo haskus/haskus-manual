@@ -99,11 +99,11 @@ values. The other ones are considered as left-overs:
 .. code::
 
    printNum v = case splitVariant @'[Float,Int] v of
-      Left v -> variantToCont v >:%:>
+      Right v -> variantToCont v >:%:>
          ( \f -> putStrLn ("Found float: " ++ show (f :: Float))
          , \i -> putStrLn ("Found int: " ++ show (i :: Int))
          )
-      Right leftovers -> putStrLn "Not a supported number!"
+      Left leftovers -> putStrLn "Not a supported number!"
 
    > printNum x
    Not a supported number!
