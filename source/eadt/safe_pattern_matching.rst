@@ -70,7 +70,7 @@ Catamorphism example
 ------------------------------------------------------------------------------
 
 Transforming a ``VariantF`` into a multi-continuation is done with
-``variantFToCont``. It can be useful with :ref:`recursion schemes
+``toCont``. It can be useful with :ref:`recursion schemes
 <eadt_recursion_schemes>`.
 
 
@@ -78,7 +78,7 @@ Transforming a ``VariantF`` into a multi-continuation is done with
 
    import Haskus.Utils.ContFlow
 
-   showCont l = variantFToCont l >::>
+   showCont l = toCont l >::>
       ( \(ConsF a r) -> show a ++ " : " ++ r -- no explicit recursion
       , \NilF        -> "Nil"
       )
@@ -96,7 +96,7 @@ We can use this approach to transform EADT. For instance list mapping:
 
    import Haskus.Utils.ContFlow
 
-   mapList f l = variantFToCont l >::>
+   mapList f l = toCont l >::>
       ( \(ConsF a r) -> Cons (f a) r
       , \NilF        -> Nil
       )
@@ -124,7 +124,7 @@ We can also transform an EADT into another EADT:
    
    -- convert Cons constructor into Odd or Even constructor, depending on the
    -- cell value
-   evenOdd l = variantFToCont l >::>
+   evenOdd l = toCont l >::>
       ( \(ConsF a r) -> if even a then Even a r
                                   else Odd  a r
       , \NilF        -> Nil
@@ -149,7 +149,7 @@ constructors. The other ones are considered as left-overs:
 .. code::
 
    alg x = case splitVariantF @'[EvenF Int, OddF Int] x of
-      Right v        -> variantFToCont v >::>
+      Right v        -> toCont v >::>
                            ( \(EvenF a l) -> "Even : " ++ l
                            , \(OddF a l)  -> "Odd : " ++ l
                            )

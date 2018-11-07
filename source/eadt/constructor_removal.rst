@@ -28,7 +28,7 @@ If the type of the input EADT is fixed, we can use :ref:`safe pattern-matching
 .. code::
 
    -- replace Even and Odd constructors with a Cons constructor
-   removeOddEven l = variantFToCont l >::>
+   removeOddEven l = toCont l >::>
       (\(EvenF a r) -> Cons a r
       ,\(OddF  a r) -> Cons a r
       ,\NilF        -> Nil
@@ -56,7 +56,7 @@ left-over constructors with ``liftVariantF`` as follows:
 
    removeOddEven x = case splitVariantF @'[EvenF Int, OddF Int] x of
       -- replace Even and Odd constructors with a Cons constructor
-      Right v        -> variantFToCont v >::>
+      Right v        -> toCont v >::>
                            ( \(EvenF a l) -> Cons a l
                            , \(OddF a l)  -> Cons a l
                            )

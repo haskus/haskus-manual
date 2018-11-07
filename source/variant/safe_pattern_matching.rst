@@ -51,7 +51,7 @@ whose type is ``(A -> r, B -> r, C -> r) -> r``. Hence the compiler will ensure
 that we provide the correct number of alternatives in the continuation tuple
 (the first parameter).
 
-Transforming a Variant into a multi-continuation is done with ``variantToCont``.
+Transforming a Variant into a multi-continuation is done with ``toCont``.
 Mapping the continuation tuple is done with ``>::>``.
 
 .. code:: haskell
@@ -59,7 +59,7 @@ Mapping the continuation tuple is done with ``>::>``.
    import Haskus.Utils.ContFlow
 
    printV :: V '[String,Int,Float] -> IO ()
-   printV v = variantToCont v >::>
+   printV v = toCont v >::>
       ( \s -> putStrLn ("Found string: " ++ s)
       , \i -> putStrLn ("Found int: " ++ show i)
       , \f -> putStrLn ("Found float: " ++ show f)
@@ -80,7 +80,7 @@ ascriptions in the following example:
 .. code:: haskell
 
    printU :: V '[String,Int,Float] -> IO ()
-   printU v = variantToCont v >:%:>
+   printU v = toCont v >:%:>
       ( \f -> putStrLn ("Found float: " ++ show (f :: Float))
       , \s -> putStrLn ("Found string: " ++ s)
       , \i -> putStrLn ("Found int: " ++ show (i :: Int))
@@ -99,7 +99,7 @@ values. The other ones are considered as left-overs:
 .. code::
 
    printNum v = case splitVariant @'[Float,Int] v of
-      Right v -> variantToCont v >:%:>
+      Right v -> toCont v >:%:>
          ( \f -> putStrLn ("Found float: " ++ show (f :: Float))
          , \i -> putStrLn ("Found int: " ++ show (i :: Int))
          )
