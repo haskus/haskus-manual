@@ -97,13 +97,19 @@ html_theme_options = {
     'display_version': True,
     'prev_next_buttons_location': 'bottom',
     'style_external_links': False,
-    'vcs_pageview_mode': '',
     # Toc options
     'collapse_navigation': True,
     'sticky_navigation': True,
     'navigation_depth': 4,
     'includehidden': True,
     'titles_only': False
+}
+
+html_context = {
+    'display_github': True,
+    'github_repo': 'haskus-manual',
+    'github_user': 'haskus',
+    'github_version': 'master/source/'
 }
 
 # html_logo = None
