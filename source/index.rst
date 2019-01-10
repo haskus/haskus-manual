@@ -9,11 +9,11 @@ Haskus manuals
    system
    variant
    eadt
+   binary
 
 .. toctree::
    :maxdepth: 1
    :caption: Other stuff
 
-   binary
    drafts
    resources
