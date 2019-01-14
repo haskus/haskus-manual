@@ -1,12 +1,9 @@
 ==============================================================================
-Drafts
+Explicit memory management from the ground up (in Haskell)
 ==============================================================================
-
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
 
-   drafts/rendering
-   drafts/multi-buffering
-   drafts/memory
+   memory/intro
+   memory/buffer
