@@ -56,6 +56,22 @@ We define the following type aliases for the different buffer variants:
    type BufferMEF = Buffer 'Mutable   'Pinned    'Finalized    'External
    type BufferEF  = Buffer 'Immutable 'Pinned    'Finalized    'External
 
+------------------------------------------------------------------------------
+Buffer size
+------------------------------------------------------------------------------
+
+Buffer size can be queried with:
+
+.. code:: haskell
+
+   bufferSizeIO :: MonadIO m => Buffer mut pin fin heap -> m Word
+   bufferSize   :: BufferSize a => a -> Word
+
+``bufferSize`` is pure and as such it can't be used with internal mutable
+buffers which can be resized. All the other buffers provide a ``BufferSize``
+instance.
+
+
 .. _buffer_finalizers:
 
 ------------------------------------------------------------------------------
@@ -85,6 +101,51 @@ Then you can attach a finalizer with:
 
 The latest added finalizers are executed first. Finalizers are not guaranteed to
 run (e.g. if the program exits before the buffer is collected).
+
+------------------------------------------------------------------------------
+Allocation
+------------------------------------------------------------------------------
+
+Allocation in GHC heap
+~~~~~~~~~~~~~~~~~~~~~~
+
+Buffers allocated in GHC heap can be pinned or not. They are automatically
+collected.
+
+.. code:: haskell
+
+   newBuffer              :: MonadIO m => Word -> m BufferM
+   newPinnedBuffer        :: MonadIO m => Word -> m BufferMP
+   newAlignedPinnedBuffer :: MonadIO m => Word -> Word -> m BufferMP
+
+Allocation using system malloc
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Buffers allocated by system "malloc" allocator are pinned and must be either
+explicitly freed with ``Malloc.freeBuffer`` or can be automatically freed by a
+finalizer (e.g. if they are allocated with ``Malloc.newFinalizedBuffer``).
+
+.. code:: haskell
+
+   import qualified Haskus.Memory.Allocator.Malloc as Malloc
+
+   Malloc.newBuffer          :: MonadIO m => Word -> m (Maybe BufferME)
+   Malloc.newFinalizedBuffer :: MonadIO m => Word -> m (Maybe BufferMEF)
+   Malloc.freeBuffer         :: MonadIO m => BufferME -> m ()
+
+Buffer freezing/thawing
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Some buffers can be converted from mutable to immutable and vice versa. This is
+unsafe as the original buffer mustn't be used anymore after this.
+
+.. code:: haskell
+
+   -- | Mutable to immutable
+   unsafeBufferFreeze :: (Freezable a b, MonadIO m) => a -> m b
+
+   -- | Immutable to mutable
+   unsafeBufferThaw   :: (Thawable a b , MonadIO m) => a -> m b
 
 ------------------------------------------------------------------------------
 Read/write
@@ -168,3 +229,20 @@ functions:
 The difference in this case is that we mustn't use the memory writing primitives
 of ``Addr#`` and ``Ptr`` when the buffer is immutable as it would break
 referential transparency, hence the "unsafe" prefix.
+
+------------------------------------------------------------------------------
+Copy
+------------------------------------------------------------------------------
+
+We can copy data from one buffer to another with:
+
+.. code:: haskell
+
+   copyBuffer ::
+      MonadIO m
+      => Buffer mut pin0 fin0 heap0        -- ^ Source buffer
+      -> Word                              -- ^ Offset in source buffer
+      -> Buffer 'Mutable pin1 fin1 heap1   -- ^ Target buffer
+      -> Word                              -- ^ Offset in target buffer
+      -> Word                              -- ^ Number of Word8 to copy
+      -> m ()
