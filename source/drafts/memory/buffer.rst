@@ -85,3 +85,86 @@ Then you can attach a finalizer with:
 
 The latest added finalizers are executed first. Finalizers are not guaranteed to
 run (e.g. if the program exits before the buffer is collected).
+
+------------------------------------------------------------------------------
+Read/write
+------------------------------------------------------------------------------
+
+Several primitives are provided to read and to write buffer contents. Some
+primitives have constraints on the buffer type to restrict their use. For
+example, the type system ensures that we don't use writing primitives with
+immutable buffers.
+
+Reading/writing Word8
+~~~~~~~~~~~~~~~~~~~~~
+
+We can read a ``Word8`` value by providing an index/offset into the buffer:
+
+.. code:: haskell
+
+   bufferReadWord8IO :: MonadIO m => Buffer mut pin fin heap -> Word -> m Word8
+
+This is done in the IO monad because the function is generic and supports both
+mutable and immutable buffers. If we deal with immutable buffers, we can use the
+following pure function instead:
+
+.. code:: haskell
+
+   bufferReadWord8 :: Buffer 'Immutable pin fin heap -> Word -> Word8
+
+We can also write ``Word8`` into mutable buffers with:
+
+.. code:: haskell
+
+   bufferWriteWord8IO :: MonadIO m => Buffer 'Mutable pin fin heap -> Word -> Word8 -> m ()
+
+Reading/writing Word16/Word32/Word64
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Reading and writing ``Word16``, ``Word32`` or ``Word64`` could be expressed with
+the primitives to read/write ``Word8``. However, most architectures provide
+instructions to directly read/write larger words. Using them is much more
+efficient than falling back to ``Word8`` primitives.
+
+.. code:: haskell
+
+   bufferReadWord16 :: Buffer 'Immutable pin fin heap -> Word -> Word16
+   bufferReadWord32 :: Buffer 'Immutable pin fin heap -> Word -> Word32
+   bufferReadWord64 :: Buffer 'Immutable pin fin heap -> Word -> Word64
+
+   bufferReadWord16IO :: MonadIO m => Buffer mut pin fin heap -> Word -> m Word16
+   bufferReadWord32IO :: MonadIO m => Buffer mut pin fin heap -> Word -> m Word32
+   bufferReadWord64IO :: MonadIO m => Buffer mut pin fin heap -> Word -> m Word64
+
+   bufferWriteWord16IO :: MonadIO m => Buffer 'Mutable pin fin heap -> Word -> Word16 -> m ()
+   bufferWriteWord32IO :: MonadIO m => Buffer 'Mutable pin fin heap -> Word -> Word32 -> m ()
+   bufferWriteWord64IO :: MonadIO m => Buffer 'Mutable pin fin heap -> Word -> Word64 -> m ()
+
+Different architectures store the ``Word8`` composing larger words in different
+orders (called ``Endianness``). When we use buffers to exchange data with other
+systems, we need to be aware of the endianness convention used for the exchanged
+data. More on this in the following chapters.
+
+Using the address of pinned buffers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Pinned buffers have a fixed associated memory address. We can use the following
+functions to read or write a mutable pinned buffer by using primitives for
+``Addr#`` or ``Ptr``:
+
+.. code:: haskell
+   
+   withBufferAddr# :: MonadIO m => Buffer 'Mutable 'Pinned fin heap -> (Addr# -> m a) -> m a
+   withBufferPtr   :: MonadIO m => Buffer 'Mutable 'Pinned fin heap -> (Ptr b -> m a) -> m a
+
+Similarly we can do the same thing with immutable buffers with the following
+functions:
+
+.. code:: haskell
+   
+   unsafeWithBufferAddr# :: MonadIO m => Buffer mut 'Pinned fin heap -> (Addr# -> m a) -> m a
+   unsafeWithBufferPtr   :: MonadIO m => Buffer mut 'Pinned fin heap -> (Ptr b -> m a) -> m a
+
+The difference in this case is that we mustn't use the memory writing primitives
+of ``Addr#`` and ``Ptr`` when the buffer is immutable as it would break
+referential transparency, hence the "unsafe" prefix.

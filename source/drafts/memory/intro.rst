@@ -32,9 +32,9 @@ groups of bits. Nowadays most architectures pack bits in groups of 8 bits
 (called "byte" or "Word8" in Haskell) so that's what we assume.
 
 Consecutive bytes are assigned consecutive addresses: an **address** is a number
-(starting from 0) which maximal value depends on the architectures. On X86_64
-architectures an address is stored in a 64-bit word but only the 48 lower bits
-are used.
+(starting from 0) which maximal value depends on the architectures. For example,
+on X86_64 architectures an address is stored in a 64-bit word but only the 48
+lower bits are used.
 
 Even if the whole memory is addressable, some addresses can't be given as
 parameters to reading/writing instructions depending on the execution context
@@ -111,4 +111,5 @@ GHC allocated buffers are automatically released by the garbage collector.
 
 .. note::
 
-   Memory allocation in GHC is done with ``MutableByteArray#`` and ``ByteArray#``.
+   Memory allocation in GHC is done with ``MutableByteArray#`` and
+   ``ByteArray#`` data types and their primitives.
