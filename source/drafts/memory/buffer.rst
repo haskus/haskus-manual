@@ -246,3 +246,19 @@ We can copy data from one buffer to another with:
       -> Word                              -- ^ Offset in target buffer
       -> Word                              -- ^ Number of Word8 to copy
       -> m ()
+
+------------------------------------------------------------------------------
+Performance
+------------------------------------------------------------------------------
+
+To enhance performance of the code using ``Buffer``, most functions have been
+specialized with the ``SPECIALIZE INLINE`` pragma so that if your code uses a
+specific buffer type (e.g. ``BufferI``, ``BufferM``...) it is as if the
+generic ``Buffer`` GADT didn't exist.
+
+You can use it in your own generic code. Example:
+
+.. code:: haskell
+
+   {-# SPECIALIZE INLINE bufferReadWord8IO :: MonadIO m => BufferI  -> Word -> m Word8 #-}
+   {-# SPECIALIZE INLINE bufferReadWord8IO :: MonadIO m => BufferP  -> Word -> m Word8 #-}
