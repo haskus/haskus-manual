@@ -109,7 +109,8 @@ html_context = {
     'display_github': True,
     'github_repo': 'haskus-manual',
     'github_user': 'haskus',
-    'github_version': 'master/source/'
+    'github_version': 'master/source/',
+    'theme_display_version': False
 }
 
 # html_logo = None
