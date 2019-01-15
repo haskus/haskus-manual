@@ -118,7 +118,7 @@ html_context = {
     'theme_logo_only': True
 }
 
-html_logo = "_static/images/logo.png"
+html_logo = "_static/logo.png"
 # html_style = "style.css"
 
 html_title = 'Haskus Manual'
