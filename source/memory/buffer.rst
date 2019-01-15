@@ -86,7 +86,7 @@ associated finalizers if the data has some before releasing the data.  This
 mechanism is especially useful in the domain of explicit memory management (e.g.
 to release externally allocated memory), hence ``Buffers`` can be ``Finalized``
 to ease the use of this mechanism. In particular it ensures execution order of
-the finalizers.
+the finalizers by explicitly storing them in a list.
 
 We can make any buffer ``Finalized`` with the following function (idempotent for
 already ``Finalized`` buffers):
@@ -101,8 +101,8 @@ Then you can attach a finalizer with:
 
    addFinalizer :: MonadIO m => Buffer mut pin 'Finalized heap -> IO () -> m ()
 
-The latest added finalizers are executed first. Finalizers are not guaranteed to
-run (e.g. if the program exits before the buffer is collected).
+The latest added finalizers are executed first. Note that finalizers are not
+guaranteed to run (e.g. if the program exits before the buffer is collected).
 
 ------------------------------------------------------------------------------
 Allocation
@@ -119,6 +119,8 @@ collected.
    newBuffer              :: MonadIO m => Word -> m BufferM
    newPinnedBuffer        :: MonadIO m => Word -> m BufferMP
    newAlignedPinnedBuffer :: MonadIO m => Word -> Word -> m BufferMP
+
+``newAlignedPinnedBuffer`` takes an additional alignement requirement.
 
 Allocation using system malloc
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -139,7 +141,8 @@ Buffer freezing/thawing
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Some buffers can be converted from mutable to immutable and vice versa. This is
-unsafe as the original buffer mustn't be used anymore after this.
+unsafe as the original buffer mustn't be used anymore after this and this is not
+statically checked by the compiler.
 
 .. code:: haskell
 
@@ -187,7 +190,8 @@ Reading/writing Word16/Word32/Word64
 Reading and writing ``Word16``, ``Word32`` or ``Word64`` could be expressed with
 the primitives to read/write ``Word8``. However, most architectures provide
 instructions to directly read/write larger words. Using them is much more
-efficient than falling back to ``Word8`` primitives.
+efficient than falling back to ``Word8`` primitives. Hence buffers support the
+following primitives too:
 
 .. code:: haskell
 
@@ -203,7 +207,7 @@ efficient than falling back to ``Word8`` primitives.
    bufferWriteWord32IO :: MonadIO m => Buffer 'Mutable pin fin heap -> Word -> Word32 -> m ()
    bufferWriteWord64IO :: MonadIO m => Buffer 'Mutable pin fin heap -> Word -> Word64 -> m ()
 
-Different architectures store the ``Word8`` composing larger words in different
+Different architectures store the ``Word8`` s composing larger words in different
 orders (called ``Endianness``). When we use buffers to exchange data with other
 systems, we need to be aware of the endianness convention used for the exchanged
 data. More on this in the following chapters.

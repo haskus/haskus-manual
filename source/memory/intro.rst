@@ -93,7 +93,7 @@ exactly like system allocated buffers. As an optimization, GHC automatically
 considers large buffers as pinned buffers.
 
 GHC also distinguishes at the type level buffers whose cells are mutable or
-immutable. Immutable buffers can shared, duplicated at will, etc. Mutable
+immutable. Immutable buffers can be shared, duplicated at will, etc. Mutable
 buffers are cheaper to use as we don't have to duplicate the whole buffer to
 change one cell as it would be the case with immutable buffers. Immutable
 buffers are created by "freezing" mutable buffers: by convention a frozen
