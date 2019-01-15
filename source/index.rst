@@ -6,10 +6,11 @@ Haskus manuals
 .. toctree::
    :maxdepth: 1
 
-   system
    variant
    eadt
+   memory
    binary
+   system
 
 .. toctree::
    :maxdepth: 1

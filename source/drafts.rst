@@ -9,4 +9,3 @@ Drafts
 
    drafts/rendering
    drafts/multi-buffering
-   drafts/memory
