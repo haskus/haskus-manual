@@ -17,4 +17,5 @@ WORK-IN-PROGRESS: we only cover the first topics for now
    memory/intro
    memory/buffer
    memory/embed
+   memory/view
    # memory/state_of_the_art
