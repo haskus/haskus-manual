@@ -43,7 +43,7 @@ to be garbage collected.
 1. The source is a buffer. The view keeps the buffer alive
 
 2. The source is a weak buffer. If the buffer is collected, its contents
-   is copied in to a new buffer and the view is updated to use it.
+   is copied into a new buffer and the view is updated to use it.
 
 3. The source is a weak view. If the source view is collected, the
    current view is updated to use whatever the source view uses as a
