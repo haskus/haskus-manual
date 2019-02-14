@@ -1,21 +1,11 @@
 ==============================================================================
-Haskus manuals
+Basics
 ==============================================================================
 
 
 .. toctree::
    :maxdepth: 1
+   :numbered:
 
-   basics
-   variant
-   eadt
-   memory
-   binary
-   system
+   basics/numbers
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Other stuff
-
-   drafts
-   resources
