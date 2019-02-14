@@ -85,3 +85,32 @@ function:
 
    > nat @158748521123465897456465
    W @78 158748521123465897456465
+
+------------------------------------------------------------------------------
+Natural ranges
+------------------------------------------------------------------------------
+
+Sometimes we know that the natural numbers that we manipulate are in a fixed
+range:
+
+* An hour is in the range [1..12]
+* The age of an adult is in the range [18..150]
+
+We can use a natural range to store those values: it ensures that the value is
+in the range and it uses just the necessary bits to store (max-min+1) values.
+
+.. code:: haskell
+
+   > type Age = NatRange 18 150
+   > natRange @25 :: Age
+   NatRange @18 @150 25
+
+   > natRange @16 :: Age
+   error: 16 isn't in the range [18,150]
+
+Operations on natural ranges track range boundaries:
+
+.. code:: haskell
+
+   > NatRange @2 @4 3 .++. NatRange @7 @17 13
+   NatRange @9 @21 16
