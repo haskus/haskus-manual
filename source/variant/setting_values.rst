@@ -103,7 +103,7 @@ the value type with ``toVariantAt``:
    x :: V '[Int,String,Float]
    x = toVariantAt @2 5.0
 
-It is espacially useful if for some reason we want to have the same type more
+It is especially useful if for some reason we want to have the same type more
 than once in the variant value type list:
 
 .. code::
