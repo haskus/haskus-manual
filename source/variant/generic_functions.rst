@@ -6,7 +6,7 @@ In this chapter we show how to write generic functions that can work on
 different ``Variant`` as long as they fulfill some constraints.
 
 ------------------------------------------------------------------------------
-The ``:<`` constraint constructor
+``:<`` and ``:<<`` operators
 ------------------------------------------------------------------------------
 
 The ``c :< cs`` constraint statically ensures that the type ``c`` is in the
@@ -57,7 +57,7 @@ Note that to shorten a list of constraints such as ``(A :< xs, B :< xs, C :< xs)
 you can use the ``:<<`` operator: ``'[A,B,C] :<< xs``.
 
 ------------------------------------------------------------------------------
-The ``:<?`` constraint constructor and the ``VMaybe`` pattern
+``:<?`` operator and ``VMaybe`` pattern
 ------------------------------------------------------------------------------
 
 The ``c :< cs`` constraint statically ensures that the type ``c`` is in the
@@ -115,12 +115,12 @@ Shrinking variants: ``popVariant``
 
 A very common use of variants is to pattern match on a specific value type they
 can contain and to get a new variant containing the left-over value types. This
-is done with ``popVariant`` or ``popVariantMaybe`` and the ``Filter`` type
+is done with ``popVariant`` or ``popVariantMaybe`` and the ``Remove`` type
 family. For example:
 
 .. code::
 
-   filterError :: Error :<? cs => V cs -> V (Filter Error cs)
+   filterError :: Error :<? cs => V cs -> V (Remove Error cs)
    filterError v = case popVariantMaybe v of
       Right (Error s) -> error ("Found error: " ++ s)
       Left  v'        -> v' -- left-over variant!
