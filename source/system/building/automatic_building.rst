@@ -23,9 +23,9 @@ To install the latest version, use:
 
 .. code:: bash
 
-   > git clone https://github.com/haskus/haskus-system-build.git
-   > cd haskus-system-build
-   > stack install --install-ghc
+   > git clone https://github.com/haskus/haskus-system.git
+   > cd haskus-system
+   > stack install haskus-system-build
 
 It will install the program into ``~/.local/bin``. Be sure to add this path to
 your ``$PATH`` environment variable.
@@ -34,7 +34,7 @@ your ``$PATH`` environment variable.
 
    You can also install it from `Hackage
    <https://hackage.haskell.org/package/haskus-system-build>`_ using Stack or
-   Cabal-Install.
+   cabal-install.
 
 ------------------------------------------------------------------------------
 Getting started
