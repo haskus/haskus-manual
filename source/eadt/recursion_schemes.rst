@@ -8,18 +8,18 @@ Traversing an EADT explicitly (see :ref:`eadt_explicit_recursive`) can be
 tedious. Another approach consists in using dedicated composable combinators
 called **recursion schemes**.
 
-.. note::
+The well known ``map`` and ``fold`` functions are examples of recursion schemes
+for lists: these functions handle the recursive traversal of the data structure
+and are parameterized by the functions performing the actual work.  Recursion
+schemes are a generalization of this approach.
 
-   ``map`` and ``fold`` are examples of recursion schemes for lists: these
-   functions handle the recursive traversal of the data structure and are
-   parameterized by the functions performing the actual work.
-   Recursion schemes are a generalization of this approach.
 
 The best introduction to recursion schemes I've read can be found here:
 https://blog.sumtypeofway.com/an-introduction-to-recursion-schemes/
 
 To avoid paraphrasing, I recommend that you read it before continuing.
 
+See also: https://bartoszmilewski.com/2013/06/10/understanding-f-algebras/
 
 Catamorphism: Show example
 --------------------------

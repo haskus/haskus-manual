@@ -35,7 +35,7 @@ Overridden size
 ~~~~~~~~~~~~~~~
 
 The DOS and the DAS can be overridden per instruction with the 66 and 67 prefixes
-respectively, giving use the overridden operation size (OOS) and the overridden
+respectively, giving the overridden operation size (OOS) and the overridden
 address size (OAS).
 
 .. image:: /_static/images/system/x86/overridden_size.svg
