@@ -2,16 +2,29 @@
 Haskus manuals
 ==============================================================================
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Variants
+
+   variant
+   eadt
 
 .. toctree::
    :maxdepth: 1
+   :caption: Basics
 
-   basics
-   variant
-   eadt
+   basics/numbers
    memory
    binary
-   system
+
+.. toctree::
+   :maxdepth: 1
+   :caption: System
+
+   system/intro
+   system/building
+   system/programming
+   system/internals
 
 .. toctree::
    :maxdepth: 1
