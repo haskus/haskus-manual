@@ -7,6 +7,8 @@ Haskus manuals
    :caption: Variants
 
    variant
+   variant/veither
+   variant/excepts
    eadt
 
 .. toctree::
