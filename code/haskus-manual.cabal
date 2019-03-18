@@ -1,0 +1,42 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.1.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: ffef08199ebdb674ec0a4aa234aa2285fd1a484d31f09b0459607b624046b7ea
+
+name:           haskus-manual
+version:        0.1.0.0
+synopsis:       Haskus manual examples
+homepage:       https://github.com/haskus/haskus-manual#readme
+bug-reports:    https://github.com/haskus/haskus-manual/issues
+author:         Sylvain HENRY
+maintainer:     sylvain@haskus.fr
+copyright:      Sylvain HENRY 2019
+license:        BSD3
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/haskus/haskus-manual
+
+library
+  exposed-modules:
+      EadtIntro
+      EadtIntro2
+      EadtIntro3
+  other-modules:
+      Paths_haskus_manual
+  hs-source-dirs:
+      src/
+  ghc-options: -Wall -O2 -threaded
+  build-depends:
+      base >=4.8 && <5
+    , haskus-binary
+    , haskus-utils
+    , haskus-utils-compat
+    , haskus-utils-data
+    , haskus-utils-types
+    , haskus-utils-variant
+  default-language: Haskell2010

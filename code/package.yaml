@@ -1,0 +1,24 @@
+name:                haskus-manual
+version:             0.1.0.0
+github:              "haskus/haskus-manual"
+license:             BSD3
+author:              "Sylvain HENRY"
+maintainer:          "sylvain@haskus.fr"
+copyright:           "Sylvain HENRY 2019"
+
+synopsis:            Haskus manual examples
+
+dependencies:
+- base >= 4.8 && < 5
+- haskus-utils
+- haskus-utils-data
+- haskus-utils-types
+- haskus-utils-variant
+- haskus-utils-compat
+- haskus-binary
+
+ghc-options: -Wall -O2 -threaded
+
+library:
+   source-dirs: src/
+   
