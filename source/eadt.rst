@@ -4,39 +4,19 @@
 Extensible ADT (EADT)
 ==============================================================================
 
-EADTs (extensible algebraic data types) are ADTs whose constructors are defined
-independently of the EADT. In the following example, we define two constructors
-``ConsF`` and ``NilF`` and then we combine them to form a ``List`` EADT:
+EADTs are "extensible algebraic data types": they can be transformed (by adding
+or removing constructors) and their constructors are not tied to a specific EADT
+type, hence we can use them as constructors of different EADTs.
 
-.. code::
-
-   import Haskus.Utils.EADT
-
-   data ConsF a l = ConsF a l deriving (Functor)
-   data NilF    l = NilF      deriving (Functor)
-
-   type List a = EADT '[ConsF a, NilF]
-
-We use a type-level list to indicate the valid constructors for the EADT.
-Compared to usual ADT (e.g. ``data List a = Cons a (List a) | Nil``) it allows
-us to manipulate (extend/filter/etc.) the list of constructors in a type-safe
-way and without requiring new data types. Moreover, the constructors can be
-shared between several EADTs. For instance, the following code reuses ``NilF``
-constructor to define a binary tree EADT:
-
-.. code::
-
-   data NodeF a l = NodeF a l l deriving (Functor)
-
-   type Tree a = EADT '[NodeF a, NilF]
-
-EADTs are based on the :ref:`Variant <variant>` sum type to which they add
-support for recursive ADTs as in the examples above.
+EADT constructors and operations can be defined independently (even in different
+modules) allowing a great modularity. As such there are an answer to the
+"expression problem" (cf :ref:`Background <eadt_background>` section).
 
 .. toctree::
    :maxdepth: 1
    :numbered:
 
+   eadt/intro
    eadt/basics
    eadt/explicit_traversal
    eadt/constructor_constraint
