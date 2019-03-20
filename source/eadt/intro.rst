@@ -96,8 +96,8 @@ EADTs:
 
    data LambdaF n e = LambdaF n e deriving Functor
    data VarF    n e = VarF    n   deriving Functor
-   data AppF      e = AppF e e    deriving Functor
-   data AnnF    a e = AnnF a e    deriving Functor
+   data AppF      e = AppF    e e deriving Functor
+   data AnnF    a e = AnnF    a e deriving Functor
 
    $(eadtPattern 'LambdaF "Lambda")
    $(eadtPattern 'VarF    "Var")
