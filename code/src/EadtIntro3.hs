@@ -5,6 +5,7 @@
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE TypeApplications #-}
 {-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE DataKinds #-}
 
 module EadtIntro3 where
 
@@ -41,7 +42,7 @@ instance Show a => PrettyPrint (AnnF a) where
 
 prettyPrint ::
    ( Functor (VariantF xs)
-   , BottomUp PrettyPrint xs String String
+   , BottomUp PrettyPrint xs String
    ) => EADT xs -> String
 prettyPrint e = bottomUp (toBottomUp @PrettyPrint prettyPrint') e
 

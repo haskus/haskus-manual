@@ -1,4 +1,4 @@
-resolver: lts-13.6
+resolver: lts-13.16
 
 packages:
 - "."
@@ -10,7 +10,7 @@ extra-deps:
 - happstack-server-tls-7.1.6.7
 - happstack-server-7.5.1.3
 - git: https://github.com/haskus/packages.git
-  commit: f0723c1d635ca100d63aade7be49a14568f77c65
+  commit: 785f05a4bf8a44292c7419114190ce8eb9c8f83c
   subdirs:
      - haskus-utils-variant
      - haskus-utils

@@ -45,7 +45,7 @@ Example:
    foo :: String -> Excepts '[ParseError, LookupError Char, HeadError] IO Integer
    -- foo :: forall es.
    --    ('[HeadError,ParseError,LookupError Char] :<< es
-   --    ) => String -> Excepts es Integer
+   --    ) => String -> Excepts es IO Integer
    foo str = do
       c <- liftE $ head str
       r <- liftE $ lookup c codeMap
@@ -68,13 +68,13 @@ Test:
    VRight 16
 
    > runE (foo "u10")
-   VLeft (V @(LookupError Char) (KeyWasNotPresent 'u') :: V '[ParseError, LookupError Char, HeadError])
+   VLeft KeyWasNotPresent 'u'
 
    > runE (foo "")
-   VLeft (V @HeadError ListWasEmpty :: V '[ParseError, LookupError Char, HeadError])
+   VLeft ListWasEmpty
 
    > runE (foo "d10X")
-   VLeft (V @ParseError ParseError :: V '[ParseError, LookupError Char, HeadError])
+   VLeft ParseError
 
    > runE (foo "" `catchE` (\ListWasEmpty -> success 42) :: Excepts '[ParseError,LookupError Char] IO Integer)
    VRight 42

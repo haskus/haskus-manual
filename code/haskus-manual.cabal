@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: ffef08199ebdb674ec0a4aa234aa2285fd1a484d31f09b0459607b624046b7ea
+-- hash: 7c83aa5ecbd96e21ac5885272153808b0a83088f1418881d627ae5fc6e5c67bf
 
 name:           haskus-manual
 version:        0.1.0.0
@@ -26,6 +26,7 @@ library
       EadtIntro
       EadtIntro2
       EadtIntro3
+      Excepts
   other-modules:
       Paths_haskus_manual
   hs-source-dirs:
