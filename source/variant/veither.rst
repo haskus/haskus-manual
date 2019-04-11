@@ -37,7 +37,7 @@ VRight and VLeft
    VRight True
 
    >>> VLeft (V "failed" :: V '[String,Int]) :: VEither '[String,Int] Bool
-   VLeft (V @[Char] "failed" :: V '[[Char], Int])
+   VLeft "failed"
 
 ------------------------------------------------------------------------------
 Common instances
