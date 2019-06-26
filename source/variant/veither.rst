@@ -1,4 +1,4 @@
-.. _variant_veither:
+.. _veither:
 
 ==============================================================================
 VEither (biased variant)
@@ -17,7 +17,7 @@ common type-classes (Functor, Monad, etc.) so that we have easy access to it.
 
 .. code:: haskell
 
-   newtype VEither es a = VEither (V (a ': es))
+   newtype VEither es a = VEither (V (a : es))
 
 It is isomorphic to the following type: ``Either (V es) a``. The difference is
 in the runtime representation: ``VEither es a`` has one less indirection than
@@ -43,7 +43,7 @@ VRight and VLeft
 Common instances
 ------------------------------------------------------------------------------
 
-The main advantage of ``VEither es a`` over ``V (a ': es)`` is that we can
+The main advantage of ``VEither es a`` over ``V (a ': es)`` is that we
 define instances for common type-classes such as Functor, Applicative, Monad,
 Foldable, etc.:
 

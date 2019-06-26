@@ -4,7 +4,7 @@ Do-notation
 
 .. note::
 
-   We recommend that you use :ref:`VEither <variant_veither>` instead of the
+   We recommend that you use :ref:`VEither <veither>` instead of the
    approach presented here as it doesn't involve the RebindableSyntax GHC
    extension.
 
