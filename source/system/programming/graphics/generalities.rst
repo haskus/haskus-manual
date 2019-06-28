@@ -27,7 +27,7 @@ Graphics hardware overview
 There can be a lot of different hardware configurations.  It is common to have
 computers with multiple connected display devices: multi-screens,
 video-projector, TV, etc. Each display supports its own modes of operation
-(display resolution, refresh rates, etc.).  Besides, we may want each device to
+(display resolution, refresh rates, etc.). Besides, we may want each device to
 display something different or some of them to display the same thing ("clone"
 mode): in the latter case, what if the display resolutions or the other mode
 settings are different?
