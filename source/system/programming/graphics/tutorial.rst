@@ -10,3 +10,4 @@ screens.
    :numbered:
 
    tutorial/human_vision
+   tutorial/how_screens_work

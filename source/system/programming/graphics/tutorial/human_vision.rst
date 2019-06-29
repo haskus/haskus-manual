@@ -53,9 +53,9 @@ at a time.
 Summary
 -------
 
-Rendering an image on a screen consists in indicating the 3 color components
-(red, green, blue) of each pixel. Pixels are samples of the image we would like
-to render if we had an infinite resolution, not "small squares".
+Rendering an image on a screen consists in indicating the color of each pixel.
+Pixels are samples of the image we would like to render on the screen if we had
+an infinite resolution, not "small squares".
 
 To simulate a continuous movement on the screen, we have have to render many
 different images per seconds.
