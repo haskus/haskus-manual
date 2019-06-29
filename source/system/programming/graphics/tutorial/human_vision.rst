@@ -46,8 +46,8 @@ time.
 
 Screens use this to simulate continuous motion: if different images are
 displayed very quickly, our eyes don't distinguish each picture individually.
-Some screens even emit a single line of pixels at a time or even a single pixel
-at a time.
+Some screens even emit a single line of pixels at a time or a single pixel
+at a time, or alternate between even and odd lines for each frame.
 
 
 Summary

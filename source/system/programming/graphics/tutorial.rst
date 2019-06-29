@@ -11,3 +11,4 @@ screens.
 
    tutorial/human_vision
    tutorial/how_screens_work
+   tutorial/mode_setting
