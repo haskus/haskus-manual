@@ -10,7 +10,7 @@ Red, green, blue
 The human eye uses 3 kinds of sensors (in daylight) called `cones
 <https://en.wikipedia.org/wiki/Cone_cell>`_, each covering some part of the
 visible spectrum. Their behavior is quite complicated because their ranges
-overlap, the count of each sensor differ, the light perception is non-linear,
+overlap, the count of each sensor differs, the light perception is non-linear,
 etc. For the human eye, different `spectral power distributions
 <https://en.wikipedia.org/wiki/Spectral_power_distribution>`_ can lead to the
 same perceived color (`metamerism
@@ -18,9 +18,9 @@ same perceived color (`metamerism
 
 Long story short, a screen doesn't have to be able to produce every frequency of
 the visible spectrum to reproduce colors: it just has to produce 3 of them to
-trigger each kind of cone at a different level. Typically a color is reproduced
-by a screen by combining different amount of red, green and blue lights which
-roughly correspond to each cone response peak.
+trigger each kind of cone at a different level. Typically a screen produces
+color by combining different amount of red, green and blue lights which roughly
+correspond to each cone response peak.
 
 Spatial integration
 -------------------
@@ -31,10 +31,11 @@ Instead we only perceive another color which is composed of the emitted ones.
 
 Screens display an array of lights called pixels (say 1920x1080 pixels) which
 are very close one to the other so that we perceive a continuous picture without
-distinguishing the gaps between each pixel individually (at normal distance).
+distinguishing the gaps between each pixel individually (at normal viewing
+distance of the screen).
 
-Screens display pixel themselves as a combination of several lights (red, green
-blue) which we perceive as a single color.
+Screens display pixel themselves as a combination of several disctint lights
+(red, green blue) which are so close that we perceive as a single color.
 
 
 Temporal integration
