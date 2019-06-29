@@ -13,5 +13,6 @@ We assume that you know how to build systems (cf :ref:`Building guide <system_bu
    programming/hello_world
    programming/using/sys_monad
    programming/using/devices
+   programming/graphics/tutorial
    programming/graphics/overview
 
