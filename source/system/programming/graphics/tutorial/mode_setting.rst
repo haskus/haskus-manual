@@ -3,24 +3,31 @@ Mode setting
 ============
 
 Linux provides an API named *kernel mode setting* (KMS) that can be used to
-query and to configure the graphics chipsets.
+query and to configure graphics chipsets.
 
 It allows the software to query the connected screens and their available modes
 (resolution, refresh rate, etc.) and to indicate which mode and planes to use
 and where to fetch the pixel colors from.
 
 There are so many possible configurations (different graphics chipsets,
-different screens, etc.) that the KMS interface is very generic: it lets you
-select a configuration quite liberally and test it before enabling it.
+different screens, etc.) that the KMS interface is very generic. It lets you
+build a configuration quite liberally using objects (connectors, controllers,
+planes, etc.) and their properties. Then you can test the built configuration
+before enabling it for real.
 
 For instance some hardware may have two output connectors but only supports full
 resolution if a single screen is used (otherwise the resolution must be halved)
 for bandwidth reason. Currently there is no way to query the hardware and
-discover this, but we can probe the different configuration and select the
-valid one we prefer.
+discover this, but we can test the different configurations and select the
+valid one we prefer (or let the user choose).
 
 Listing connectors
 ------------------
+
+.. note::
+
+   Some devices support connector hubs. Hence the list of connectors may change
+   dynamically.
 
 The following code lists the graphic cards, their connectors and if a screen is
 connected to the connector: its modes and its properties.

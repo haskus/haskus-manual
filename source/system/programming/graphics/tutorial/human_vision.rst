@@ -9,9 +9,10 @@ Red, green, blue
 
 The human eye uses 3 kinds of sensors (in daylight) called `cones
 <https://en.wikipedia.org/wiki/Cone_cell>`_, each covering some part of the
-visible spectrum. Their behavior is quite complicated because their ranges
-overlap, the count of each sensor differs, the light perception is non-linear,
-etc. For the human eye, different `spectral power distributions
+`visible spectrum <https://en.wikipedia.org/wiki/Visible_spectrum>`_. Their
+behavior is quite complicated because their response ranges overlap, the count
+of each sensor differs, the light perception is non-linear, etc. For the human
+eye, different `spectral power distributions
 <https://en.wikipedia.org/wiki/Spectral_power_distribution>`_ can lead to the
 same perceived color (`metamerism
 <https://en.wikipedia.org/wiki/Metamerism_(color)>`_).
@@ -21,6 +22,9 @@ the visible spectrum to reproduce colors: it just has to produce 3 of them to
 trigger each kind of cone at a different level. Typically a screen produces
 color by combining different amount of red, green and blue lights which roughly
 correspond to each cone response peak.
+
+Usually display devices can only produce a subset of the visible color space (or
+`gamut <https://en.wikipedia.org/wiki/Gamut>`_).
 
 Spatial integration
 -------------------
