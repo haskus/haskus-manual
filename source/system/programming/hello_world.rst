@@ -6,10 +6,12 @@ The following program is the "Hello World" of Haskus system:
 
 .. code:: haskell
 
+   {-# LANGUAGE BlockArguments #-}
+
    import Haskus.System
    
    main :: IO ()
-   main = runSys <| do
+   main = runSys do
    
       -- Initialize the default terminal
       term <- defaultTerminal
@@ -21,7 +23,7 @@ The following program is the "Hello World" of Haskus system:
       waitForKey term
 
       -- shutdown the computer
-      powerOff_
+      powerOff
 
 It writes the "Hello World" string on the default terminal, then wait for a key
 to be pressed, and finally it power off the computer.

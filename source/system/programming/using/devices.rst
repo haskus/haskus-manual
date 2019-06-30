@@ -21,10 +21,12 @@ by the Linux kernel.  To do that, use ``defaultSystemInit`` and
 
 .. code:: haskell
 
+   {-# LANGUAGE BlockArguments #-}
+
    import Haskus.System
    
    main :: IO ()
-   main = runSys <| do
+   main = runSys do
    
       sys  <- defaultSystemInit
       term <- defaultTerminal
@@ -34,7 +36,7 @@ by the Linux kernel.  To do that, use ``defaultSystemInit`` and
       graphicDevs <- listDevicesWithClass dm "drm"
    
       let
-         showDev dev = writeStrLn term ("  - " ++ show (fst dev))
+         showDev dev = writeStrLn term ("  - " <> show (fst dev))
          showDevs    = mapM_ showDev
    
       writeStrLn term "Input devices:"
@@ -43,7 +45,7 @@ by the Linux kernel.  To do that, use ``defaultSystemInit`` and
       writeStrLn term "Display devices:"
       showDevs graphicDevs
    
-      void powerOff
+      powerOff
 
 Linux associates a class to each device. The previous code shows how to
 enumerate devices of two classes: "input" and "drm" (direct rendering manager,
@@ -85,21 +87,23 @@ events:
 
 .. code:: haskell
 
+   {-# LANGUAGE BlockArguments #-}
+
    import Haskus.System
    
    main :: IO ()
-   main = runSys <| do
+   main = runSys do
    
       term <- defaultTerminal
       sys  <- defaultSystemInit
       let dm = systemDeviceManager sys
    
       -- Display kernel events
-      onEvent (dmEvents dm) <| \ev ->
+      onEvent (dmEvents dm) \ev ->
          writeStrLn term (show ev)
    
       waitForKey term
-      void powerOff
+      powerOff
 
 If you execute this code in ``QEMU``, you should get something similar to:
 
@@ -156,51 +160,8 @@ Using Devices
 ~~~~~~~~~~~~~
 
 To use a device, we need to get a handle (i.e., a reference) on it that we will
-pass to every function applicable to it. The following code shows how to do it.
-
-.. code:: haskell
-
-   {-# LANGUAGE TypeApplications #-}
-   
-   import Haskus.System
-   import Haskus.Format.Binary.Word
-   
-   import qualified Haskus.Arch.Linux.Terminal as Raw
-   
-   main :: IO ()
-   main = runSys <| do
-   
-      sys  <- defaultSystemInit
-      term <- defaultTerminal
-      let dm = systemDeviceManager sys
-   
-      -- Get handle for "zero", "null" and "urandom" virtual devices
-      zeroDev <- getDeviceHandleByName dm "/virtual/mem/zero"
-                  >..~!!> sysErrorShow "Cannot get handle for \"zero\" device"
-      nullDev <- getDeviceHandleByName dm "/virtual/mem/null"
-                  >..~!!> sysErrorShow "Cannot get handle for \"null\" device"
-      randDev <- getDeviceHandleByName dm "/virtual/mem/urandom"
-                  >..~!!> sysErrorShow "Cannot get handle for \"urandom\" device"
-   
-      readStorable @Word64 randDev Nothing
-         >.~.> (\a -> writeStrLn term ("From urandom device: " ++ show a))
-         >..~!> const (writeStrLn term "Cannot read urandom device")
-   
-      readStorable @Word64 zeroDev Nothing
-         >.~.> (\a -> writeStrLn term ("From zero device: "   ++ show a))
-         >..~!> const (writeStrLn term "Cannot read zero device")
-   
-   
-      void <| Raw.writeStrLn nullDev "Discarded string"
-   
-      -- Release the handles
-      releaseDeviceHandle zeroDev
-      releaseDeviceHandle nullDev
-      releaseDeviceHandle randDev
-   
-      waitForKey term
-      void powerOff
-
+pass to every function applicable to it. See the code `here
+<https://github.com/haskus/haskus-system/blob/master/haskus-system-examples/src/device-open/Main.hs>`_.
 
 This code reads a 64-bit word from the ``urandom`` device that returns random data
 and another from the ``zero`` device that returns bytes set to 0. Finally, we

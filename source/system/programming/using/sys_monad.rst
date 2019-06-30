@@ -9,10 +9,12 @@ a -> IO a``:
 
 .. code:: haskell
 
+   {-# LANGUAGE BlockArguments #-}
+
    import Haskus.System
    
    main :: IO ()
-   main = runSys <| do
+   main = runSys do
    
       -- Initialize the default terminal
       term <- defaultTerminal
@@ -27,14 +29,14 @@ a -> IO a``:
       sysLogPrint
    
       -- shutdown the computer
-      void powerOff
+      powerOff
 
 This code prints the string "Hello World!" in the Linux terminal and waits for a
 char to be entered in the terminal. Then it prints the system log that is
 implicitly maintained in the ``Sys`` monad. Hence, the output of this program is
 something like:
 
-.. code::
+.. code:: text
 
    Hello World!
    
