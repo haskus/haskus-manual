@@ -23,7 +23,7 @@ Controller and Plane entities of the graphics pipeline are invariant for each
 graphics chipset. However Connectors are *not* invariant because some
 technologies (such as `DisplayPort Multi-Stream Transport
 <https://en.wikipedia.org/wiki/DisplayPort#Multi-Stream_Transport_(MST)>`_)
-allows the use of connectors hubs which dynamically add additional Connector
+allow the use of connectors hubs which dynamically add additional Connector
 entities. Frames are managed by software hence they are not invariant either.
 
 Listing entities

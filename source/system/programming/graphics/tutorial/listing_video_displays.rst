@@ -92,5 +92,5 @@ Connectors.
 Also remember that Connector entities can appear and disappear at runtime.
 That's because some technologies (such as `DisplayPort Multi-Stream Transport
 <https://en.wikipedia.org/wiki/DisplayPort#Multi-Stream_Transport_(MST)>`_)
-allows the use of connectors hubs which increases the number of video displays
+allow the use of connectors hubs which increases the number of video displays
 that can be connected at the same time.
