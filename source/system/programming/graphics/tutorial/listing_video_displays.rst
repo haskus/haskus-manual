@@ -33,7 +33,7 @@ It detects the available video displays and reports information about them.
   <https://en.wikipedia.org/wiki/Subpixel_rendering>`_) and other properties
   with ``videoProperties``.
 
-Example of run into QEmu with Linux 5.1.15:
+Example of run into QEMU with Linux 5.1.15:
 
 .. code:: text
 
