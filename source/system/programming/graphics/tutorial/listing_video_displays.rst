@@ -28,8 +28,10 @@ It detects the available video displays and reports information about them.
 
 * We get the supported modes of the video display with ``videoModes`` field of
   ``videoDisplay``, physical size in millimeters with
-  ``videoPhysicalWidth/Height``, the sub-pixel layout with ``videoSubPixel`` and
-  other properties with ``videoProperties``.
+  ``videoPhysicalWidth/Height``, the sub-pixel layout with ``videoSubPixel``
+  (can be used to perform `sub-pixel rendering
+  <https://en.wikipedia.org/wiki/Subpixel_rendering>`_) and other properties
+  with ``videoProperties``.
 
 Example of run into QEmu with Linux 5.1.15:
 
