@@ -4,7 +4,7 @@ Human vision and video displays
 
 Video display technology is based on human vision in several ways:
 
-Red, green, blue
+Color perception
 ----------------
 
 The human eye uses 3 kinds of sensors (in daylight) called `cones

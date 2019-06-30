@@ -61,16 +61,3 @@ versions of GHC and of ``haskus-system``. Example of ``stack.yaml`` contents:
    - haskus-utils-0.6.0.0
 
 Finally use ``stack build`` to compile the program.
-
-**Examples**
-
-
-The `haskus-system-examples
-<http://www.github.com/haskus/haskus-system-examples>`_ repository contains
-several examples of such systems (including this ``HelloWorld`` program).
-
-Refer to its `.cabal file
-<http://github.com/haskus/haskus-system-examples/tree/master/haskus-system-examples.cabal>`_
-and to its `stack.yaml
-<https://github.com/haskus/haskus-system-examples/tree/master/stack.yaml>`_
-file.
