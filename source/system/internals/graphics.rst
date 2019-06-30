@@ -75,8 +75,7 @@ Multi-GPU is supported by Linux. In particular:
 
 * GPU switching is supported with `vga_switcheroo <https://01.org/linuxgraphics/gfx-docs/drm/vga_switcheroo.html>`_
 
-
-https://www.slideshare.net/ennael/kernel-recipes-2015-anatomy-of-an-atomic-kms-driver
+https://www.elinux.org/images/4/45/Atomic_kms_driver_pinchart.pdf
 
 KMS/DRM history:
 
