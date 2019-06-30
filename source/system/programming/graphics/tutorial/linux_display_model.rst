@@ -13,9 +13,6 @@ The left side of the following picture describes the relations between pipeline 
    :class: img_center
 
 
-Modifying the graphics pipeline
--------------------------------
-
 To use a video display, our task is to build such valid pipeline. There are so
 many possible hardware configurations (different graphics chipsets, different
 video displays, etc.) that the KMS interface is very generic. It lets us build a
@@ -27,77 +24,64 @@ graphics chipset. However Connectors are *not* fixed because some technologies
 (such as `DisplayPort Multi-Stream Transport
 <https://en.wikipedia.org/wiki/DisplayPort#Multi-Stream_Transport_(MST)>`_)
 allows the use of connectors hubs which dynamically add additional Connector
-entities.
+entities. Frames are managed by software so they are not fixed either.
 
+Listing entities
+----------------
 
+As our first code example in this tutorial, we will list all the entities of all
+the graphic cards we find on the system.  The whole code source can be found
+`here
+<https://github.com/haskus/haskus-system/blob/master/haskus-system-examples/src/tutorial/TutEntitiesIDs.hs>`_.
 
-Listing connectors
-------------------
-
-The following code lists the graphic cards, their connectors and if a video
-display is connected to the connector: its modes and its properties.
+We load all the graphic cards with:
 
 .. code:: haskell
 
-   {-# LANGUAGE OverloadedStrings #-}
-   {-# LANGUAGE BlockArguments #-}
-
-   import Haskus.System
-   import Haskus.System.Linux.Graphics.State
-   import Haskus.System.Linux.Graphics.Property
-   import Haskus.System.Linux.Graphics.Object
-   import Haskus.System.Linux.Graphics.Mode
-
-   main :: IO ()
-   main = runSys' do
       sys   <- defaultSystemInit
-      term  <- defaultTerminal
-
       cards <- loadGraphicCards (systemDeviceManager sys)
+
+Then we get entity identifiers with:
+
+.. code:: haskell
       
-      forM_ cards \card -> do
+         mids <- runE (getEntitiesIDs card)
 
-         state <- readGraphicsState (graphicCardHandle card)
-                     |> assertLogShowErrorE "Read graphics state"
+The rest of the code deals with errors and printing the results on the terminal.
 
-         let conns = graphicsConnectors state
-
-         when (null conns) do
-            writeStrLn term "No connector found"
-
-         forM_ conns \conn -> do
-            writeStrLn term ("Probing " ++ getObjectQualifiedID conn)
-
-            case connectorState conn of
-               Disconnected      -> writeStrLn term " -> disconnected"
-               ConnectionUnknown -> writeStrLn term " -> unknown connection"
-               Connected dev -> do
-                  writeStrLn term "Modes"
-                  forM_ (connectedDeviceModes dev) \mode ->
-                     writeStrLn term (showMode mode)
-
-                  writeStrLn term "Properties"
-                  forM_ (connectedDeviceProperties dev) \prop ->
-                     writeStrLn term ("    " ++ showProperty prop)
-
-When run into QEmu with Linux 5.1.15 it returns:
+The best way to test this code is to use :ref:`haskus-system-build tool
+<haskus-system-build-tool>`.
 
 .. code:: text
 
-   Probing Connector 33
-   Modes
-   1024x768 60MHz -HSync -VSync
-           h: width 1024 start 1048 end 1184 total 1344 skew    0
-           v: width  768 start  771 end  777 total  806 scan    0
-   1920x1080 60MHz -HSync -VSync
-           h: width 1920 start 2008 end 2052 total 2200 skew    0
-           v: width 1080 start 1084 end 1089 total 1125 scan    0
-   1600x1200 60MHz +HSync +VSync
-           h: width 1600 start 1664 end 1856 total 2160 skew    0
-           v: width 1200 start 1201 end 1204 total 1250 scan    0
-   [...]
-   Properties
-       var DPMS = On :: Enum [On,Standby,Suspend,Off]
-       var link-status = Good :: Enum [Good,Bad]
-       val non-desktop = False :: Bool
-       var CRTC_ID = 0 :: Object
+   > git clone https://github.com/haskus/haskus-system.git
+   > cd haskus-system/haskus-system-examples
+   > haskus-system-build test --init TutEntitiesIDs
+
+   ===================================================
+          Haskus system - build config
+   ---------------------------------------------------
+   GHC version:      8.6.4
+   Linux version:    5.1.15
+   Syslinux version: 6.03
+   Init program:     TutEntitiesIDs
+   ===================================================
+   ==> Configuring Stack...
+   stack will use a sandboxed GHC it installed
+   For more information on paths, see 'stack path' and 'stack exec env'
+   To use this GHC and packages outside of a project, consider using:
+   stack ghc, stack ghci, stack runghc, or stack exec
+   ==> Building with Stack...
+   ==> Building ramdisk...
+   16299 blocs
+   ==> Launching QEMU...
+   Card 0
+    - Connector 33
+    - Controller 31
+    - Plane 30
+   [    1.026338] reboot: Power down
+
+The tool should download, build and install the necessary dependencies and
+execute the resulting system into ``QEMU``. You can see that it reports one
+Connector, one Controller and one Plane for the QEMU simulated graphics chipset
+(the numbers are their unique identifiers).
