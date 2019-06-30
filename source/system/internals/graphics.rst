@@ -58,7 +58,7 @@ comments. While some details of the interface have changed since he wrote it
 valuable source of information.
 
 The newer atomic interface is described in an `article
-<https://lwn.net/Articles/653071}>`_ `series
+<https://lwn.net/Articles/653071/>`_ `series
 <https://lwn.net/Articles/653466/>`_ on LWN called "Atomic mode setting design
 overview" (August 2015) by Daniel Vetter.
 
@@ -74,3 +74,12 @@ Multi-GPU is supported by Linux. In particular:
 * Buffer sharing is supported with `DRM Prime <https://01.org/linuxgraphics/gfx-docs/drm/drm-memory-management.html\#drm-prime-support>`_
 
 * GPU switching is supported with `vga_switcheroo <https://01.org/linuxgraphics/gfx-docs/drm/vga_switcheroo.html>`_
+
+
+https://www.slideshare.net/ennael/kernel-recipes-2015-anatomy-of-an-atomic-kms-driver
+
+KMS/DRM history:
+
+* https://libv.livejournal.com/13443.html
+* https://ppaalanen.blogspot.com/2014/06/from-pre-history-to-beyond-global.html
+* https://lwn.net/Articles/653071 and https://lwn.net/Articles/653466/
