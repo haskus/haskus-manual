@@ -64,12 +64,6 @@ Example of run into QEmu with Linux 5.1.15:
 Detecting Plugging/Unplugging
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Remember that Connector entities can appear and disappear at runtime. That's
-because some technologies (such as `DisplayPort Multi-Stream Transport
-<https://en.wikipedia.org/wiki/DisplayPort#Multi-Stream_Transport_(MST)>`_)
-allows the use of connectors hubs which increases the number of video displays
-that can be connected at the same time.
-
 To detect when a video display is connected or disconnected, we could
 periodically list the Connectors and check their ``connectorState`` property as
 we have done above.
@@ -94,3 +88,9 @@ one:
 
 When our system receives this event, we know it has to check the state of the
 Connectors.
+
+Also remember that Connector entities can appear and disappear at runtime.
+That's because some technologies (such as `DisplayPort Multi-Stream Transport
+<https://en.wikipedia.org/wiki/DisplayPort#Multi-Stream_Transport_(MST)>`_)
+allows the use of connectors hubs which increases the number of video displays
+that can be connected at the same time.
