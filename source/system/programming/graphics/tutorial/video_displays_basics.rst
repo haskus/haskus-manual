@@ -9,7 +9,7 @@ second.
 
 The algorithm used by the graphics chipset is roughly:
 
-.. code:: haskell
+.. code:: text
 
    For each pixel in the current image
       Read its color from memory
