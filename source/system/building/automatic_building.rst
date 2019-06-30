@@ -30,12 +30,6 @@ To install the latest version, use:
 It will install the program into ``~/.local/bin``. Be sure to add this path to
 your ``$PATH`` environment variable.
 
-.. note::
-
-   You can also install it from `Hackage
-   <https://hackage.haskell.org/package/haskus-system-build>`_ using Stack or
-   cabal-install.
-
 ------------------------------------------------------------------------------
 Getting started
 ------------------------------------------------------------------------------
