@@ -2,32 +2,37 @@
 Linux display model
 ===================
 
-Linux provides an API named *kernel mode setting* (KMS) that can be used to
-query and to configure graphics chipsets.
+Linux provides an API named *kernel mode setting* (KMS) that allows us to
+control video displays. The idea is to build a pipeline that describes where the
+video displays get their pixel colors from.
 
-It allows the software to query the connected video displays and their available
-modes (resolution, refresh rate, etc.) and to indicate which mode and planes to
-use and where to fetch the pixel colors from.
+The left side of the following picture describes the relations between pipeline entities and the right side shows a more visual representation of how an image is formed on a video display surface using the same entities.
 
-There are so many possible configurations (different graphics chipsets,
-different video displays, etc.) that the KMS interface is very generic. It lets
-you build a configuration quite liberally using objects (connectors,
-controllers, planes, etc.) and their properties. Then you can test the built
-configuration before enabling it for real.
 
-For instance some hardware may have two output connectors but only supports full
-resolution if a single video display is used (otherwise the resolution must be
-halved) for bandwidth reason. Currently there is no way to query the hardware
-and discover this, but we can test the different configurations and select the
-valid one we prefer (or let the user choose).
+.. image:: /_static/images/system/graphics_linux_model.svg
+   :class: img_center
+
+
+Modifying the graphics pipeline
+-------------------------------
+
+To use a video display, our task is to build such valid pipeline. There are so
+many possible hardware configurations (different graphics chipsets, different
+video displays, etc.) that the KMS interface is very generic. It lets us build a
+pipeline quite liberally and then we can test it before enabling it for real if
+it is valid.
+
+Controller and Plane entities of the graphics pipeline are fixed for each
+graphics chipset. However Connectors are *not* fixed because some technologies
+(such as `DisplayPort Multi-Stream Transport
+<https://en.wikipedia.org/wiki/DisplayPort#Multi-Stream_Transport_(MST)>`_)
+allows the use of connectors hubs which dynamically add additional Connector
+entities.
+
+
 
 Listing connectors
 ------------------
-
-.. note::
-
-   Some devices support connector hubs. Hence the list of connectors may change
-   dynamically.
 
 The following code lists the graphic cards, their connectors and if a video
 display is connected to the connector: its modes and its properties.
