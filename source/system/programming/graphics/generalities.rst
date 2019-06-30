@@ -6,11 +6,12 @@ Generalities
 What is a pixel?
 ------------------------------------------------------------------------------
 
-From a programmer's point of view, screens basically display rectangular grids
-of sample points (or "pixels" standing for "picture elements") where each point
-can have a different color. The display resolution is the number of pixels in
-each dimension: for example, a display resolution of 1920x1080 means that there
-are 1920 pixels in the horizontal dimension and 1080 in the vertical dimension.
+From a programmer's point of view, video displays basically display rectangular
+grids of sample points (or "pixels" standing for "picture elements") where each
+point can have a different color. The display resolution is the number of pixels
+in each dimension: for example, a display resolution of 1920x1080 means that
+there are 1920 pixels in the horizontal dimension and 1080 in the vertical
+dimension.
 
 .. note::
 
@@ -25,7 +26,7 @@ Graphics hardware overview
 ------------------------------------------------------------------------------
 
 There can be a lot of different hardware configurations.  It is common to have
-computers with multiple connected display devices: multi-screens,
+computers with multiple connected display devices: multi-monitors,
 video-projector, TV, etc. Each display supports its own modes of operation
 (display resolution, refresh rates, etc.). Besides, we may want each device to
 display something different or some of them to display the same thing ("clone"

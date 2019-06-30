@@ -2,13 +2,12 @@
 Graphics tutorial
 =================
 
-This tutorial explains how to use the graphics API to display things on
-screens.
+This tutorial explains how to use the graphics API to exploit video displays.
 
 .. toctree::
    :maxdepth: 1
    :numbered:
 
    tutorial/human_vision
-   tutorial/how_screens_work
-   tutorial/mode_setting
+   tutorial/video_displays_basics
+   tutorial/linux_display_model

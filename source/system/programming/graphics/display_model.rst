@@ -135,8 +135,8 @@ it is a virtual port because we use ``QEMU``, but it could have been ``VGA``,
 If there are several connectors of the same type in the same card, you can
 distinguish them with the ``connectorByTypeIndex`` field.
 
-You can check that a display device is actually plugged in a connector with the
-``connectorState`` property: in our example, there is a (virtual) screen
+You can check that a video display is actually plugged in a connector with the
+``connectorState`` property: in our example, there is a (virtual) video display
 connected. 
 
 We can get more information about the connected device:
@@ -155,7 +155,7 @@ We can get more information about the connected device:
 * ``connectedDeviceProperties``: device specific properties.  In this example,
   there is only a single property named "DPMS" which can take 4 different values
   ("On", "Standby", "Suspend", "Off") and whose current value is 0 ("On"): this
-  property can be used to switch the power mode of the screen.
+  property can be used to switch the power mode of the video display.
 
 A ``connector`` gets the data to display from an ``encoder``:
 
@@ -166,8 +166,8 @@ A ``connector`` gets the data to display from an ``encoder``:
 Detecting Plugging/Unplugging
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We can adapt what our system displays to the connected screens, but how do we
-detect when a screen is connected or disconnected?
+We can adapt what our system displays to the connected video displays, but how do we
+detect when a video display is connected or disconnected?
 
 A solution would be to periodically check the value of the ``connectorState``
 property. But a better method is to use a mechanism explained in the `basic
