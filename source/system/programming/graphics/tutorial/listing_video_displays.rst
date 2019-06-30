@@ -7,12 +7,17 @@ have to query the Connector entities and check if there is a video display
 connected to them.
 
 The whole source code for this chapter can be found `here
-<https://github.com/haskus/haskus-system/blob/master/haskus-system-examples/src/tutorial/TutVideoDisplays.hs>`_. It detects the available video displays and reports their supported modes and their properties.
+<https://github.com/haskus/haskus-system/blob/master/haskus-system-examples/src/tutorial/TutVideoDisplays.hs>`_.
+It detects the available video displays and reports information about them.
 
 * We retrieve information about all the entities for each card with ``getEntities card``
 
-* Connector (retrieved with ``entitiesConnectors``) have a ``connectorState``
-  property which can be used to detect connected video display:
+* Connectors (retrieved with ``entitiesConnectors``) have ``connectorType`` and
+  ``connectorByTypeIndex`` fields which can be used to query the kind of connector (HDMI,
+  VGA, DVI, etc.) and the connector index for the given kind of connector.
+
+* Connectors also have a ``connectorState`` field which can be used to detect
+  connected video display:
 
 .. code:: haskell
 
@@ -21,8 +26,10 @@ The whole source code for this chapter can be found `here
       ConnectionUnknown      -> -- we can't know
       Connected videoDisplay -> -- we have a connected video display!
 
-We get the supported modes of the video display with ``videoModes
-videoDisplay`` and the other properties with ``videoProperties videoDisplay``.
+* We get the supported modes of the video display with ``videoModes`` field of
+  ``videoDisplay``, physical size in millimeters with
+  ``videoPhysicalWidth/Height``, the sub-pixel layout with ``videoSubPixel`` and
+  other properties with ``videoProperties``.
 
 Example of run into QEmu with Linux 5.1.15:
 
@@ -32,7 +39,9 @@ Example of run into QEmu with Linux 5.1.15:
    > cd haskus-system/haskus-system-examples
    > haskus-system-build test --init TutVideoDisplays
 
-   Probing Connector 33
+   Probing Connector 33: Virtual-1
+   Physical size: 0mm X 0 mm
+   Sub-pixel layout: SubPixelUnknown
    Modes
    1024x768 60MHz -HSync -VSync
            h: width 1024 start 1048 end 1184 total 1344 skew    0
@@ -50,3 +59,36 @@ Example of run into QEmu with Linux 5.1.15:
        val non-desktop = False :: Bool
        var CRTC_ID = 0 :: Object
 
+Detecting Plugging/Unplugging
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Remember that Connector entities can appear and disappear at runtime. That's
+because some technologies (such as `DisplayPort Multi-Stream Transport
+<https://en.wikipedia.org/wiki/DisplayPort#Multi-Stream_Transport_(MST)>`_)
+allows the use of connectors hubs which increases the number of video displays
+that can be connected at the same time.
+
+To detect when a video display is connected or disconnected, we could
+periodically list the Connectors and check their ``connectorState`` property as
+we have done above.
+
+However a better method is to use a mechanism explained in the `basic device
+management </system/manual/using/devices>`_ page: when the state of a Connector
+changes, the kernel sends to the user-space an event similar to the following
+one:
+
+.. code:: haskell
+
+   KernelEvent
+      { kernelEventAction = ActionChange
+      , kernelEventDevPath = "/devices/.../drm/card0"
+      , kernelEventSubSystem = "drm"
+      , kernelEventDetails = fromList
+         [("DEVNAME","drm/card0")
+         ,("MAJOR","226")
+         ,("MINOR","0")
+         ,("HOTPLUG","1")
+         ,("SEQNUM","1259")]}
+
+When our system receives this event, we know it has to check the state of the
+Connectors.
