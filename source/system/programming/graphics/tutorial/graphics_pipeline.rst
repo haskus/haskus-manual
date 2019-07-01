@@ -1,13 +1,17 @@
-===================
-Linux display model
-===================
+.. _graphics_pipeline:
 
-Linux provides an API named *kernel mode setting* (KMS) that allows us to
-control video displays. The idea is to build a pipeline that describes where the
-video displays get their pixel colors from.
+==============================================================================
+Graphics pipeline
+==============================================================================
 
-The left side of the following picture describes the relations between pipeline entities and the right side shows a more visual representation of how an image is formed on a video display surface using the same entities.
+In this chapter, the idea is to build a pipeline that describes where the video
+displays get their pixel colors from. This pipeline directly derives from the
+Linux kernel API named *kernel mode setting* (KMS) (part of the *direct
+rendering manager* (DRM) interface) with some naming differences though.
 
+The left side of the following picture describes the relations between pipeline
+entities (or objects) and the right side shows a more visual representation of
+how an image is formed on a video display surface using the same entities.
 
 .. image:: /_static/images/system/graphics_linux_model.svg
    :class: img_center

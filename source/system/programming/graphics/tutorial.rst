@@ -10,5 +10,6 @@ This tutorial explains how to use the graphics API to exploit video displays.
 
    tutorial/human_vision
    tutorial/video_displays_basics
-   tutorial/linux_display_model
-   tutorial/listing_video_displays
+   tutorial/graphics_pipeline
+   tutorial/listing_displays
+   tutorial/generic_buffers

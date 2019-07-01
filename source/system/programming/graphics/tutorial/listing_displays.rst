@@ -1,13 +1,13 @@
-======================
-Listing video displays
-======================
+================
+Listing displays
+================
 
 To list the available video displays that are connected to the computer, we just
 have to query the Connector entities and check if there is a video display
 connected to them.
 
 The whole source code for this chapter can be found `here
-<https://github.com/haskus/haskus-system/blob/master/haskus-system-examples/src/tutorial/TutVideoDisplays.hs>`_.
+<https://github.com/haskus/haskus-system/blob/master/haskus-system-examples/src/tutorial/TutDisplays.hs>`_.
 It detects the available video displays and reports information about them.
 
 * We retrieve information about all the entities for each card with ``getEntities card``
@@ -17,21 +17,21 @@ It detects the available video displays and reports information about them.
   VGA, DVI, etc.) and the connector index for the given kind of connector.
 
 * Connectors also have a ``connectorState`` field which can be used to detect
-  connected video display:
+  connected display:
 
 .. code:: haskell
 
    case connectorState conn of
-      Disconnected           -> -- no connected video display
-      ConnectionUnknown      -> -- we can't know
-      Connected videoDisplay -> -- we have a connected video display!
+      Disconnected      -> -- no connected display
+      ConnectionUnknown -> -- we can't know
+      Connected display -> -- we have a connected display!
 
-* We get the supported modes of the video display with ``videoModes`` field of
-  ``videoDisplay``, physical size in millimeters with
-  ``videoPhysicalWidth/Height``, the sub-pixel layout with ``videoSubPixel``
+* We get the supported modes of the display with ``displayModes`` field of
+  ``display``, physical size in millimeters with
+  ``displayPhysicalWidth/Height``, the sub-pixel layout with ``displaySubPixel``
   (can be used to perform `sub-pixel rendering
   <https://en.wikipedia.org/wiki/Subpixel_rendering>`_) and other properties
-  with ``videoProperties``.
+  with ``displayProperties``.
 
 Example of run into QEMU with Linux 5.1.15:
 
@@ -39,7 +39,7 @@ Example of run into QEMU with Linux 5.1.15:
 
    > git clone https://github.com/haskus/haskus-system.git
    > cd haskus-system/haskus-system-examples
-   > haskus-system-build test --init TutVideoDisplays
+   > haskus-system-build test --init TutDisplays
 
    Probing Connector 33: Virtual-1
    Physical size: 0mm X 0 mm
