@@ -79,4 +79,13 @@ memory. ``haskus-system`` automatically maps them when they are created so you
 don't have to worry about doing it.
 
 The mapped region address is stored in a ``ForeignPtr`` which you can use with:
-``withGenericBufferPtr``.
+``withGenericBufferPtr`` (or ``withGenericFrameBufferPtr`` wrapper).  In the
+code example, we fill the whole generic buffer with a single color with:
+
+.. code:: haskell
+
+   -- fill the frame with a color
+   withGenericFrameBufferPtr fb \addr ->
+      forEachFramePixel frame \x y -> do
+         let off = frameBufferPixelOffset fb 4 x y -- 4 is pixel component size in bytes
+         pokeByteOff (castPtr addr) (fromIntegral off) (color :: Word32)
