@@ -19,14 +19,12 @@ In this chapter we present the *generic buffers* as they are simple to use and
 The whole source code can be found `here
 <https://github.com/haskus/haskus-system/blob/master/haskus-system-examples/src/tutorial/TutCreateGenericFrame.hs>`_.
 
-Generic buffers have one very useful property: they can be mapped into the
-process memory so that modifying them just consists in writing into memory.
+Allocating Generic Buffers
+--------------------------
 
 To allocate a generic buffer, we can use `createGenericBuffer` function. It
 takes a width and an height in pixels and the number of bits per pixels (must be
-a multiple of 8). It returns a ``GenericBuffer`` object which contains the
-effective size of the buffer, the pitch (effective width in bytes of a line) and
-a ``ForeignPtr`` to the buffer mapped in the process memory.
+a multiple of 8). 
 
 However we often want to create a Frame and the buffers according to the Frame
 format. Hence in the code example we use ``createGenericFrame`` instead which
@@ -63,3 +61,21 @@ Example of run into QEMU with Linux 5.1.15:
           - Address: 0x00007efd406f5000
 
    [    0.984017] reboot: Power down
+
+You can see that a ``GenericBuffer`` object contains the effective size of the
+buffer (in bytes), the pitch (effective width of a line in bytes), an address
+(explained in the next section), etc.
+
+Hint: if we want to create a generic Frame for a full screen mode, we can pass a
+``Mode`` to ``createGenericFullScreenFrame``. Frame and Buffers dimensions (in
+pixels) are then obtained from the Mode.
+
+Writing into Generic Buffers
+----------------------------
+
+Generic buffers have a very useful property: they can be mapped into the process
+memory. ``haskus-system`` automatically maps them when they are created so you
+don't have to worry about doing it.
+
+The mapped region address is stored in a ``ForeignPtr`` which you can use with:
+``withGenericBufferPtr``.

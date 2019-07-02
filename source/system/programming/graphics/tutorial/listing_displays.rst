@@ -33,6 +33,9 @@ It detects the available video displays and reports information about them.
   <https://en.wikipedia.org/wiki/Subpixel_rendering>`_) and other properties
   with ``displayProperties``.
 
+Hint: we could have used ``forEachConnectedDisplay`` function to do all of this
+listing and filtering more simply.
+
 Example of run into QEMU with Linux 5.1.15:
 
 .. code:: text
