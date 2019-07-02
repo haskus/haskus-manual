@@ -16,7 +16,8 @@ There are two general kinds of buffers:
   device.
 
 In this chapter we present the *generic buffers* as they are simple to use and
-The whole source code can be found `here
+avalable for many graphics chipsets. The source code for this chapter can be
+found `here
 <https://github.com/haskus/haskus-system/blob/master/haskus-system-examples/src/tutorial/TutCreateGenericFrame.hs>`_.
 
 Allocating Generic Buffers
