@@ -18,7 +18,7 @@ There are two general kinds of buffers:
 In this chapter we present the *generic buffers* as they are simple to use and
 avalable for many graphics chipsets. The source code for this chapter can be
 found `here
-<https://github.com/haskus/haskus-system/blob/master/haskus-system-examples/src/tutorial/TutCreateGenericFrame.hs>`_.
+<https://github.com/haskus/haskus-system/blob/master/haskus-system-examples/src/tutorial/TutGenericFrame.hs>`_.
 
 Allocating Generic Buffers
 --------------------------
@@ -79,13 +79,24 @@ memory. ``haskus-system`` automatically maps them when they are created so you
 don't have to worry about doing it.
 
 The mapped region address is stored in a ``ForeignPtr`` which you can use with:
-``withGenericBufferPtr`` (or ``withGenericFrameBufferPtr`` wrapper).  In the
-code example, we fill the whole generic buffer with a single color with:
+``withGenericBufferPtr`` (or ``withGenericFrameBufferPtr`` wrapper). For
+example:
 
 .. code:: haskell
 
    -- fill the frame with a color
-   withGenericFrameBufferPtr fb \addr ->
+   withGenericFrameBufferPtr fb \ptr ->
       forEachFramePixel frame \x y -> do
          let off = frameBufferPixelOffset fb 4 x y -- 4 is pixel component size in bytes
-         pokeByteOff (castPtr addr) (fromIntegral off) (color :: Word32)
+         pokeByteOff (castPtr ptr) (fromIntegral off) (color :: Word32)
+
+However with generic buffers it is even easier: there is the
+``forEachGenericFramePixel`` wrapper that does these tricky pointer computations
+for us. The code example uses it as follows:
+
+.. code:: haskell
+
+      -- fill the generic frame with a color
+      -- (0 is the FrameBuffer index)
+      forEachGenericFramePixel frame 0 \_x _y ptr ->
+         poke ptr (0x316594 :: Word32) -- write a XRGB8888 color
