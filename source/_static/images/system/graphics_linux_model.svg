@@ -297,12 +297,12 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="28.340251"
-     inkscape:cy="256.4728"
+     inkscape:cx="97.030624"
+     inkscape:cy="436.27995"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1303"
+     inkscape:window-width="958"
      inkscape:window-height="1064"
      inkscape:window-x="1920"
      inkscape:window-y="14"
@@ -560,12 +560,17 @@
            style="font-size:3.52777767px;line-height:1;stroke-width:0.26458332"
            y="12.414477"
            x="22.900288"
-           sodipodi:role="line">- Buffer</tspan><tspan
+           sodipodi:role="line">- Source Buffer</tspan><tspan
            id="tspan839-5-2-6-1-0"
            style="font-size:3.52777767px;line-height:1;stroke-width:0.26458332"
            y="15.942255"
            x="22.900288"
-           sodipodi:role="line">- Offset and pitch in the buffer</tspan></text>
+           sodipodi:role="line">- Offset and pitch in the buffer</tspan><tspan
+           style="font-size:3.52777767px;line-height:1;stroke-width:0.26458332"
+           y="19.470032"
+           x="22.900288"
+           sodipodi:role="line"
+           id="tspan1063">- Compression, tiling...</tspan></text>
     </g>
     <g
        id="g1087"
@@ -587,16 +592,11 @@
          x="125.9273"
          style="font-style:normal;font-weight:normal;font-size:3.52777767px;line-height:1;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
          xml:space="preserve"><tspan
-           id="tspan831-6-2-3-6-2-5"
+           id="tspan839-5-2-6-1-0-9"
            style="font-size:3.52777767px;line-height:1;stroke-width:0.26458332"
            y="28.806044"
            x="125.9273"
-           sodipodi:role="line">- Generic or hardware specific</tspan><tspan
-           id="tspan839-5-2-6-1-0-9"
-           style="font-size:3.52777767px;line-height:1;stroke-width:0.26458332"
-           y="32.33382"
-           x="125.9273"
-           sodipodi:role="line">- Size</tspan></text>
+           sodipodi:role="line">- Generic or hardware specific</tspan></text>
     </g>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.86500001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
