@@ -32,14 +32,12 @@ types.
    variant/updating
    variant/rebindable_syntax
 
-See also
---------
+**See also**
 
-* recursive sum types (e.g. ``data List a = Nil | Cons a (List a)``) based on
-  ``Variant`` are also supported and are called :ref:`EADT <eadt>` (for "extensible ADT").
+* recursive sum types based on ``Variant`` are also supported and are called
+  :ref:`EADT <eadt>`
 
-* just like ``Either a b`` is biased towards the second type (``b``) because
-  you can write instances for ``Either a`` (e.g. ``instance Functor (Either a)``),
-  you can use :ref:`VEither <veither>` which is a variant biased towards the first
-  type in the list.
+* :ref:`VEither <veither>` is a variant biased towards the first type in the
+  list, just like ``Either a b`` is biased towards the second type (``b``)
+  allowing instances such as ``instance Functor (Either a)``.
 
