@@ -62,7 +62,8 @@ Summary
 
 Rendering an image on a video display surface consists in indicating the color
 of each pixel. Note that pixels are samples of the image we would like to render
-on the video display surface it had an infinite resolution, not "small squares".
+on the video display surface if it had an infinite resolution, `not "small
+squares" <http://alvyray.com/Memos/CG/Microsoft/6_pixel.pdf>`_.
 
 We have have to render many different images per seconds to simulate moving
 images.
