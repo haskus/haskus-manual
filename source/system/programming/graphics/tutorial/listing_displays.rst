@@ -1,6 +1,8 @@
-================
+.. _graphics_listing_displays:
+
+==============================================================================
 Listing displays
-================
+==============================================================================
 
 To list the available video displays that are connected to the computer, we just
 have to query the Connector entities and check if there is a video display
