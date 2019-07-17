@@ -4,9 +4,8 @@ Do-notation
 
 .. note::
 
-   We recommend that you use :ref:`VEither <veither>` instead of the
-   approach presented here as it doesn't involve the RebindableSyntax GHC
-   extension.
+   The approach presented here uses the dreadful RebindableSyntax GHC extension.
+   We recommend that you use :ref:`VEither <veither>` instead.
 
 We can use ``do-notation`` with ``Variant`` as we would with other sum types
 such as ``Maybe`` or ``Either``. However, as we can't have a ``Monad`` instance
