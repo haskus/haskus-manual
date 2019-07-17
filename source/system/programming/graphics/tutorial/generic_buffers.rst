@@ -1,7 +1,7 @@
 .. _graphics_generic_buffers:
 
 ==============================================================================
-Generic buffers
+Generic buffers and frames
 ==============================================================================
 
 The top-most elements of the :ref:`graphics pipeline <graphics_pipeline>` are
