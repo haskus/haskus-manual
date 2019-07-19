@@ -18,7 +18,7 @@ manages memory (garbage collection), user-space threading,  asynchronous I/O,
 etc. The runtime system has non-Haskell dependencies (libc, etc.) which are
 statically linked with systems.
 
-**Supported hardware**
+**Supported architectures**
 
 The portability is ensured by the Linux kernel. In theory we could use our
 approach on any architecture supported by the Linux kernel. In practice, we also
@@ -36,7 +36,7 @@ The following architectures are currently supported by each level of the stack:
 * GHC: x86, x86-64, PowerPC, and ARM
 * Linux kernel: many architectures
 
-**Proprietary Drivers**
+**Proprietary drivers**
 
 Some vendors do not provide open-source drivers nor documentation for their
 hardware. Instead they provide pre-compiled libraries and/or kernel modules.  As
