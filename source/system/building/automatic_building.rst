@@ -6,11 +6,8 @@
 
 Building and testing your own systems based on ``haskus-system`` requires
 :ref:`quite a few steps <haskus-system-build-steps>`: configuring and building a
-Linux kernel, etc.
-
-Hopefully we have built a tool called ``haskus-system-build`` that performs all
-these steps automatically (details are explained in the next chapter if you want
-to understand what it does internally).
+Linux kernel, etc.  Hopefully we have built a tool called
+``haskus-system-build`` that performs all these steps automatically.
 
 Prerequisite: you need to have `Stack <http://www.haskellstack.org>`_ and ``git`` installed.
 
@@ -19,7 +16,6 @@ Installing
 ------------------------------------------------------------------------------
 
 The tool is distributed in the ``haskus-system-build`` package.
-
 To install the latest version, use:
 
 .. code:: bash

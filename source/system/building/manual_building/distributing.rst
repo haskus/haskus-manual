@@ -1,5 +1,6 @@
+=====================================================================
 Distributing systems
---------------------
+=====================================================================
 
 To distribute your systems, we will create a directory ``/my/disk`` containing:
 
@@ -76,7 +77,8 @@ Replace ``/my/system`` with the path of your system in the ``myimage.img``
 ramdisk.
 
 
-**Creating a bootable device**
+Creating a bootable device
+--------------------------
 
 To create a bootable device (e.g., bootable USB stick), you have to know its
 device path (e.g., ``/dev/XXX``) and the partition that will contain the boot
@@ -103,7 +105,8 @@ configure it to be bootable:
 Now your device should be bootable with your system!
 
 
-**Creating a bootable CD-ROM**
+Creating a bootable ISO
+-----------------------
 
 To create a bootable CD-ROM, you first need to create a ``.iso`` disk image with the ``xorriso`` utility:
 
