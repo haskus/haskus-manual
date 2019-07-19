@@ -2,39 +2,36 @@
 Overview
 ==============================================================================
 
+Typical computer programs don't directly deal with hardware components
+(processor, video chipsets, keyboard, mouse, network chipset, storage, etc.).
+Instead they rely on a lot of abstractions provided by other software. The main
+one being the `kernel
+<https://en.wikipedia.org/wiki/Kernel_(operating_system)>`_ which directly
+handles the hardware with device specific drivers. It provides a common
+framework that all the other programs have to use to access the hardware.
 
-A typical operating system can be roughly split into three layers:
+`Linux <https://en.wikipedia.org/wiki/Linux_kernel>`_ is one of such kernels and
+it is the one we use. Typical computer programs usually don't use the interfaces
+provided by the Linux kernel directly. They use abstractions built on top of
+them and provided by system libraries which compose an `operating system (OS)
+<https://en.wikipedia.org/wiki/Operating_system>`_.
 
-* Kernel: device drivers, virtual memory management, process scheduling,
-  etc.
+Many operating systems based on the Linux kernel use more or less the same
+abstractions on top of it: these are the Unix-like `Linux distributions
+<https://en.wikipedia.org/wiki/Linux_distribution>`_. Examples of abstractions
+commonly used by these distributions: libc, libinput, Wayland/X11 server,
+PulseAudio, dbus, etc. As they differ only in minor ways, they can execute the
+same applications (Firefox, LibreOffice, etc.).
 
-* System: system services and daemons, low-level kernel interfaces, etc.
+It is also possible to build non Unix-like operating systems on top of Linux.
+These operating systems may provide totally different abstractions to the
+applications. One example of such OS is `Android
+<https://en.wikipedia.org/wiki/Android_(operating_system)>`_ which mainly
+supports applications written in Java that use specific interfaces to
+communicate with the hardware.
 
-* Application: end-user applications (web browser, video player, games, etc.)
-
-When you use ``haskus-system``, it is as follow:
-
-* Kernel: Linux
-
-* System: your own system built using ``haskus-system``
-
-* Application: you decide if your system has the concept of "application" or not
-
-
-
-``haskus-system`` is based *directly* and *exclusively* on the Linux kernel.
-Hence, it doesn't rely on usual user-space kernel interfaces (e.g., libdrm,
-libinput, X11, wayland, etc.) to communicate with the kernel.
-
-.. note::
-
-   Systems built with ``haskus-system`` are compiled with GHC, hence they still
-   have non-Haskell dependencies: GHC's runtime system (RTS), libc, etc.
-   Systems are statically compiled to embed those dependencies.
-
-``haskus-system`` acts at the *system* level: it provides interfaces to the
-Linux kernel (hence to the hardware) in Haskell and builds on them to provide
-higher-level interfaces.  You can use these interfaces to build custom systems.
-Then it is up to you to decide if your system has the concept of "application"
-or not: you may design domain specific systems which provide a single
-domain specific "application".
+``haskus-system`` provides interfaces to the Linux kernel (hence to the
+hardware) in Haskell and builds on them to provide higher-level interfaces. You
+can use these interfaces to build custom systems.  Then it is up to you to
+decide if your system has the concept of "application" or not: you may design
+domain specific systems which provide a single domain specific "application".

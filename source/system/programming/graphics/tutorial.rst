@@ -6,7 +6,6 @@ This tutorial explains how to use the graphics API to exploit video displays.
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
 
    tutorial/human_vision
    tutorial/video_displays_basics

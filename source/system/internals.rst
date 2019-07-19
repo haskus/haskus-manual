@@ -1,5 +1,5 @@
 ==============================================================================
-Hacking guide
+Hacking on ``haskus-system``
 ==============================================================================
 
 In this guide we describe some internals of ``haskus-system``.

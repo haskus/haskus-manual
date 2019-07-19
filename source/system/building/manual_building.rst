@@ -1,5 +1,7 @@
-Building systems: the manual way
-================================
+.. _haskus-system-build-steps:
+
+Building steps
+==============
 
 This chapter explains how to compile and build a full system from scratch
 *manually*. Using the ``haskus-system-build`` tool presented in

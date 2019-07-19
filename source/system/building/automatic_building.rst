@@ -1,11 +1,12 @@
 .. _haskus-system-build-tool:
 
 ==============================================================================
-Building systems: the automated way
+``haskus-system-build`` tool
 ==============================================================================
 
-Building and testing your own systems based on ``haskus-system`` requires quite
-a few steps: configuring and building a Linux kernel, etc.
+Building and testing your own systems based on ``haskus-system`` requires
+:ref:`quite a few steps <haskus-system-build-steps>`: configuring and building a
+Linux kernel, etc.
 
 Hopefully we have built a tool called ``haskus-system-build`` that performs all
 these steps automatically (details are explained in the next chapter if you want
@@ -14,7 +15,7 @@ to understand what it does internally).
 Prerequisite: you need to have `Stack <http://www.haskellstack.org>`_ and ``git`` installed.
 
 ------------------------------------------------------------------------------
-Installing ``haskus-system-build``
+Installing
 ------------------------------------------------------------------------------
 
 The tool is distributed in the ``haskus-system-build`` package.
@@ -96,11 +97,12 @@ Building and Testing
 
 You need to have some programs installed before we continue:
 
+* git
+* stack
 * everything required to build Linux: make, gcc, binutils...
 * static libraries (e.g., glibc-static and zlib-static packages on Fedora)
 * (un)packing tools: lzip, gzip, tar, cpio
 * QEMU
-* stack
 
 Now let's try our system with QEMU!
 

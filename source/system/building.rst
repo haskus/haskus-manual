@@ -1,14 +1,15 @@
 .. _system_building_guide:
 
 ==============================================================================
-System building guide
+Building and testing systems
 ==============================================================================
 
-In this guide we describe how to build and test systems based on Linux by using
-``haskus-system``.
+In this section we describe how to build and test systems using ``haskus-system``.
+The recommended way is to use the ``haskus-system-build`` tool.
 
 .. toctree::
    :maxdepth: 1
+   :numbered:
 
    building/automatic_building
    building/manual_building

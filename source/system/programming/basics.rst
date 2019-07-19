@@ -1,11 +1,11 @@
-The Sys monad
+==============================================================================
+Basics
+==============================================================================
+
+Hello World
 -------------
 
-Many high-level interfaces of the ``haskus-system`` use the ``Sys`` monad. It is
-basically a wrapper for the ``IO`` monad that adds a logging mechanism.
-
-For instance, consider the following ``HelloWorld`` code where ``runSys :: Sys
-a -> IO a``:
+The following program is the "Hello World" of ``haskus-system``:
 
 .. code:: haskell
 
@@ -15,26 +15,41 @@ a -> IO a``:
    
    main :: IO ()
    main = runSys do
-   
-      -- Initialize the default terminal
-      term <- defaultTerminal
-   
-      -- print a string on the standard output
-      writeStrLn term "Hello World!"
-   
-      -- wait for a key to be pressed
-      waitForKey term
+      term <- defaultTerminal        -- initialize the default terminal
+      writeStrLn term "Hello World!" -- print a string on the standard output
+      waitForKey term                -- wait for a key to be pressed
+      powerOff                       -- shutdown the computer
 
-      -- print system log
-      sysLogPrint
+It writes the "Hello World" string on the default terminal, then wait for a key
+to be pressed, and finally it power off the computer.
+
+Note that unlike traditional Unix programs, we don't use STDIN and STDOUT
+explicitly: we have to query a terminal and to use it explicitly.
+
+The Sys monad
+-------------
+
+Many high-level interfaces of the ``haskus-system`` use the ``Sys`` monad. It is
+basically a wrapper for the ``IO`` monad that adds a logging mechanism.
+
+The following code prints the system log that is implicitly maintained in the
+``Sys`` monad on the kernel console.
+
+.. code:: haskell
+
+   {-# LANGUAGE BlockArguments #-}
+
+   import Haskus.System
    
-      -- shutdown the computer
+   main :: IO ()
+   main = runSys do
+      term <- defaultTerminal
+      writeStrLn term "Hello World!"
+      waitForKey term
+      sysLogPrint -- print system log
       powerOff
 
-This code prints the string "Hello World!" in the Linux terminal and waits for a
-char to be entered in the terminal. Then it prints the system log that is
-implicitly maintained in the ``Sys`` monad. Hence, the output of this program is
-something like:
+Hence, the output of this program is something like:
 
 .. code:: text
 
