@@ -24,8 +24,8 @@ supports recursive datatypes. Indeed if we try to define a recursive datatype
          <interactive>:19:2-34: type L a = V '[Cons a (L a), Nil]
 
 We could introduce ad-hoc datatypes (e.g., ``newtype L a = L (V '[Cons a (L
-a),Nil])``) but this would defeats our purpose because the datatype wouldn't be
-generic anymore.  Instead with EADTs we just have to write the following code to
+a),Nil])``) but this would defeat our purpose because the datatype wouldn't be
+generic anymore. Instead with EADTs we just have to write the following code to
 declare a ``List`` EADT:
 
 .. code::
@@ -149,9 +149,9 @@ type:
 
 .. code:: haskell
 
-   data Expr = Expr (ExprF Expr)
+   newtype Expr = Expr (ExprF Expr)
 
-We can abstract on it to use the same data type for different expression types:
+We can abstract over it to use the same data type for different expression types:
 
 .. code:: haskell
 
@@ -178,8 +178,11 @@ type-classes and recursion schemes.
 EADT - Extensible ADT (2018)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The EADT approach builds on the Swierstra's one but it replaces the combinator data
-type ``:+:`` with the ``VariantF`` one based on :ref:`Variant <variant>`:
+The EADT approach builds on the Swierstra's one but it replaces the combinator
+data type ``:+:`` with the ``VariantF`` one based on :ref:`Variant <variant>`.
+Similarly to the ``:+:`` combinator data type, ``VariantF`` passes its ``e``
+parameter to all of its "member" types and has an instance of the ``Functor``
+class.
 
 .. code:: haskell
 
@@ -189,35 +192,26 @@ type ``:+:`` with the ``VariantF`` one based on :ref:`Variant <variant>`:
 
    instance Functor (VariantF xs) where ....
 
-Similarly to the ``:+:`` combinator data type, ``VariantF`` passes its ``e``
-parameter to all of its "member" types and has an instance of the ``Functor``
-class.
 
 Now instead of writing ``f :+: g :+: h :+: i`` to combine constructor data types
-to form an ADT we can write ``VariantF '[f,g,h,i]``.
+to form an ADT we can write ``VariantF '[f,g,h,i]``.  Just like using
+``Variant`` is more efficient -- O(1) memory usage and (de)construction -- than
+using a nest of ``Either``, using ``VariantF`` is more efficient than using a
+nest of ``:+:``.
 
-First benefit: just like using ``Variant`` is more efficient -- O(1) memory usage
-and (de)construction -- than using a nest of ``Either``, using ``VariantF`` is more
-efficient than using a nest of ``:+:``.
-
-Finally an EADT is just an alias for a ``Fix(ed)`` ``VariantF``:
-
-.. code:: haskell
-
-   type EADT xs = Fix (VariantF xs)
-
-With modern Haskell we can define bidirectional pattern synonyms
-that make creation and matching of EADT values much more nicer.
+Finally an EADT is just ``Fix (VariantF xs)`` except that we use our own
+``EADT`` newtype instead of ``Fix`` in order to define our own additional (and
+non-orphan) type-classes. ``EADT`` implements ``Recursive`` and ``CoRecursive``
+type-classes so usual ``Fix`` functions should work on ``EADT`` too.
 
 .. code:: haskell
 
-   pattern VF :: forall e f cs.
-      ( e ~ EADT cs  -- allow easy use of TypeApplication to set the EADT type
-      , f :<: cs     -- constraint synonym ensuring `f` is in `cs`
-      ) => f (EADT cs) -> EADT cs
-   pattern VF x = Fix (VariantF (VSilent x))
-      -- `VSilent` matches a variant value without checking the membership: we
-      -- already do it with :<:
+   newtype EADT xs = EADT (VariantF xs)
 
-The ``f :<: cs`` constraint is used to ensure that the ``f`` EADT constructor is
-in the ``cs`` list.
+
+With modern Haskell we can define :ref:`bidirectional pattern synonyms
+<eadt_pattern_synonyms>` that make the manipulation of EADT values very similar
+to the manipulation of usual ADTs.
+
+In summary EADTs provide a nicer interface and a better asymptotic
+implementation in both memory and runtime execution than Data types à la carte.

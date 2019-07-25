@@ -50,14 +50,14 @@ first parameter).
 Explicitly recursive example
 ------------------------------------------------------------------------------
 
-Transforming an EADT into a multi-continuation is done with ``eadtToCont``.
+Transforming an EADT into a multi-continuation is done with ``toCont``.
 Mapping the continuation tuple is done with ``>::>``.
 
 .. code:: haskell
 
    import Haskus.Utils.ContFlow
 
-   showCont' l = eadtToCont l >::>
+   showCont' l = toCont l >::>
       ( \(ConsF a r) -> show a ++ " : " ++ showCont' r -- explicit recursion
       , \NilF        -> "Nil"
       )
@@ -125,8 +125,7 @@ We can also transform an EADT into another EADT:
    -- convert Cons constructor into Odd or Even constructor, depending on the
    -- cell value
    evenOdd l = toCont l >::>
-      ( \(ConsF a r) -> if even a then Even a r
-                                  else Odd  a r
+      ( \(ConsF a r) -> (if even a then Even else Odd) a r
       , \NilF        -> Nil
       )
 

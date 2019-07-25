@@ -49,7 +49,7 @@ Or more generically:
 .. code:: haskell
 
    data Union (as :: [*]) where
-     Union :: Either (Union as) a -> Union (a ': as)
+     Union :: Either (Union as) a -> Union (a : as)
 
 This time we can define generic functions without risking a combinatorial
 explosion. The drawback however is that we have changed the representation:

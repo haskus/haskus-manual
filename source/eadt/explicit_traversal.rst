@@ -58,24 +58,24 @@ Note how each instance corresponds to an alternative in ``showList``.
 
 
 It also requires some additional instances to traverse the ``VariantF``
-combinator datatype and the ``Fix`` recursivity handling datatype:
+combinator datatype and the ``EADT`` recursivity handling datatype:
 
 .. code:: haskell
 
    {-# LANGUAGE UndecidableInstances #-}
 
-   instance MyShow (f (Fix f)) => MyShow (Fix f) where
+   instance MyShow (f (EADT f)) => MyShow (EADT f) where
       {-# INLINE myShow #-}
-      myShow (Fix e) = myShow e
+      myShow (EADT e) = myShow e
 
-   instance MyShow (VariantF '[] e) where
+   instance MyShow (VariantF [] e) where
       {-# INLINE myShow #-}
       myShow = undefined
 
    instance
          ( MyShow (f e)
          , MyShow (VariantF fs e)
-         ) => MyShow (VariantF (f ': fs) e)
+         ) => MyShow (VariantF (f : fs) e)
       where
          {-# INLINE myShow #-}
          myShow v = case popVariantFHead v of
@@ -123,7 +123,7 @@ If we add a new constructor, such as ``NodeF`` to build binary trees:
 
 .. code::
 
-   data NodeF a l = NodeF a l l deriving (Functor)
+   data NodeF a e = NodeF a e e deriving (Functor)
 
    eadtPattern 'NodeF "Node"
 
@@ -139,7 +139,7 @@ We can also add a ``MyShow`` instance for ``NodeF``:
             indent' (x:xs) = x : fmap ("   "++) xs
             indent = unlines . indent' . lines
 
-Now we can show trees as well as lists:
+Now we can show binary trees as well as lists:
 
 .. code::
 
@@ -149,7 +149,7 @@ Now we can show trees as well as lists:
             (Node (30 :: Int) Nil Nil)
             
 
-   > putStr (myShow tree)
+   > putStrLn (myShow tree)
    10
    |- 5
       |- Nil
@@ -168,11 +168,12 @@ EADT:
             (Cons (5 :: Int) $ Cons (6 :: Int) $ Cons (7 :: Int) Nil)
             (Node (30 :: Int) Nil Nil)
 
-   > putStr (myShow mixedTree)
+   > putStrLn (myShow mixedTree)
    10
    |- 5 : 6 : 7 : Nil
    |- 30
       |- Nil
       |- Nil
 
-
+   -- Note: the code to display trees isn't very clever so don't use it to
+   -- display list of trees.

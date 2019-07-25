@@ -61,7 +61,7 @@ left-over constructors with ``liftVariantF`` as follows:
                            , \(OddF a l)  -> Cons a l
                            )
       -- do nothing to the other constructors
-      Left leftovers -> Fix (liftVariantF leftovers)
+      Left leftovers -> EADT (liftVariantF leftovers)
 
    eo1 :: EADT '[EvenF Int, OddF Int, NilF]
    eo1 = Even (10 :: Int) $ Odd (5 :: Int) $ Odd (7 :: Int) Nil

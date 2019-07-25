@@ -89,11 +89,16 @@ Then we need a helper function that performs the traversal of the EADT:
    -- bottom up traversal that performs an additional bottom up traversal in
    -- the transformed sub-tree when a transformation occurs. 
    bottomUpFixed :: Functor (VariantF cs) => (EADT cs -> Maybe (EADT cs)) -> EADT cs -> EADT cs
-   bottomUpFixed f = unfix >>> fmap (bottomUpFixed f) >>> Fix >>> f'
+   bottomUpFixed f = project >>> fmap (bottomUpFixed f) >>> embed >>> f'
       where
          f' u = case f u of
             Nothing -> u
             Just v  -> bottomUpFixed f v
+
+   -- | Distribute multiplication over addition
+   distribute :: ('[AddF,MulF] :<<: cs) => EADT cs -> EADT cs
+   distribute = bottomUpFixed distr
+
 
 .. note::
 
@@ -107,7 +112,7 @@ Finally we can test the transformation on an example:
    > putStrLn (myShow e1)
    (10 + ((5 + 10) * 7))
 
-   > putStrLn (myShow (bottomUpFixed distr e1))
+   > putStrLn (myShow (distribute e1))
    (10 + ((5 * 7) + (10 * 7)))
 
 ------------------------------------------------------------------------------
@@ -142,7 +147,7 @@ expression without being modified at all:
 
 .. code::
 
-   > putStrLn (myShow (bottomUpFixed distr e2))
+   > putStrLn (myShow (distribute e2))
    (10 ^ (((5 ^ 8) * 7) + (10 * 7)))
 
 

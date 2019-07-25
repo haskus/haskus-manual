@@ -99,10 +99,10 @@ EADTs:
    data AppF      e = AppF    e e deriving Functor
    data AnnF    a e = AnnF    a e deriving Functor
 
-   $(eadtPattern 'LambdaF "Lambda")
-   $(eadtPattern 'VarF    "Var")
-   $(eadtPattern 'AppF    "App")
-   $(eadtPattern 'AnnF    "Ann")
+   eadtPattern 'LambdaF "Lambda"
+   eadtPattern 'VarF    "Var"
+   eadtPattern 'AppF    "App"
+   eadtPattern 'AnnF    "Ann"
 
    type Expr    n = EADT '[LambdaF n, VarF n, AppF]
    type AExpr a n = EADT '[LambdaF n, VarF n, AppF, AnnF a]

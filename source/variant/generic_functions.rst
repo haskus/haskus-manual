@@ -70,13 +70,13 @@ following expected compile-time error:
 
 .. code::
 
-   e4 :: V '[String,Int]
+   e4 :: V [String,Int]
    e4 = V "valid"
 
    > showError e4
    
-   <interactive>:45:1: error:
-       • `Error' is not a member of '[String, Int]
+   -- <interactive>:45:1: error:
+   --     • `Error' is not a member of '[String, Int]
 
 
 Nevertheless we can write a ``showErrorMaybe`` that works on any variant even if

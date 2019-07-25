@@ -24,4 +24,3 @@ modules) allowing a great modularity. As such there are an answer to the
    eadt/safe_pattern_matching
    eadt/constructor_removal
    eadt/background
-   eadt/examples

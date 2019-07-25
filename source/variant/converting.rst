@@ -135,15 +135,15 @@ ensure that the type list ``is`` is a subset of ``os``:
 
 .. code::
 
-   liftX :: (LiftVariant is (Double ': Float ': is))
-         => V is -> V (Double ': Float ': is)
+   liftX :: (LiftVariant is (Double : Float : is))
+         => V is -> V (Double : Float : is)
    liftX = liftVariant
 
    > :t liftX x
    liftX x :: V '[Double, Float, String, Int]
    
-   > :t liftX (V "test" :: V '[String])
-   liftX (V "test" :: V '[String]) :: V '[Double, Float, String]
+   > :t liftX (V "test" :: V [String])
+   liftX (V "test" :: V [String]) :: V [Double, Float, String]
 
 
 .. _nubVariant:
