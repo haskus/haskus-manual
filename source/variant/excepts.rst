@@ -7,7 +7,7 @@ Excepts (ExceptT-like approach)
 
 Just like `ExceptT e m a
 <https://www.stackage.org/haddock/lts-12.17/transformers-0.5.5.0/Control-Monad-Trans-Except.html#t:ExceptT>`_
-wraps ``Either e m a``, we can use a ``Excepts es a`` newtype to wraps a
+wraps ``Either e a``, we can use a ``Excepts es m a`` newtype to wraps a
 :ref:`VEither es a<veither>`.
 
 Example:
