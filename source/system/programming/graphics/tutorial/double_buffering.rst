@@ -5,7 +5,8 @@ Double-bufffering and frame-switching
 ==============================================================================
 
 In this chapter, we see that directly modyfing the frame that is displayed on
-the screen leads to flikering and that double-buffering should be used instead.
+the screen leads to tearing/flickering and that double-buffering should be used
+instead.
 
 Starting from the code of the :ref:`previous chapter
 <graphics_pipeline_config>`, suppose that we modify the contents of the frame
@@ -40,9 +41,8 @@ The first solution only requires a single buffer but your application has to
 render each frame very fast during the vblank period and before the end of the
 refresh cycle.
 
-Using double-buffering is easier. The modified code example using
-double-buffering is
-`here
+Using double-buffering is easier. `Source code of the modified code example
+using double-buffering
 <https://github.com/haskus/haskus-system/blob/master/haskus-system-examples/src/tutorial/TutFrameSwitch.hs>`_.
 The change consists in allocating two frames, rendering in one when the other is
 displayed and switching the frames when the rendering is over:
