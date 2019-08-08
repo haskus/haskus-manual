@@ -13,3 +13,4 @@ This tutorial explains how to use the graphics API to exploit video displays.
    tutorial/listing_displays
    tutorial/generic_buffers
    tutorial/pipeline_config
+   tutorial/double_buffering
