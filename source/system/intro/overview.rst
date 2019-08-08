@@ -30,8 +30,9 @@ applications. One example of such OS is `Android
 supports applications written in Java that use specific interfaces to
 communicate with the hardware.
 
-``haskus-system`` provides interfaces to the Linux kernel (hence to the
-hardware) in Haskell and builds on them to provide higher-level interfaces. You
-can use these interfaces to build custom systems.  Then it is up to you to
-decide if your system has the concept of "application" or not: you may design
-domain specific systems which provide a single domain specific "application".
+``haskus-system`` is a framework that provides Haskell interfaces to the Linux
+kernel (hence to the hardware). It also provides higher-level interfaces built
+upon them. You can use these interfaces to build custom systems (Unix-like or
+not). It is also up to you to decide if your system has the concept of
+"application" or not: you may design domain specific systems which provide a
+single domain specific application or game.
