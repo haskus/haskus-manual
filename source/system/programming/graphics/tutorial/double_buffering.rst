@@ -63,3 +63,6 @@ displayed and switching the frames when the rendering is over:
          renderLoop (not b) (col + 10)
    
    sysFork "Render loop" (renderLoop False 0)
+
+When we execute this second example, the displayed frame is always fully
+rendered and we don't get the flikering effect.
