@@ -8,7 +8,7 @@ In this chapter, we see that directly modyfing the frame that is displayed on
 the screen leads to flikering and that double-buffering should be used instead.
 
 Starting from the code of the :ref:`previous chapter
-<graphics_pipeline_config>`_, suppose that we modify the contents of the frame
+<graphics_pipeline_config>`, suppose that we modify the contents of the frame
 continuously as we do 
 `here
 <https://github.com/haskus/haskus-system/blob/master/haskus-system-examples/src/tutorial/TutSingleFrame.hs>`_:
@@ -27,7 +27,7 @@ continuously as we do
    
    sysFork "Render loop" (renderLoop 0)
 
-If we try to execute this example, we see some flikering: sometimes the
+If we try to execute this example, we see some flickering: sometimes the
 displayed frame is not fully repaint and it has two different colors, that's why
 we see some vertical line demarcating both colors.
 
@@ -65,4 +65,4 @@ displayed and switching the frames when the rendering is over:
    sysFork "Render loop" (renderLoop False 0)
 
 When we execute this second example, the displayed frame is always fully
-rendered and we don't get the flikering effect.
+rendered and we don't get the flickering effect.
