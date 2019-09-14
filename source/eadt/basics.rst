@@ -5,7 +5,7 @@ Basics
 ==============================================================================
 
 EADTs can be found in the `haskus-utils-variant
-<https://github.com/haskus/haskus-utils>`_ package.
+<https://hackage.haskell.org/package/haskus-utils-variant>`_ package.
 
 You need the following imports in your source:
 
