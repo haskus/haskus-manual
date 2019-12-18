@@ -32,7 +32,7 @@ For instance, let's define the constructors for a list:
    data ConsF a e = ConsF a e deriving (Functor)
    data NilF    e = NilF      deriving (Functor)
 
-Note that **both** data types are parameterised by ``e`` even ``e`` isn't used
+Note that **both** data types are parameterised by ``e`` even if ``e`` isn't used
 in ``NilF`` definition.
 
 .. _eadt_pattern_synonyms:
