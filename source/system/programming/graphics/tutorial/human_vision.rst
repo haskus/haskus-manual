@@ -38,8 +38,9 @@ are very close one to the other so that we perceive a continuous picture without
 distinguishing the gaps between each pixel individually (at normal viewing
 distance of the video display).
 
-Screens display pixel themselves as a combination of several disctint lights
-(red, green blue) which are so close that we perceive as a single color.
+Screens display pixel themselves as a combination of several (at least 3 but
+sometimes more) distinct lights (red, green and blue) which are so close that we
+perceive them as a single color.
 
 
 Temporal integration
@@ -65,7 +66,6 @@ of each pixel. Note that pixels are samples of the image we would like to render
 on the video display surface if it had an infinite resolution, `not "small
 squares" <http://alvyray.com/Memos/CG/Microsoft/6_pixel.pdf>`_.
 
-We have have to render many different images per seconds to simulate moving
-images.
+We have to render many different images per seconds to simulate moving images.
 
 I recommend watching this video: `How a TV works in slow motion <https://www.youtube.com/watch?v=3BJU2drrtCM>`_

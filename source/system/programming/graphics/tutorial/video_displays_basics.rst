@@ -27,7 +27,7 @@ instance 60Hz (60 frames per second).
 
 Newer video displays may also support variable refresh rates where the delay
 between two frames may depend on the next frame being ready (or a timeout if it
-isn't even after some time).
+isn't ready for too long).
 
 .. _graphics_vsync:
 
