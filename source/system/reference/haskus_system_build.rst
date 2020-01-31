@@ -1,3 +1,5 @@
+.. _haskus-system-build-tool:
+
 ``haskus-system-build``
 =======================
 

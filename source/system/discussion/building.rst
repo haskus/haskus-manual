@@ -3,7 +3,7 @@ Building And Testing
 
 Our approach allows us to quickly have a working prototype that can be tested in
 an emulated environment (e.g., with ``QEMU``). Especially with the
-:ref:`haskus-system-build <haskus-system-build-tool>` that automatizes all of
+`haskus-system-build <haskus-system-build-tool>` that automatizes all of
 the building steps.
 
 .. note::

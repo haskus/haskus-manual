@@ -24,7 +24,7 @@ Haskus manuals
    :caption: System
 
    system/intro
-   system/building
+   system/tutorial
    system/programming
    system/internals
    system/reference
