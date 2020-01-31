@@ -27,6 +27,7 @@ Haskus manuals
    system/building
    system/programming
    system/internals
+   system/discussion
 
 .. toctree::
    :maxdepth: 1

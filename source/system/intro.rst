@@ -14,12 +14,3 @@ Its main selling points are:
 ``haskus-system`` is based *directly* and *exclusively* on the Linux kernel.
 Hence, it doesn't rely on usual user-space kernel interfaces (e.g., libdrm,
 libinput, X11, wayland, etc.) to communicate with the kernel.
-
-.. toctree::
-   :maxdepth: 1
-   :numbered:
-
-   intro/overview
-   intro/portability
-   intro/performance
-   intro/assets
