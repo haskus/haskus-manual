@@ -25,10 +25,10 @@ Haskus manuals
 
    system/intro
    system/tutorial
-   system/programming
-   system/internals
+   system/howto
    system/reference
    system/discussion
+   system/internals
 
 .. toctree::
    :maxdepth: 1

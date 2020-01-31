@@ -1,6 +1,6 @@
-=====================
-Video displays basics
-=====================
+================================
+Background: video display basics
+================================
 
 A video display usually shows a rectangle of pixels. When connected to a
 computer, it is managed by a graphics chipset which indicates to the video

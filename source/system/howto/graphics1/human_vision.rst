@@ -1,5 +1,5 @@
 ===============================
-Human vision and video displays
+Background: human vision basics
 ===============================
 
 Video display technology is based on human vision in several ways:

@@ -1,17 +1,15 @@
 .. _device-management:
 
 =====================================================================
-Device management
+Manage devices
 =====================================================================
 
 Device management is the entry-point of system programming. Programs have to
 know which devices are available to communicate with the user (graphic cards,
 input devices, etc.) or with other machines (network cards, etc.).
 
-In this chapter, we present the basic concepts and we show examples with simple
-virtual devices provided by Linux. In the next chapters, we build on these
-concepts and we show how to use specific device classes: display devices, input
-devices, etc.
+In this guide, we present the basic concepts of device management and we show
+examples with simple virtual devices provided by Linux.
 
 .. toctree::
    :maxdepth: 1

@@ -1,33 +1,6 @@
 ==============================================================================
-Basics
+Use the logging mechanism
 ==============================================================================
-
-Hello World
--------------
-
-The following program is the "Hello World" of ``haskus-system``:
-
-.. code:: haskell
-
-   {-# LANGUAGE BlockArguments #-}
-
-   import Haskus.System
-   
-   main :: IO ()
-   main = runSys do
-      term <- defaultTerminal        -- initialize the default terminal
-      writeStrLn term "Hello World!" -- print a string on the standard output
-      waitForKey term                -- wait for a key to be pressed
-      powerOff                       -- shutdown the computer
-
-It writes the "Hello World" string on the default terminal, then wait for a key
-to be pressed, and finally it power off the computer.
-
-Note that unlike traditional Unix programs, we don't use STDIN and STDOUT
-explicitly: we have to query a terminal and to use it explicitly.
-
-The Sys monad
--------------
 
 Many high-level interfaces of the ``haskus-system`` use the ``Sys`` monad. It is
 basically a wrapper for the ``IO`` monad that adds a logging mechanism.
