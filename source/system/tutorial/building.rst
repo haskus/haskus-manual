@@ -22,7 +22,7 @@ Please install the following packages:
 * `Stack <http://www.haskellstack.org>`_
 * make
 * gcc
-* binutils...
+* binutils
 * static libraries (e.g., glibc-static and zlib-static packages on Fedora)
 * (un)packing tools: lzip, gzip, tar, cpio
 * QEMU
@@ -32,9 +32,10 @@ Installing haskus-system-build tool
 ------------------------------------------------------------------------------
 
 To get started, you need to install the ``haskus-system-build`` program. It is
-available in Hackage in the `haskus-system-build
-<https://hackage.haskell.org/package/haskus-system-build>`_ so you can install
-it from here using you favorite method or install it from source as follows:
+available on Hackage in the `haskus-system-build
+<https://hackage.haskell.org/package/haskus-system-build>`_. You can install it
+from here using you favorite method or install the latest version from source as
+follows:
 
 .. code:: bash
 
@@ -72,8 +73,8 @@ composed of 4 files:
 ``src/Main.hs``
 ~~~~~~~~~~~~~~~
 
-This the system code. For now it's only a simple program that print the "Hello
-World" string in the kernel console, wait for a key press and then shutdown the
+This the system code. For now it's only a simple program that prints the "Hello
+World" string in the kernel console, waits for a key press and then shutdowns the
 system.
 
 .. code:: haskell
