@@ -177,9 +177,9 @@ source.
 Physical distribution
 ~~~~~~~~~~~~~~~~~~~~~
 
-You can easily distribute your system on a storage device (e.g. USB stick). To
-do that, you only have to install your system on an **empty** storage device
-(e.g., usb stick).
+You can easily distribute your system on a bootable storage device (e.g. USB
+stick). To do that, you only have to install your system on an **empty** storage
+device.
 
 **Warning: data on the device will be lost! Don't do that if you don't know what
 you are doing!**
