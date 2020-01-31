@@ -1,5 +1,5 @@
-Reference: ``haskus-system-build``
-==================================
+Command-line interface
+======================
 
 This is the reference for the ``haskus-system-build`` program.
 

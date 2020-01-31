@@ -9,10 +9,5 @@ The recommended way is to use the ``haskus-system-build`` tool.
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
 
    building/automatic_building
-   building/manual_building
-   building/reference/system_yaml
-   building/reference/haskus_system_build
-

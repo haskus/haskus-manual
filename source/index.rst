@@ -27,6 +27,7 @@ Haskus manuals
    system/building
    system/programming
    system/internals
+   system/reference
    system/discussion
 
 .. toctree::
