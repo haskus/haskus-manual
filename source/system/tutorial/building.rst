@@ -33,9 +33,9 @@ Installing haskus-system-build tool
 
 To get started, you need to install the ``haskus-system-build`` program. It is
 available on Hackage in the `haskus-system-build
-<https://hackage.haskell.org/package/haskus-system-build>`_. You can install it
-from here using you favorite method or install the latest version from source as
-follows:
+<https://hackage.haskell.org/package/haskus-system-build>`_ package. You can
+install it from here using your favorite method or install the latest version
+from source as follows:
 
 .. code:: bash
 
