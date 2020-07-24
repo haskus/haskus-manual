@@ -41,7 +41,7 @@ we have the choice between a warning or adding a wildcard match as we have done
 above.
 
 ------------------------------------------------------------------------------
-Safe pattern-matching with continuations
+Safe pattern-matching with continuations (``>:>``)
 ------------------------------------------------------------------------------
 
 Another solution is to rely on multi-continuations. Then we can provide a
@@ -51,36 +51,35 @@ whose type is ``(A -> r, B -> r, C -> r) -> r``. Hence the compiler will ensure
 that we provide the correct number of alternatives in the continuation tuple
 (the first parameter).
 
-Transforming a Variant into a multi-continuation is done with ``toCont``.
-Mapping the continuation tuple is done with ``>::>``.
+Applying a multi-continuation to a Variant is done with ``>:>``:
 
 .. code:: haskell
 
    import Haskus.Utils.ContFlow
 
    printV :: V '[String,Int,Float] -> IO ()
-   printV v = toCont v >::>
+   printV v = v >:>
       ( \s -> putStrLn ("Found string: " ++ s)
       , \i -> putStrLn ("Found int: " ++ show i)
       , \f -> putStrLn ("Found float: " ++ show f)
       )
 
 ------------------------------------------------------------------------------
-Unordered continuations (``>:%:>``)
+Unordered continuations (``>%:>``)
 ------------------------------------------------------------------------------
 
-By using the ``>:%:>`` operator instead of ``>::>``, we can provide
+By using the ``>%:>`` operator instead of ``>:>``, we can provide
 continuations in any order as long as an alternative for each constructor is
 provided.
 
 The types must be unambiguous as the Variant constructor types can't be used to
-infer the continuation types (as is done with ``>::>``). Hence the type
+infer the continuation types (as is done with ``>:>``). Hence the type
 ascriptions in the following example:
 
 .. code:: haskell
 
    printU :: V '[String,Int,Float] -> IO ()
-   printU v = toCont v >:%:>
+   printU v = v >%:>
       ( \f -> putStrLn ("Found float: " ++ show (f :: Float))
       , \s -> putStrLn ("Found string: " ++ s)
       , \i -> putStrLn ("Found int: " ++ show (i :: Int))
@@ -99,7 +98,7 @@ values. The other ones are considered as left-overs:
 .. code::
 
    printNum v = case splitVariant @'[Float,Int] v of
-      Right v -> toCont v >:%:>
+      Right v -> v >%:>
          ( \f -> putStrLn ("Found float: " ++ show (f :: Float))
          , \i -> putStrLn ("Found int: " ++ show (i :: Int))
          )
