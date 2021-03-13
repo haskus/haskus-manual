@@ -10,7 +10,7 @@ Numbers
 Natural numbers
 ------------------------------------------------------------------------------
 
-Natural numbers are non-integer integers (0, 1, 2...). If we use a finite
+Natural numbers are non-negative integers (0, 1, 2...). If we use a finite
 numbers of bits to encode natural numbers, we can only encode a subset of the
 infinite natural number set.
 
