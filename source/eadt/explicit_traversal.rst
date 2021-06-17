@@ -63,19 +63,20 @@ combinator datatype and the ``EADT`` recursivity handling datatype:
 .. code:: haskell
 
    {-# LANGUAGE UndecidableInstances #-}
+   {-# LANGUAGE FlexibleInstances #-}
 
-   instance MyShow (f (EADT f)) => MyShow (EADT f) where
+   instance MyShow (VariantF f (EADT f)) => MyShow (EADT f) where
       {-# INLINE myShow #-}
       myShow (EADT e) = myShow e
 
-   instance MyShow (VariantF [] e) where
+   instance MyShow (VariantF '[] e) where
       {-# INLINE myShow #-}
       myShow = undefined
 
    instance
          ( MyShow (f e)
          , MyShow (VariantF fs e)
-         ) => MyShow (VariantF (f : fs) e)
+         ) => MyShow (VariantF (f ': fs) e)
       where
          {-# INLINE myShow #-}
          myShow v = case popVariantFHead v of
