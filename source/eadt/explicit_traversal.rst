@@ -47,7 +47,7 @@ We can define instances for the ``List`` constructors defined in a
 :ref:`previous chapter <eadt_basics>`:
 
 .. code::
-  
+
    instance MyShow (NilF e) where
       myShow _ = "Nil"
 
@@ -76,7 +76,7 @@ combinator datatype and the ``EADT`` recursivity handling datatype:
    instance
          ( MyShow (f e)
          , MyShow (VariantF fs e)
-         ) => MyShow (VariantF (f ': fs) e)
+         ) => MyShow (VariantF (f : fs) e)
       where
          {-# INLINE myShow #-}
          myShow v = case popVariantFHead v of
@@ -148,7 +148,7 @@ Now we can show binary trees as well as lists:
    tree = Node (10 :: Int)
             (Node (5 :: Int) Nil Nil)
             (Node (30 :: Int) Nil Nil)
-            
+
 
    > putStrLn (myShow tree)
    10

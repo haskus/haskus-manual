@@ -127,8 +127,9 @@ Then we define the ``prettyPrint`` operation by using type classes:
    instance Show a => PrettyPrint (AnnF a) where
       prettyPrint' (AnnF a e) = mconcat ["{",show a,"} ",e]
 
-   prettyPrint :: BottomUp PrettyPrint xs String => EADT xs -> String
-   prettyPrint e = bottomUp (toBottomUp @PrettyPrint prettyPrint') e
+   prettyPrint :: (BottomUp PrettyPrint xs, Functor (VariantF xs)) => EADT xs -> String
+   prettyPrint = bottomUp (toBottomUp @PrettyPrint prettyPrint')
+
 
 We can test it with:
 
