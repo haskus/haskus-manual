@@ -96,7 +96,7 @@ Then we need a helper function that performs the traversal of the EADT:
             Just v  -> bottomUpFixed f v
 
    -- | Distribute multiplication over addition
-   distribute :: ('[AddF,MulF] :<<: cs) => EADT cs -> EADT cs
+   distribute :: ('[AddF,MulF] :<<: cs, Functor (VariantF cs)) => EADT cs -> EADT cs
    distribute = bottomUpFixed distr
 
 

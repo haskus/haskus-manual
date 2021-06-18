@@ -149,7 +149,7 @@ type as follow:
    instance (ConsF b :<: xs', xs ~ xs') => TransEADT a b xs xs' (ConsF a) where
      transEADT1 f (ConsF a x) = Cons (f a) x
 
-   instance TransEADT a b xs xs' (VariantF []) where
+   instance TransEADT a b xs xs' (VariantF '[]) where
      transEADT1 _ _ = undefined
 
    instance

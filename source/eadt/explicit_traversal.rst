@@ -47,7 +47,7 @@ We can define instances for the ``List`` constructors defined in a
 :ref:`previous chapter <eadt_basics>`:
 
 .. code::
-  
+
    instance MyShow (NilF e) where
       myShow _ = "Nil"
 
@@ -148,7 +148,7 @@ Now we can show binary trees as well as lists:
    tree = Node (10 :: Int)
             (Node (5 :: Int) Nil Nil)
             (Node (30 :: Int) Nil Nil)
-            
+
 
    > putStrLn (myShow tree)
    10
